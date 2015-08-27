@@ -1,5 +1,7 @@
 "use strict";
 
+var WATCHDOG = false;
+
 // Check for mobile devices, set body class accordingly
 function resize() {
     var clientWidth = $(window).width(),
@@ -429,10 +431,11 @@ $('.cesium-viewer-bottom').hide();
 
 
 // WatchDog for lowFPS:
-viewer.extend(Cesium.viewerPerformanceWatchdogMixin, {
-    lowFrameRateMessage : 'Why is this going so <em>slowly</em>?'
-});
-
+if (WATCHDOG) {
+    viewer.extend(Cesium.viewerPerformanceWatchdogMixin, {
+        lowFrameRateMessage : 'Why is this going so <em>slowly</em>?'
+    });
+}
 
 // add baseLayerPicker
 var baseLayerPicker = new Cesium.BaseLayerPicker('baseLayerPickerContainer', {
@@ -452,9 +455,9 @@ function fly(position) {
                 }
             });
 }
-
 function showAndFlyPosition(position) {
-    document.getElementById('geolocation-window').innerHTML = "<i><b>Your Position:</b><br>Lat: "+Number((position.coords.latitude).toFixed(3))+"<br>Lng: "+Number((position.coords.longitude).toFixed(3)+"</i><br><button onclick='fly()'>Fly Me there!</button> ");
+    //fly(position);
+    $('#geolocation-window').innerHTML = "<i><b>Your Position:</b><br>Latitude: "+Number((position.coords.latitude).toFixed(3))+"<br>Longitude: "+Number((position.coords.longitude).toFixed(3)+"</i><br><button onclick='fly()'>FLY ME THERE!</button>");
 }
 function showError(error) {
     $('#geolocation-window').hide();
@@ -475,6 +478,7 @@ function showError(error) {
 }
 function getLocation() {
     if (navigator.geolocation) {
-        navigator.geolocation.watchPosition(showAndFlyPosition, showError);
+        navigator.geolocation.getCurrentPosition(showAndFlyPosition, showError);
+        //navigator.geolocation.watchPosition(showAndFlyPosition, showError);
     }
 }

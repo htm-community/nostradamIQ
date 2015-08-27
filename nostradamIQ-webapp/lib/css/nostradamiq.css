@@ -979,6 +979,14 @@ i.circular.inverted.warning.icon {
 	font-size:2em;
 }
 
+i.icon.new-layer {
+    color: #2ECC40;
+}
+
+i.icon.large-layer {
+    color: #FF4335;
+}
+
 .layer-sliders .header {
     color: #eee !important;
     margin-bottom: 10px !important;

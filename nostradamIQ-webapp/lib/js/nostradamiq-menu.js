@@ -416,7 +416,6 @@ function loadPDC_XML(layerId, geoDataSrc, proxy, markerLabel, markerScale, marke
           if (zoom) {
               viewer.flyTo(geoData);
           }
-          //loaded(layerId);
       }).otherwise(function(error) {
           loadError(layerId, geoDataSrc, error);
       });
@@ -432,7 +431,6 @@ function loadPDC_XML(layerId, geoDataSrc, proxy, markerLabel, markerScale, marke
           if (zoom) {
               viewer.flyTo(geoData);
           }
-          //loaded(layerId);
       }).otherwise(function(error) {
           loadError(layerId, geoDataSrc, error);
         });
@@ -482,7 +480,7 @@ function loadTwitter(layerId, geoDataSrc, proxy, markerScale, markerImg, markerC
         var selectedDate = $input_date.pickadate('select', 'dd-mm-yyyy');
         var get_data_select = geoDataSrc + '_' + selectedHour + '_' + selectedDate + '.geojson';
         loadGeoJson(layerId, get_data_select, markerScale, markerImg, markerColor, zoom);
-        //loadGeoJson2(layerId, get_data_select, markerScale, markerImg, markerColor, zoom);
+        //loadGeoJson2(layerId, get_data_start, proxy, markerScale, markerImg, markerColor, zoom);
         // TODO Have a info-window with twitter stats!
       } 
     });
@@ -546,12 +544,12 @@ function loadSingleTileImigary(layerId, geoDataSrc, proxy) {
     console.log('load Single Tile Imagery');
     if (proxy) {
         var src = viewer.imageryLayers.addImageryProvider(new Cesium.SingleTileImageryProvider({
-            url : geoDataSrc,
             proxy: new Cesium.DefaultProxy(proxyURL),
+            url : geoDataSrc,
             //credit : source,
             hasAlphaChannel : true,
-            alpha : 0.7,
-            brightness : 2
+            //alpha : 0.7,
+            //brightness : 2
         }));
         activeLayers[layerId] = src;
         loadSliders(src, layerId);
@@ -561,8 +559,8 @@ function loadSingleTileImigary(layerId, geoDataSrc, proxy) {
             //url : geoDataSrc.substring(0,-1),
             //credit : source,
             hasAlphaChannel : true,
-            alpha : 0.7,
-            brightness : 2
+            //alpha : 0.7,
+            //brightness : 2
         }));
         activeLayers[layerId] = src;
         loadSliders(src, layerId);
@@ -644,7 +642,7 @@ function updateLayer(layerId) {
             loadGeoJson(layerId, geoDataSrc, markerLabel, markerScale, markerImg, markerColor, zoom); //loadGeoJson2(layerId, geoDataSrc, proxy, markerLabel, markerScale, markerImg, markerColor, zoom);
         } else if (l.T === ("json")) { // PDC
             loadGeoJson(layerId, geoDataSrc, proxy, markerLabel, markerScale, markerImg, markerColor, zoom);
-        } else if (l.T === ('kml')) {
+        } else if (l.T === ("kml")) {
             loadKml(layerId, geoDataSrc, proxy, zoom, markerImg, markerScale, markerLabel, markerColor, markerMod);
         } else if (l.T === ("czml")) {
             loadCzml(layerId, geoDataSrc, proxy, zoom, markerImg, markerScale, markerLabel, markerColor, markerMod);
@@ -655,7 +653,7 @@ function updateLayer(layerId) {
         } else if (l.T ===("STI")) {
             loadSingleTileImigary(layerId, geoDataSrc, proxy);
         } else {
-            console.log(layerId + ' failed to load map type: ' + l.T);
+            console.log(layerId + " failed to load map type: " + l.T);
         }
         shareLink();
         if (timeline) toggleTimeline(true);
@@ -846,6 +844,13 @@ var initialLayers = (getURLParameter("layersOn") || '').split(',');
 var disabledLayers = (getURLParameter("layersOff") || '').split(",");
 if (initialLayers[0] === '') initialLayers = [];
 if (disabledLayers[0] === '') disabledLayers = [];
+// Get the base Layer and use it
+var baseLayer = getURLParameter("baseLayer");
+baseLayerPicker.options.selectedImageryProviderViewModel = baseLayer;
+// get and use the base layer view
+var viewerMode = getURLParameter("viewerMode");
+viewer.scene.mode.set(viewerMode);
+// get all the shared Layers
 var allLayers = initialLayers.concat(disabledLayers);
 // LOAD LAYERS
 if (allLayers.length > 0) {
@@ -875,13 +880,11 @@ function shareLink() {
             var a = allLayers[i];
             if (!($('#' + a).hasClass('active'))) {
                 disabledLayers += a + ',';
-            }
-            else {
+            } else {
                 layers += a + ',';
             }
         }
-    }
-    else {
+    } else {
         // only enable those that are enabled and ignore the disabled ones
         var ll = $('.lbw');
         ll.each(function () {
@@ -900,6 +903,9 @@ function shareLink() {
         disabledLayers = disabledLayers.substring(0, disabledLayers.length - 1);
         url += '&layersOff=' + disabledLayers;
     }
+    // Baselayer & View:
+    url += '&baseLayer=' + baseLayerPicker.options.selectedImageryProviderViewModel;
+    url += '&viewerMode=' + viewer.scene.mode.get();
     var shareToggle = $('.share-all-layers');
     shareToggle.attr('href', url).html(url);
 }
@@ -946,6 +952,7 @@ function toggleComments() {
 $('.chat-title').click(toggleComments);
 
 // TODO NOT WORKING!
+/*
 var giveDataOn = false;
 function toggleGiveData() {
   if (giveDataOn) { // Hide give-data
@@ -959,19 +966,22 @@ function toggleGiveData() {
   }
 }
 $('.giveData-title').click(toggleGiveData);
-
+*/
 
 /* ----------------------------- MAP MODES ----------------------------- */
 
 // MAP MODE BUTTONS
 $('.mode-3d').click(function () {
- viewer.scene.morphTo3D()
+  $('#zoom_out').trigger('click');
+  viewer.scene.morphTo3D();
 });
 $('.mode-2d').click(function () {
- viewer.scene.morphTo2D()
+  $('#zoom_out').trigger('click');
+  viewer.scene.morphTo2D();
 });
 $('.mode-flat-earth').click(function () {
- viewer.scene.morphToColumbusView()
+  $('#zoom_out').trigger('click');
+  viewer.scene.morphToColumbusView();
 });
 $('.cesium-baseLayerPicker-sectionTitle').prepend('<i class="globe icon" style="margin-right:7px"></i>');
 

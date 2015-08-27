@@ -98,11 +98,7 @@
               <!-- Build Layer Tree -->
               <div id="map-layers" class="map-layers"></div>
               <div id="geolocation-window"></div>
-              <div id="search-bar">
-                <div class="cesium-viewer-geocoderContainer"></div>
-              </div>
               <p id="legend-title" class="instruct">LEGEND</p>
-                   <!-- go for layers class; TODO -->
                     <div class="legend" class="map-layers">
                       <i class="play icon"></i> =&nbsp;&nbsp;&nbsp;Load Layer<br>
                       <i class="folder icon"></i> =&nbsp;&nbsp;&nbsp;Toggle Layer Details<br>
@@ -118,7 +114,8 @@
                       <i class="chevron up icon"></i> =&nbsp;&nbsp;&nbsp;Scroll to menu top<br>
                       <i class="close icon"></i> =&nbsp;&nbsp;&nbsp;Close this menu<br>
                     </div>
-                
+              <p class="instruct">Search a Place</p>
+                <div class="cesium-viewer-geocoderContainer"></div>
             </div> <!-- segment -->
             <div id="base" class="ui bottom attached tab segment" data-tab="base">
               <p class="instruct">Map Mode</p>
@@ -128,6 +125,8 @@
                 <div class="ui button cv-button mode-flat-earth">Flat Earth</div>
               </div>
               <p class="instruct">Base Layers</p>
+              <p class="instruct">Search a Place</p>
+                <div class="cesium-viewer-geocoderContainer"></div>
             </div> <!-- segment -->
             <div id="learn" class="ui bottom attached tab segment" data-tab="learn">
               <p class="instruct">LEARN &amp; Prepare</p>
@@ -144,47 +143,38 @@
                   <ul class="banner-social-buttons">
                       <li>
                           <a href="//nostradamiq.org/resources/disaster_supply_kit.html" target="_blank">
-                          <img src="img/unicorn.png">
                           <div>Supply Kit</div></a>
                       </li>
                       <li>
                           <a href="//nostradamiq.org/resources/family_awareness_plan.html" target="_blank">
-                          <img src="img/unicorn.png">
                           <div>Prepare Your Family!</div></a>
                       </li>
                       <li>
                           <a href="//nostradamiq.org/resources/general_disaster_resources.html" target="_blank">
-                          <img src="img/unicorn.png">
                           <div>Generally useful Resources for your House, Pet and more!</div></a>
                       </li>
                       <li>
                           <a href="//nostradamiq.org/resources/floods_resources.html" target="_blank">
-                          <img src="img/unicorn.png">
                           <div>Floods</div></a>
                       </li>
                       <li>
                           <a href="//nostradamiq.org/resources/earthquake_resources.html" target="_blank">
-                          <img src="img/unicorn.png">
                           <div>Earthquakes</div></a>
                       </li>
                       <li>
                           <a href="//nostradamiq.org/resources/tsunami_resources.html" target="_blank">
-                          <img src="img/unicorn.png">
                           <div>Tsunamis</div></a>
                       </li>
                       <li>
                           <a href="//nostradamiq.org/resources/high_surf_resources.html" target="_blank">
-                          <img src="img/unicorn.png">
                           <div>High Surf</div></a>
                       </li>
                       <li>
                           <a href="//nostradamiq.org/resources/volcanoes_resources.html" target="_blank">
-                          <img src="img/unicorn.png">
                           <div>Volcanoes</div></a>
                       </li>
                       <li>
                           <a href="//nostradamiq.org/resources/tropical_cyclones_resources.html" target="_blank">
-                          <img src="img/unicorn.png">
                           <div>Tropical Cyclones</div></a>
                       </li>
                    </ul>
@@ -211,7 +201,9 @@
                 <h3 id="giveData-title">
                   <i class='database icon'></i>I HAVE DATA!
                 </h3>
-                <div id="give-data"></div> <!-- #give-data -->
+                <div id="give-data">
+                  <p>DO YOU KNOW OF HAVE SOME INTERESTING DATA?<br>We are happy to visualize Your, or any other Data for anybody, or privately!<br>We build nostradamIQ so that it is incredibally easy to add more data sources - We support various data formats and are happy to help you convert your non-geo dataformat like csv, exel, txt and so on... Open or Your Online Data-Sources are also welcome!<br><a href='mailto:info@nostradamiq.org?subject=nostradamIQ Data Suggestion&amp;body=I have some cool Data for you to include in nostradamIQ!\n\nFormat:____________\nSource:___________(If not an oline source, please attach the data!)\nWhy is this interesting?\nSuggested Name:____________\nOrigin to be credited:__________\n'>Please contact us!</a><br>If you feel like coding yourself, see <a href='https://github.com/nupic-community/nostradamIQ/tree/master/nostradamIQ-webapp' target='_blank'>our source-code</a> and <a href='https://github.com/nupic-community/nostradamIQ/pulls' target='_blank'>make a PR!</a></p>
+                </div> <!-- #give-data -->
             </div> <!-- segment -->
             <div class="ui bottom attached tab segment about-container" data-tab="about">
               <h3 style="margin-top:0"><a href="//nostradamiq.org/landing"><span style="color:#FFF">About nostradam</span>IQ</a></h3>
@@ -325,19 +317,6 @@
                 </p>
             </div>
 
-            <!--
-            <div class="ui header title"><h4>&bull;&nbsp;&nbsp;&nbsp;What is Climate-Viewer and what has it to do with nostradamIQ?</h4></div>
-            <div class="ui card content">
-                <p>
-                Before seriously starting this Project, we were looking for other Projects with the same or comperable ideas...<br>
-                This is when we stumbled across <a href="https://github.com/rezn8d/climateviewer" target="_blank">Climate Viewer 3D</a>, which was using the exact visualization technologies we were considering and has a comperable goal: <a href="//climateviewer.com/" target="_blank"><strong>Raising awareness for man-made problems in nature!</strong></a><br>
-                To avoid reinventing the wheel, we decided to worked in a joined-effort on the 3D Webapp and server-technology.<br>
-                So please consider contributing, donating, helping and sharing both projects! <br>
-                <strong>DISCLAIMER: THIS DOES NOT MEAN THAT BOTH PROJECTS SHARE THE SAME OPINIONS - neither political, social nor others. BOTH GROUPS HAVE THEIR OWN PHILOSOPHY AND SHARE ONLY THE ATTITUDE TO CHANGE THE WORLD FOR THE BETTER OF US ALL!</strong>
-                </p>
-            </div>
-            -->
-
             <div class="ui header title"><h4>&bull;&nbsp;&nbsp;&nbsp;How Can I Help?</h4></div>
             <div class="ui card content">
                 <p>
@@ -376,9 +355,9 @@
   <script type="text/javascript" src="lib/pickadate-3.5.6/combined.js"></script>
   <!-- <script type="text/javascript" src="lib/js/makeCorsRequest.js"></script> -->
   <!-- OL3 - Cesium Client -->
-  <script type="text/javascript" src="lib/cesium/ol3/ol.js"></script>
+  <!-- <script type="text/javascript" src="lib/cesium/ol3/ol.js"></script> -->
   <script type="text/javascript" src="lib/cesium/Cesium/Cesium.js"></script> <!-- Normal Cesium -->
-  <script type="text/javascript" src="lib/cesium/ol3cesium.js"></script>
+  <!-- <script type="text/javascript" src="lib/cesium/ol3cesium.js"></script> -->
   <!-- OL3 - Cesium Client -->
   <!-- <script type="text/javascript" src="lib/js/toGeoJSON.js"></script> -->
   <script type="text/javascript" src="lib/js/xml2geojson.js"></script>
