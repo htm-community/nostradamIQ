@@ -1189,10 +1189,11 @@ $('.close-menu').click(function () {
 
 
 $('.cesium-baseLayerPicker-dropDown').addClass('cesium-baseLayerPicker-dropDown-visible').detach().appendTo($('#base'));
-$('.cesium-geocoder-input').addClass('cesium-geocoder-input-wide');
-//var searchBar = $('.cesium-viewer-geocoderContainer').detach().clone();
+
+//var searchBar = $('.cesium-viewer-geocoderContainer').detach();
 $('.cesium-viewer-geocoderContainer').detach().appendTo($('#searchbar1'));
 //searchBar.clone().appendTo($('#searchbar2'));
+$('.cesium-geocoder-input').addClass('cesium-geocoder-input-wide');
 
 
 /* ----------------------------- WELCOME ----------------------------- */
