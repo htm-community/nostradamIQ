@@ -94,7 +94,7 @@
             </div>
             <!-- Tab panes -->
             <div id="layers" class="ui bottom attached active tab segment" data-tab="layers">
-              <p class="instruct">Search a Place</p>
+              <p onclick="getLocation()" class="instruct">Search a Place</p>
                 <div id="searchbar1" class="cesium-viewer-geocoderContainer"></div>
               <p class="instruct">Choose Category</p>
               <!-- Build Layer Tree -->
@@ -118,7 +118,7 @@
                     </div>
             </div> <!-- segment -->
             <div id="base" class="ui bottom attached tab segment" data-tab="base">
-              <p class="instruct">Search a Place</p>
+              <p onclick="getLocation()" class="instruct">Search a Place</p>
                 <div id="searchbar2" class="cesium-viewer-geocoderContainer"></div>
               <p class="instruct">Map Mode</p>
               <div class="ui three cv-button-group buttons">

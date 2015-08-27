@@ -17,7 +17,7 @@ var credit = $('.cesium-viewer-bottom');
 
 
 nobjectsIn(layers, function (x) {
-    console.log(x);
+    //console.log(x);
 }, function (s, p, o) {
     me.addEdge(s, p, o);
 });
@@ -846,10 +846,10 @@ if (initialLayers[0] === '') initialLayers = [];
 if (disabledLayers[0] === '') disabledLayers = [];
 // Get the base Layer and use it
 var baseLayer = getURLParameter("baseLayer");
-baseLayerPicker.options.selectedImageryProviderViewModel = baseLayer;
+if (baseLayer) baseLayerPicker.options.selectedImageryProviderViewModel = baseLayer;
 // get and use the base layer view
 var viewerMode = getURLParameter("viewerMode");
-viewer.scene.mode.set(viewerMode);
+if (viewerMode) viewer.scene.mode.set(viewerMode);
 // get all the shared Layers
 var allLayers = initialLayers.concat(disabledLayers);
 // LOAD LAYERS
@@ -971,17 +971,21 @@ $('.giveData-title').click(toggleGiveData);
 /* ----------------------------- MAP MODES ----------------------------- */
 
 // MAP MODE BUTTONS
+var ensureZoom = false;
 $('.mode-3d').click(function () {
   $('#zoom_out').trigger('click');
-  viewer.scene.morphTo3D();
+  ensureZoom = true;
+  if (ensureZoom) { viewer.scene.morphTo3D(10); ensureZoom = false; }
 });
 $('.mode-2d').click(function () {
   $('#zoom_out').trigger('click');
-  viewer.scene.morphTo2D();
+  ensureZoom = true;
+  if (ensureZoom) { viewer.scene.morphTo2D(); ensureZoom = false; }
 });
 $('.mode-flat-earth').click(function () {
   $('#zoom_out').trigger('click');
-  viewer.scene.morphToColumbusView();
+  ensureZoom = true;
+  if (ensureZoom) { viewer.scene.morphToColumbusView(10); ensureZoom = false; }
 });
 $('.cesium-baseLayerPicker-sectionTitle').prepend('<i class="globe icon" style="margin-right:7px"></i>');
 
@@ -1185,10 +1189,11 @@ $('.close-menu').click(function () {
 
 
 $('.cesium-baseLayerPicker-dropDown').addClass('cesium-baseLayerPicker-dropDown-visible').detach().appendTo($('#base'));
-var searchBar = $('.cesium-viewer-geocoderContainer').detach().clone();
-searchBar.appendTo($('#searchbar1'));
-searchBar.appendTo($('#searchbar2'));
 $('.cesium-geocoder-input').addClass('cesium-geocoder-input-wide');
+//var searchBar = $('.cesium-viewer-geocoderContainer').detach().clone();
+$('.cesium-viewer-geocoderContainer').detach().appendTo($('#searchbar1'));
+//searchBar.clone().appendTo($('#searchbar2'));
+
 
 /* ----------------------------- WELCOME ----------------------------- */
 

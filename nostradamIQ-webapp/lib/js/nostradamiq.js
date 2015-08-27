@@ -456,7 +456,7 @@ function fly(position) {
             });
 }
 function showAndFlyPosition(position) {
-    //fly(position);
+    fly(position);
     $('#geolocation-window').innerHTML = "<i><b>Your Position:</b><br>Latitude: "+Number((position.coords.latitude).toFixed(3))+"<br>Longitude: "+Number((position.coords.longitude).toFixed(3)+"</i><br><button onclick='fly()'>FLY ME THERE!</button>");
 }
 function showError(error) {
@@ -478,7 +478,10 @@ function showError(error) {
 }
 function getLocation() {
     if (navigator.geolocation) {
+        console.log("Geolocation started...");
         navigator.geolocation.getCurrentPosition(showAndFlyPosition, showError);
         //navigator.geolocation.watchPosition(showAndFlyPosition, showError);
+    } else {
+        console.log("Geolocation failed! Your System does not support this Service!");
     }
 }
