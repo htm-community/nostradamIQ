@@ -387,6 +387,7 @@ if ($('body').hasClass('mobile')) {
         moon: false,
         targetFrameRate: 15
     });
+    var currentViewModel = '2D';
 } else {
     // is desktop
     viewer = new Cesium.Viewer('cesiumContainer', {
@@ -403,7 +404,7 @@ if ($('body').hasClass('mobile')) {
         terrainProvider: false,
         targetFrameRate: 20
     });
-
+    var currentViewModel = '3D';
     // better Moon Picture: 
     viewer.scene.moon = new Cesium.Moon({ 
         textureUrl: '/webapp/lib/cesium/Cesium/Assets/Textures/moonSmall.jpg', 

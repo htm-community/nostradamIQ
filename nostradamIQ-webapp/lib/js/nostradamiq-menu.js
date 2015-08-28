@@ -841,22 +841,60 @@ function initLayers(includeOnly) {
     });
 }
 
-// CHECK URL
+/* ----------------------------- MAP MODES ----------------------------- */
+
+// MAP MODE BUTTONS
+$('.mode-3d').click(function () {
+  currentViewModel = '3D';
+  viewer.scene.morphTo3D(5);
+  //$('.cesium-home-button').trigger('click');
+  //setTimeout(viewer.scene.morphTo3D(5), 1000);
+});
+$('.mode-2d').click(function () {
+  currentViewModel = '2D';
+  $('.cesium-home-button').trigger('click');
+  viewer.scene.morphTo2D();
+  //setTimeout(viewer.scene.morphTo2D(), 100);
+});
+$('.mode-flat-earth').click(function () {
+  currentViewModel = 'FlatEarth';
+  viewer.scene.morphToColumbusView(7);
+  //$('.cesium-home-button').trigger('click');
+  //setTimeout(viewer.scene.morphToColumbusView(7), 1000);
+});
+$('.cesium-baseLayerPicker-sectionTitle').prepend('<i class="globe icon" style="margin-right:7px"></i>');
+
+
+/* ----------------------------- SHARE - CHECK URL ----------------------------- */
+
 var initialLayers = (getURLParameter("layersOn") || '').split(',');
-var disabledLayers = (getURLParameter("layersOff") || '').split(",");
 if (initialLayers[0] === '') initialLayers = [];
+
+var disabledLayers = (getURLParameter("layersOff") || '').split(",");
 if (disabledLayers[0] === '') disabledLayers = [];
-// Get the base Layer and use it
+
 var baseLayer = getURLParameter("baseLayer");
-if (baseLayer) baseLayerPicker.selectedImageryProviderViewModel = baseLayer;
-// get and use the base layer view
+if (baseLayer) baseLayerPicker.viewModel.selectedItem = imageryViewModels[baseLayer]; // baseLayerPicker.selectedImageryProviderViewModel = imageryViewModels[baseLayer];
+
 var viewerMode = getURLParameter("viewerMode");
-if (viewerMode) viewer.scene.mode.set(viewerMode);
+if (viewerMode) {
+    if (viewerMode === '2D') {
+        $('.mode-2d').trigger('click');
+    }
+    if (viewerMode === '3D') {
+        $('.mode-3d').trigger('click');
+    }
+    if (viewerMode === 'FlatEarth') {
+        $('.mode-flat-earth').trigger('click');
+    }
+}
+
 // get all the shared Layers
 var allLayers = initialLayers.concat(disabledLayers);
 // LOAD LAYERS
 if (allLayers.length > 0) {
     // LOAD LAYERS FROM URL // Show only the shared ones - Makes it easier to show sth. specific
+    var shared = true;
     initLayers(allLayers);
     for (var i = 0; i < initialLayers.length; i++) {
       $('.' + initialLayers[i] + '-load').click(); 
@@ -868,10 +906,18 @@ if (allLayers.length > 0) {
     $('h2.toggle').hide();
     $('<a class="button" href="' + baseURL + '" style="display:block;text-align:center;padding:20px 0;"><i class="home icon"></i> SHOW ALL LAYERS</a>').appendTo('#layers');
 } else { // not via shared link
+    var shared = false;
     initLayers();
 }
 
 /* ----------------------------- SHARING ----------------------------- */
+
+// Subscribe to baseLayer:
+var currentBaseLayer = 0;
+Cesium.knockout.getObservable(baseLayerPicker.viewModel, 'selectedImagery').subscribe(function(baseLayer) {
+    currentBaseLayer = _.findIndex(imageryViewModels, baseLayer);
+});
+
 
 function shareLink() {
     var layers = "";
@@ -897,8 +943,7 @@ function shareLink() {
         });
     }
     url += 'index.html?';
-    if (layers.length > 0)
-        layers = layers.substring(0, layers.length - 1);
+    if (layers.length > 0) layers = layers.substring(0, layers.length - 1);
     url += 'layersOn=' + layers;
 
     if (disabledLayers.length > 0) {
@@ -906,11 +951,14 @@ function shareLink() {
         url += '&layersOff=' + disabledLayers;
     }
     // Baselayer & View:
-    url += '&baseLayer=' + baseLayerPicker.selectedImageryProviderViewModel;
-    url += '&viewerMode=' + viewer.scene.mode.get();
+    url += '&baseLayer=' + currentBaseLayer;
+    url += '&viewerMode=' + currentViewModel;
+    // Show the URL
     var shareToggle = $('.share-all-layers');
     shareToggle.attr('href', url).html(url);
 }
+
+
 
 /* ----------------------------- TAB MENU ----------------------------- */
 
@@ -969,26 +1017,6 @@ function toggleGiveData() {
 }
 $('.giveData-title').click(toggleGiveData);
 */
-
-/* ----------------------------- MAP MODES ----------------------------- */
-
-// MAP MODE BUTTONS
-$('.mode-3d').click(function () {
-  viewer.scene.morphTo3D(5);
-  //$('.cesium-home-button').trigger('click');
-  //setTimeout(viewer.scene.morphTo3D(5), 1000);
-});
-$('.mode-2d').click(function () {
-  $('.cesium-home-button').trigger('click');
-  viewer.scene.morphTo2D();
-  //setTimeout(viewer.scene.morphTo2D(), 100);
-});
-$('.mode-flat-earth').click(function () {
-  viewer.scene.morphToColumbusView(7);
-  //$('.cesium-home-button').trigger('click');
-  //setTimeout(viewer.scene.morphToColumbusView(7), 1000);
-});
-$('.cesium-baseLayerPicker-sectionTitle').prepend('<i class="globe icon" style="margin-right:7px"></i>');
 
 /* ----------------------------- FOOTER MENU ----------------------------- */
 
@@ -1220,12 +1248,10 @@ $('.ui.accordion').accordion({duration: 0, animateChildren: true});
 $('.share-modal').on('click', function () {
   $('#Greeting').modal('hide');
   $('.show-menu').trigger('click');
-  //getLocation(); // TODO in nostradamiq.js
 });
 // Modal Close (right button)
 $('.close-Greeting').click(function () {
   $('#Greeting').modal('hide');
-  //getLocation(); // TODO in nostradamiq.js 
 });
 
-setTimeout(welcome, 500);
+if (!shared) setTimeout(welcome, 500);
