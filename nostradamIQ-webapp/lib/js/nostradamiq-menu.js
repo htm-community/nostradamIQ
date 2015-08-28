@@ -973,21 +973,20 @@ $('.giveData-title').click(toggleGiveData);
 /* ----------------------------- MAP MODES ----------------------------- */
 
 // MAP MODE BUTTONS
-var ensureZoom = false;
 $('.mode-3d').click(function () {
-  $('#zoom_out').trigger('click');
-  ensureZoom = true;
-  if (ensureZoom) { viewer.scene.morphTo3D(10); ensureZoom = false; }
+  viewer.scene.morphTo3D(5);
+  //$('.cesium-home-button').trigger('click');
+  //setTimeout(viewer.scene.morphTo3D(5), 1000);
 });
 $('.mode-2d').click(function () {
-  $('#zoom_out').trigger('click');
-  ensureZoom = true;
-  if (ensureZoom) { viewer.scene.morphTo2D(); ensureZoom = false; }
+  $('.cesium-home-button').trigger('click');
+  viewer.scene.morphTo2D();
+  //setTimeout(viewer.scene.morphTo2D(), 100);
 });
 $('.mode-flat-earth').click(function () {
-  $('#zoom_out').trigger('click');
-  ensureZoom = true;
-  if (ensureZoom) { viewer.scene.morphToColumbusView(10); ensureZoom = false; }
+  viewer.scene.morphToColumbusView(7);
+  //$('.cesium-home-button').trigger('click');
+  //setTimeout(viewer.scene.morphToColumbusView(7), 1000);
 });
 $('.cesium-baseLayerPicker-sectionTitle').prepend('<i class="globe icon" style="margin-right:7px"></i>');
 
@@ -999,7 +998,7 @@ $('.clear-layers').click(function () {
 });
 
 $('.zoom_out').click(function () {
- $('#zoom_out').trigger('click');
+ $('.cesium-home-button').trigger('click');
 });
 
 $('.collapse').click(function () {

@@ -94,32 +94,32 @@
             </div>
             <!-- Tab panes -->
             <div id="layers" class="ui bottom attached active tab segment" data-tab="layers">
-              <p onclick="getLocation()" class="instruct">Fly to where I am!</p>
-                <div id="searchbar1" class="cesium-viewer-geocoderContainer"></div>
               <p class="instruct">Choose Category</p>
               <!-- Build Layer Tree -->
               <div id="map-layers" class="map-layers"></div>
               <div id="geolocation-window"></div>
-              <p id="legend-title" class="instruct">LEGEND</p>
-                    <div class="legend" class="map-layers">
-                      <i class="play icon"></i> =&nbsp;&nbsp;&nbsp;Load Layer<br>
-                      <i class="folder icon"></i> =&nbsp;&nbsp;&nbsp;Toggle Layer Details<br>
-                      <i class="play icon new-layer"></i> =&nbsp;&nbsp;&nbsp;New Layer!<br>
-                      <i class="play icon large-layer"></i> =&nbsp;&nbsp;&nbsp;Warning, Large Layer - High-performance processor required, may crash weaker systems<br>
-                      <p class="instruct">Bottom Menu</p>
-                      <i class="trash icon"></i> =&nbsp;&nbsp;&nbsp;Clear Globe. Remove all layers<br>
-                      <i class="fa fa-search-minus fa-fw"></i> =&nbsp;&nbsp;&nbsp;Zoom back out<br>
-                      <i class="clock icon"></i> =&nbsp;&nbsp;&nbsp;Toggle timeline<br>
-                      <i class="sun icon"></i> =&nbsp;&nbsp;&nbsp;Toggle Sun<br>
-                      <i class="share alternate icon"></i> =&nbsp;&nbsp;&nbsp;Generate URL to share all currently active layers<br>
-                      <i class="compress icon"></i> =&nbsp;&nbsp;&nbsp;Collapse layer category list<br>
-                      <i class="chevron up icon"></i> =&nbsp;&nbsp;&nbsp;Scroll to menu top<br>
-                      <i class="close icon"></i> =&nbsp;&nbsp;&nbsp;Close this menu<br>
-                    </div>
+              <p onclick="getLocation()" class="instruct">Fly to where I am!</p>
+                <div id="searchbar1" class="cesium-viewer-geocoderContainer"></div>
+              </div>
+              <div id="legend" class="ui bottom attached active tab segment" data-tab="layers">
+                <p id="legend-title" class="instruct">LEGEND</p>
+                      <div class="legend" class="map-layers">
+                        <i class="play icon"></i> =&nbsp;&nbsp;&nbsp;Load Layer<br>
+                        <i class="folder icon"></i> =&nbsp;&nbsp;&nbsp;Toggle Layer Details<br>
+                        <i class="play icon new-layer"></i> =&nbsp;&nbsp;&nbsp;New Layer!<br>
+                        <i class="play icon large-layer"></i> =&nbsp;&nbsp;&nbsp;Warning, Large Layer - High-performance processor required, may crash weaker systems<br>
+                        <p class="instruct">Bottom Menu</p>
+                        <i class="trash icon"></i> =&nbsp;&nbsp;&nbsp;Clear Globe. Remove all layers<br>
+                        <i class="fa fa-search-minus fa-fw"></i> =&nbsp;&nbsp;&nbsp;Zoom back out<br>
+                        <i class="clock icon"></i> =&nbsp;&nbsp;&nbsp;Toggle timeline<br>
+                        <i class="sun icon"></i> =&nbsp;&nbsp;&nbsp;Toggle Sun<br>
+                        <i class="share alternate icon"></i> =&nbsp;&nbsp;&nbsp;Generate URL to share all currently active layers<br>
+                        <i class="compress icon"></i> =&nbsp;&nbsp;&nbsp;Collapse layer category list<br>
+                        <i class="chevron up icon"></i> =&nbsp;&nbsp;&nbsp;Scroll to menu top<br>
+                        <i class="close icon"></i> =&nbsp;&nbsp;&nbsp;Close this menu<br>
+                      </div>
             </div> <!-- segment -->
             <div id="base" class="ui bottom attached tab segment" data-tab="base">
-              <p onclick="getLocation()" class="instruct">Fly to where I am!</p>
-                <div id="searchbar2" class="cesium-viewer-geocoderContainer"></div>
               <p class="instruct">Map Mode</p>
               <div class="ui three cv-button-group buttons">
                 <div class="ui button cv-button mode-3d">3D</div>
