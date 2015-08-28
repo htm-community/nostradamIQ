@@ -873,11 +873,16 @@ if (initialLayers[0] === '') initialLayers = [];
 var disabledLayers = (getURLParameter("layersOff") || '').split(",");
 if (disabledLayers[0] === '') disabledLayers = [];
 
-var baseLayer = getURLParameter("baseLayer");
-if (baseLayer) baseLayerPicker.viewModel.selectedItem = imageryViewModels[baseLayer]; // baseLayerPicker.selectedImageryProviderViewModel = imageryViewModels[baseLayer];
+var baseLayer = parseInt(getURLParameter("baseLayer"));
+if (baseLayer) {
+    var shared = true;
+    baseLayerPicker.viewModel.selectedItem = imageryViewModels[baseLayer]; 
+    baseLayerPicker.selectedImageryProviderViewModel = imageryViewModels[baseLayer];
+}
 
 var viewerMode = getURLParameter("viewerMode");
 if (viewerMode) {
+    var shared = true;
     if (viewerMode === '2D') {
         $('.mode-2d').trigger('click');
     }
