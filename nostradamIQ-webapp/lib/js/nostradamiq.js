@@ -410,26 +410,11 @@ if ($('body').hasClass('mobile')) {
         textureUrl: '/webapp/lib/cesium/Cesium/Assets/Textures/moonSmall.jpg', 
         onlySunLightning: false 
     });
-
-    // better Stars: WARNING! LOTS OF WORK! 
-/*
-    viewer.scene.skyBox = new Cesium.SkyBox({
-        positiveX : '/webapp/lib/cesium/cesium-assets/stars/TychoSkymapII.t3_08192x04096/TychoSkymapII.t3_08192x04096_80_px.jpg',
-        negativeX : '/webapp/lib/cesium/cesium-assets/stars/TychoSkymapII.t3_08192x04096/TychoSkymapII.t3_08192x04096_80_mx.jpg',
-        positiveY : '/webapp/lib/cesium/cesium-assets/stars/TychoSkymapII.t3_08192x04096/TychoSkymapII.t3_08192x04096_80_py.jpg',
-        negativeY : '/webapp/lib/cesium/cesium-assets/stars/TychoSkymapII.t3_08192x04096/TychoSkymapII.t3_08192x04096_80_my.jpg',
-        positiveZ : '/webapp/lib/cesium/cesium-assets/stars/TychoSkymapII.t3_08192x04096/TychoSkymapII.t3_08192x04096_80_pz.jpg',
-        negativeZ : '/webapp/lib/cesium/cesium-assets/stars/TychoSkymapII.t3_08192x04096/TychoSkymapII.t3_08192x04096_80_mz.jpg'
-    });
-
-*/
 }
 
 $('.cesium-viewer-animationContainer').hide();
 $('.cesium-viewer-timelineContainer').hide();
 $('.cesium-viewer-bottom').hide();
-
-
 
 // WatchDog for lowFPS:
 if (WATCHDOG) {

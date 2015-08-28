@@ -1186,6 +1186,26 @@ $('.reset-view').click(function () {
  $('.cesium-home-button').trigger('click');
 });
 
+function showStars(show) {
+    if (show) {
+      viewer.scene.skyBox = new Cesium.SkyBox({
+        positiveX : '/webapp/lib/cesium/cesium-assets/stars/TychoSkymapII.t3_08192x04096/TychoSkymapII.t3_08192x04096_80_px.jpg',
+        negativeX : '/webapp/lib/cesium/cesium-assets/stars/TychoSkymapII.t3_08192x04096/TychoSkymapII.t3_08192x04096_80_mx.jpg',
+        positiveY : '/webapp/lib/cesium/cesium-assets/stars/TychoSkymapII.t3_08192x04096/TychoSkymapII.t3_08192x04096_80_py.jpg',
+        negativeY : '/webapp/lib/cesium/cesium-assets/stars/TychoSkymapII.t3_08192x04096/TychoSkymapII.t3_08192x04096_80_my.jpg',
+        positiveZ : '/webapp/lib/cesium/cesium-assets/stars/TychoSkymapII.t3_08192x04096/TychoSkymapII.t3_08192x04096_80_pz.jpg',
+        negativeZ : '/webapp/lib/cesium/cesium-assets/stars/TychoSkymapII.t3_08192x04096/TychoSkymapII.t3_08192x04096_80_mz.jpg'
+    });
+    } else {
+      viewer.scene.skyBox.destroy();
+    }
+}
+var showSkyBox = true;
+$('.show-stars').click(function () {
+    showStars(showSkyBox);
+    showSkyBox = !showSkyBox;
+});
+
 function toggleTimeline(show) {
   if (show) {
     animationContainer.show();
