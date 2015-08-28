@@ -3,7 +3,7 @@
 // Set web root url
 var baseURL = window.location.protocol + "//" + window.location.host + "/webapp/";  // production
 var proxyURL = 'http://climateviewer.net/netj1/proxy';  // production
-//var proxyURL = 'http://nostradamiq.org/webapp/proxy:8888/proxy/';  
+//var proxyURL = 'http://nostradamiq.org:8888/webapp/proxy/proxy/';  
 //var proxyURL = 'http://localhost:8080/proxy/';  // dev
 
 var activeLayers = {};
@@ -542,6 +542,7 @@ function loadLink(layerId, geoDataSrc, proxy, zoom) {
 
 function loadSingleTileImigary(layerId, geoDataSrc, proxy) {
     console.log('load Single Tile Imagery');
+    /*
     if (proxy) {
         var src = viewer.imageryLayers.addImageryProvider(new Cesium.SingleTileImageryProvider({
             proxy: new Cesium.DefaultProxy(proxyURL),
@@ -555,16 +556,25 @@ function loadSingleTileImigary(layerId, geoDataSrc, proxy) {
         loadSliders(src, layerId);
     } else {
         var src = viewer.imageryLayers.addImageryProvider(new Cesium.SingleTileImageryProvider({
-            url : geoDataSrc,
-            //url : geoDataSrc.substring(0,-1),
+            url : geoDataSrc
             //credit : source,
-            hasAlphaChannel : true,
+            //hasAlphaChannel : true,
             //alpha : 0.7,
             //brightness : 2
         }));
         activeLayers[layerId] = src;
         loadSliders(src, layerId);
     }
+    */
+    var src = viewer.imageryLayers.addImageryProvider(new Cesium.SingleTileImageryProvider({
+            url : geoDataSrc
+            //credit : source,
+            //hasAlphaChannel : true,
+            //alpha : 0.7,
+            //brightness : 2
+        }));
+        activeLayers[layerId] = src;
+        loadSliders(src, layerId);
 }
 
 /* ----------------------------- END LAYER HANDELERS ----------------------------- */
@@ -700,7 +710,7 @@ function initDetails(layerId, layerType, details, source, sourceUrl, geoDataSrc)
       $('<div class="item '+ layerId + '-info"><i class="circular inverted file icon"></i><div class="content"><div class="header">Data Type</div>Web Map Tile Service (WMTS)</div>').appendTo(list);
     }
     if (layerType == ('STI')) {
-      $('<div class="item '+ layerId + '-info"><i class="circular inverted file icon"></i><div class="content"><div class="header">Data Type</div>Single Tile Imagery</div>').appendTo(list);
+      $('<div class="item '+ layerId + '-info"><i class="circular inverted file icon"></i><div class="content"><div class="header">Data Type</div>Single Tile Imagery &bull; <a href="' + geoDataSrc + '">Download</a></div>').appendTo(list);
     }
     if (layerType == ('wms')) {
       $('<div class="item '+ layerId + '-info"><i class="circular inverted file icon"></i><div class="content"><div class="header">Data Type</div>Web Mapping Service (WMS)<br><a target="_blank" rel="nofollow" href="' + geoDataSrc + '?request=GetCapabilities&service=WMS">Get Capabilities</a></div>').appendTo(list);
@@ -712,7 +722,7 @@ function initDetails(layerId, layerType, details, source, sourceUrl, geoDataSrc)
       $('<div class="item '+ layerId + '-info"><i class="circular inverted file icon"></i><div class="content"><div class="header">Data Type</div>OpenStreetMap (OSM) Base Map</div>').appendTo(list);
     }
     if (layerType == ('link')) {
-      $('<div class="item '+ layerId + '-info"><i class="circular inverted file icon"></i><div class="content"><div class="header">Data Type</div>External Resource</div>').appendTo(list);
+      $('<div class="item '+ layerId + '-info"><i class="circular inverted file icon"></i><div class="content"><div class="header">Data Type</div>External Resource &bull; <a href="' + geoDataSrc + '">Download</a></div>').appendTo(list);
     }
     $('<div class="extra content"><a href="' + baseURL + 'index.html?layersOn=' + layerId + '" class="right floated created">Share Layer</a><a href="' + sourceUrl + '" target="_blank" rel="nofollow">More Info</a></div>').appendTo(details);
 }
