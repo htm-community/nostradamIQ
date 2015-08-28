@@ -325,7 +325,6 @@ function loadGeoJson2(layerId, geoDataSrc, proxy, markerScale, markerImg, marker
           if (zoom) {
               viewer.flyTo(geoData);
           }
-          //loaded(layerId);
       }, function (error) {
           loadError(layerId, geoDataSrc, error);
       });
@@ -338,7 +337,6 @@ function loadGeoJson2(layerId, geoDataSrc, proxy, markerScale, markerImg, marker
           if (zoom) {
               viewer.flyTo(geoData);
           }
-          //loaded(layerId);
       }, function (error) {
           loadError(layerId, geoDataSrc, error);
       });
@@ -355,7 +353,6 @@ function loadGeoJson(layerId, geoDataSrc, markerLabel, markerScale, markerImg, m
         if (zoom) {
             viewer.flyTo(geoData);
         }
-        //loaded(layerId);
     }, function (error) {
         loadError(layerId, geoDataSrc, error);
     });
@@ -370,34 +367,32 @@ function loadKml(layerId, geoDataSrc, proxy, zoom, markerImg, markerScale, marke
               if (markerMod) {
                   modMarkers(geoData, markerImg, markerScale, markerLabel);
               }
-              viewer.dataSources.add(geoData); // add to map
-              activeLayers[layerId] = geoData; // store for removal
+              viewer.dataSources.add(geoData);
+              activeLayers[layerId] = geoData; 
               loadSliders(geoData, layerId);
               if (zoom) {
                   viewer.flyTo(geoData.entities);
               }
-              //loaded(layerId);
           }, function (error) {
               loadError(layerId, geoDataSrc, error);
           }
-        ); // end then
+        );
     } else {
         new Cesium.KmlDataSource.load(geoDataSrc).then(function (geoData) {
             if (markerMod) {
                   modMarkers(geoData, markerImg, markerScale, markerLabel);
-            } // end markerMod
+            }
             viewer.dataSources.add(geoData);
             activeLayers[layerId] = geoData;
             loadSliders(geoData, layerId);
             if (zoom) {
                 viewer.flyTo(geoData.entities);
             }
-              //loaded(layerId);
           }, function (error) {
               loadError(layerId, geoDataSrc, error);
           }
-        ); // end then
-    } // end proxy
+        );
+    } 
 }
 
 // TODO
@@ -503,39 +498,36 @@ function loadCZML(layerId, geoDataSrc, proxy, zoom, markerImg, markerScale, mark
               if (markerMod) {
                   modMarkers(geoData, markerImg, markerScale, markerLabel);
               }
-              viewer.dataSources.add(geoData); // add to map
-              activeLayers[layerId] = geoData; // store for removal
+              viewer.dataSources.add(geoData);
+              activeLayers[layerId] = geoData; 
               loadSliders(geoData, layerId);
               if (zoom) {
                   viewer.flyTo(geoData.entities);
               }
-              //loaded(layerId);
           }, function (error) {
               loadError(layerId, geoDataSrc, error);
           }
-        ); // end then
+        );
     } else {
         new Cesium.CzmlDataSource.load(geoDataSrc).then(function (geoData) {
             if (markerMod) {
                   modMarkers(geoData, markerImg, markerScale, markerLabel);
-            } // end markerMod
+            } 
             viewer.dataSources.add(geoData);
             activeLayers[layerId] = geoData;
             loadSliders(geoData, layerId);
             if (zoom) {
                 viewer.flyTo(geoData.entities);
             }
-            //loaded(layerId);
           }, function (error) {
               loadError(layerId, geoDataSrc, error);
           }
-        ); // end then
-    } // end proxy
+        ); 
+    } 
 }
 
-// TODO
+// TODO Display external links in an iframe
 function loadLink(layerId, geoDataSrc, proxy, zoom) {
-  // Display external links in an iframe
   console.log('load external Link');
 
 }
@@ -856,7 +848,7 @@ if (initialLayers[0] === '') initialLayers = [];
 if (disabledLayers[0] === '') disabledLayers = [];
 // Get the base Layer and use it
 var baseLayer = getURLParameter("baseLayer");
-if (baseLayer) baseLayerPicker.options.selectedImageryProviderViewModel = baseLayer;
+if (baseLayer) baseLayerPicker.selectedImageryProviderViewModel = baseLayer;
 // get and use the base layer view
 var viewerMode = getURLParameter("viewerMode");
 if (viewerMode) viewer.scene.mode.set(viewerMode);
@@ -914,7 +906,7 @@ function shareLink() {
         url += '&layersOff=' + disabledLayers;
     }
     // Baselayer & View:
-    url += '&baseLayer=' + baseLayerPicker.options.selectedImageryProviderViewModel;
+    url += '&baseLayer=' + baseLayerPicker.selectedImageryProviderViewModel;
     url += '&viewerMode=' + viewer.scene.mode.get();
     var shareToggle = $('.share-all-layers');
     shareToggle.attr('href', url).html(url);
@@ -1055,7 +1047,7 @@ $('.legend-title').click(toggleLegend);
 */
 
 /* ----------------------------- TIMEZONES ----------------------------- */
-/*
+/* TODO: Show timezones like Sunlight
 // http://openlayers.org/en/v3.5.0/examples/kml-timezones.html
 // Timezones: TODO
 function showTimezones() {
