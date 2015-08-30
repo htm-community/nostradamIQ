@@ -419,7 +419,7 @@ $('.cesium-viewer-bottom').hide();
 // WatchDog for lowFPS:
 if (WATCHDOG) {
     viewer.extend(Cesium.viewerPerformanceWatchdogMixin, {
-        lowFrameRateMessage : 'Why is this going so <em>slowly</em>?'
+        lowFrameRateMessage : 'nostradamIQ appears <em>slow</em>?<p onclick="$(".mode-2d").trigger("click");">Try a light-weight 2D-Version!</p>'
     });
 }
 

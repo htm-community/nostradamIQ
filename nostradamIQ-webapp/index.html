@@ -32,6 +32,10 @@
 <!-- OL3 - Cesium Client -->
   <link href="lib/cesium/ol3/css/ol.css" rel="stylesheet" type="text/css">
 <!-- OL3 - Cesium Client -->
+
+  <link href="lib/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet" type="text/css">
+  <link href="lib/css/d3_chart.css" rel="stylesheet" type="text/css">
+
   <link href="lib/cesium/Cesium/Widgets/widgets.css" rel='stylesheet' type='text/css'/>
   <link href="lib/cesium/Cesium/Widgets/Viewer/Viewer.css" rel='stylesheet' type='text/css'/>
   <link href="lib/semantic-ui/2.0/semantic.min.css" rel='stylesheet' type='text/css' />
@@ -49,6 +53,19 @@
  
 <body>
   <div id="cesiumContainer"></div>
+  <!-- D3 Chart Example TODO: https://github.com/abwood/d3cesium -->
+  <!--
+  <div id="d3-chart">
+      <div id="radio" style="position:absolute; top:0px; right:50%; height: 30px">
+        <input type="radio" id="health" name="healthwealth" checked="checked"><label for="health">Health</label>
+        <input type="radio" id="wealth" name="healthwealth"><label for="wealth">Wealth</label>
+      </div>
+      <div id="chart"></div>
+      <div id="info" title="Nation Health and Wealth"></div>
+      <script type="text/javascript" src="lib/js/d3_chart.js"></script>
+      <script type="text/javascript" src="lib/js/d3_globe.js"></script>
+  </div>
+  <!-- END D3 -->
   <div id="baseLayerPickerContainer"></div>
   <div class="ui large feed cv3d noselect">
       <div class="event">
@@ -130,7 +147,7 @@
               <p class="instruct">Base Layers</p>
             </div> <!-- segment -->
             <div id="learn" class="ui bottom attached tab segment" data-tab="learn">
-              <p class="instruct">LEARN &amp; Prepare</p>
+              <p class="instruct"><a href="//nostradamiq.org/#learn" target="_blank">LEARN &amp; Prepare</a></p>
                 <p>
                   Learn about various disasters!<br>
                   How do I prepare?<br>
@@ -138,7 +155,7 @@
                   <b><i>See here for answers!</i></b>
                 </p>
                 <div>
-                  <ul class="banner-social-buttons">
+                  <ul class="banner-social-buttons2">
                       <li>
                           <a href="//nostradamiq.org/resources/disaster_supply_kit.html" target="_blank">
                           <div>Supply Kit</div></a>
@@ -215,6 +232,8 @@
               <ul>
                 <li><a href="//cesiumjs.org/" target="_blank" rel="nofollow">Cesium</a> </li>
                 <li><a href="//jquery.com/" target="_blank" rel="nofollow">jQuery 2.1.1</a></li>
+                <li><a href="//jqueryui.com/" target="_blank" rel="nofollow">jQuery-UI v1.11.4</a></li>
+                <li><a href="//d3js.org/" target="_blank" rel="nofollow">D3.js</a></li>
                 <li><a href="//semantic-ui.com/" target="_blank" rel="nofollow">Semantic UI 2.0</a></li>
                 <li><a href="//amsul.github.io/pickadate.js" target="_blank" rel="nofollow">pickadate.js v3.5.6</a></li>
                 <li><a href="//www.tweepy.org/" target="_blank" rel="nofollow">Tweepy</a></li>
@@ -356,6 +375,10 @@
   <script type="text/javascript" src="lib/js/nobject.js?v9005"></script>
   <script type="text/javascript" src="lib/jquery-2.1.3/jquery-2.1.3.min.js"></script>
   <script type="text/javascript" src="lib/jquery-migrate-1.2.1/jquery-migrate.min.js"></script>
+
+  <!-- <script type="text/javascript" src="lib/jquery-ui-1.11.4/jquery-1.9.1.js"></script> -->
+  <script type="text/javascript" src="lib/jquery-ui-1.11.4/jquery-ui.min.js"></script>
+  
   <script type="text/javascript" src="lib/semantic-ui/2.0/semantic.min.js"></script> 
   <script type="text/javascript" src="lib/lodash/lodash.min.js"></script>
   <script type="text/javascript" src="lib/pickadate-3.5.6/combined.js"></script>
@@ -365,6 +388,7 @@
   <script type="text/javascript" src="lib/cesium/Cesium/Cesium.js"></script> <!-- Normal Cesium -->
   <!-- <script type="text/javascript" src="lib/cesium/ol3cesium.js"></script> -->
   <!-- OL3 - Cesium Client -->
+  <script type="text/javascript" src="lib/d3/d3.min.js"></script>
   <!-- <script type="text/javascript" src="lib/js/toGeoJSON.js"></script> -->
   <script type="text/javascript" src="lib/js/xml2geojson.js"></script>
   <script type="text/javascript" src="lib/js/nostradamiq.js?v9005"></script>

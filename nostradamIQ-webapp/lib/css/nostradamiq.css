@@ -529,6 +529,40 @@ button.ui.button.cv-button:focus span,button.ui.button.cv-button:hover span {
     /* ------------ */
 }
 
+
+ul.banner-social-buttons2 {
+    margin-top: 0;
+    list-style-type: none;
+}
+
+ul.banner-social-buttons2 li {
+    margin-bottom: 10px;
+}
+
+ul.banner-social-buttons2 li a {
+    max-width: 100% !important;
+    white-space: normal;
+}
+
+@media(max-width:1199px) {
+    ul.banner-social-buttons2 {
+        margin-top: 15px;
+    }
+}
+
+@media(max-width:767px) {
+    ul.banner-social-buttons2 li {
+        display: block;
+        margin-bottom: 20px;
+        padding: 0;
+    }
+
+    ul.banner-social-buttons2 li:last-child {
+        margin-bottom: 0;
+    }
+}
+
+
 .banner-social-buttons {
     padding: 0px;
     list-style: none;
@@ -569,6 +603,8 @@ button.ui.button.cv-button:focus span,button.ui.button.cv-button:hover span {
     background-color: #FF7214;
     color: #fff;
 }
+
+
 
 /* --------------------- MAP INFO WINDOW ------------------------ */
 .cesium-viewer-toolbar {
