@@ -909,7 +909,7 @@ if (allLayers.length > 0) {
     $('div.folder:empty').remove();
     $('div.folder').show();
     $('h2.toggle').hide();
-    $('<a class="button" href="' + baseURL + '" style="display:block;text-align:center;padding:20px 0;"><i class="home icon"></i> SHOW ALL LAYERS</a>').appendTo('#layers');
+    $('<a class="button" href="' + baseURL + '" style="display:block;text-align:center;padding:20px 0;"><i class="home icon"></i> SHOW ALL LAYERS - OPEN NORMAL APP</a>').appendTo('#layers');
 } else { // not via shared link
     var shared = false;
     initLayers();

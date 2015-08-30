@@ -59,6 +59,7 @@ var layers = {
             { I: "tectonic-plates", T: 'kml', G: "/webapp/layers/kml/places/EarthsTectonicPlates.kmz", S: "University of San Diego, Dept. of Geological Sciences", U: "http://www.geology.sdsu.edu/kmlgeology/eq_faults.html", N: "World Tectonic Plate Boundaries"}
         ]},
         SeismicStations: { N: "Seismic Stations", icon: "rss", '>': [
+            { I: "seismic_stations", T: 'kml', G: "/webapp/layers/kml/seismic_stations.kmz", S: "International Seismology Center", U: "http://www.isc.ac.uk/registries/", N: "List of All Seismic Stations world wide"},
             { I: "iris-st-active", T: 'kml', G: "http://ds.iris.edu/cgi-bin/kmlstationinfo/_ACTIVE?kmz=1", S: "Incorporated Research Institutions for Seismology (IRIS)", U: "http://ds.iris.edu/cgi-bin/kmlstationinfo/", N: "IRIS Active Stations"},
             { I: "iris-st-realtime", T: 'kml', G: "http://ds.iris.edu/cgi-bin/kmlstationinfo/_REALTIME?kmz=1", S: "Incorporated Research Institutions for Seismology (IRIS)", U: "http://ds.iris.edu/cgi-bin/kmlstationinfo/", N: "IRIS 'Real-Time' Stations"},
             { I: "iris-st-II", T: 'kml', G: "http://ds.iris.edu/cgi-bin/kmlstationinfo/II?kmz=1", S: "Incorporated Research Institutions for Seismology (IRIS)", U: "http://ds.iris.edu/cgi-bin/kmlstationinfo/", N: "IRIS IRIS/IDA Network"},
