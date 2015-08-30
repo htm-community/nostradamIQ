@@ -95,15 +95,14 @@
             <!-- Tab panes -->
             <div id="layers" class="ui bottom attached active tab segment" data-tab="layers">
               <p class="instruct">Choose Category</p>
-              <!-- Build Layer Tree -->
-              <div id="map-layers" class="map-layers"></div>
+              <div id="map-layers" class="map-layers"><!-- Build Layer Tree -->
+              </div>
               <div id="geolocation-window"></div>
               <p onclick="getLocation()" class="instruct">Fly to where I am!</p>
                 <div id="searchbar1" class="cesium-viewer-geocoderContainer"></div>
-              </div>
-              <div id="legend" class="ui bottom attached active tab segment" data-tab="layers">
+              <div id="legend" class="ui bottom attached active tab segment">
                 <p id="legend-title" class="instruct">LEGEND</p>
-                      <div class="legend" class="map-layers">
+                      <div class="legend">
                         <i class="play icon"></i> =&nbsp;&nbsp;&nbsp;Load Layer<br>
                         <i class="folder icon"></i> =&nbsp;&nbsp;&nbsp;Toggle Layer Details<br>
                         <i class="play icon new-layer"></i> =&nbsp;&nbsp;&nbsp;New Layer!<br>
@@ -119,6 +118,7 @@
                         <i class="chevron up icon"></i> =&nbsp;&nbsp;&nbsp;Scroll to menu top<br>
                         <i class="close icon"></i> =&nbsp;&nbsp;&nbsp;Close this menu<br>
                       </div>
+              </div>
             </div> <!-- segment -->
             <div id="base" class="ui bottom attached tab segment" data-tab="base">
               <p class="instruct">Map Mode</p>
@@ -131,15 +131,12 @@
             </div> <!-- segment -->
             <div id="learn" class="ui bottom attached tab segment" data-tab="learn">
               <p class="instruct">LEARN &amp; Prepare</p>
-                <!-- TODO Have a list for the resources here as well -->
-            
                 <p>
                   Learn about various disasters!<br>
                   How do I prepare?<br>
                   What should I do in case?<br>
                   <b><i>See here for answers!</i></b>
                 </p>
-                
                 <div>
                   <ul class="banner-social-buttons">
                       <li>
