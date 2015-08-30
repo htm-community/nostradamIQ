@@ -1248,7 +1248,7 @@ $('.close-menu').click(function () {
 $('.cesium-baseLayerPicker-dropDown').addClass('cesium-baseLayerPicker-dropDown-visible').detach().appendTo($('#base'));
 
 //var searchBar = $('.cesium-viewer-geocoderContainer').detach();
-$('.cesium-viewer-geocoderContainer').detach().appendTo($('#layers'));
+$('.cesium-viewer-geocoderContainer').detach().appendTo($('#map-layers'));
 //searchBar.clone().appendTo($('#searchbar2'));
 $('.cesium-geocoder-input').addClass('cesium-geocoder-input-wide');
 
