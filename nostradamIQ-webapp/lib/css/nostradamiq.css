@@ -656,6 +656,7 @@ div.map-layers div.folder div.folder {
 div.legend {
     color: #EEE;
     padding: 0px 4% 20px 4%;
+    overflow-x: hidden;
     /* display: none; */
 }
 
@@ -663,6 +664,7 @@ div.legend {
 	width:420px!important;
 	margin:0;
 	overflow:auto;
+	overflow-x: hidden;
 	-webkit-overflow-scrolling:touch;
 	-moz-overflow-scrolling:touch;
 	-ms-overflow-scrolling:touch;
@@ -680,6 +682,13 @@ div.legend {
 	width:420px!important;
     border-top: 1px solid #FF7214;
     border-radius: 0px !important;
+	overflow:auto;
+	overflow-x: hidden;
+	-webkit-overflow-scrolling:touch;
+	-moz-overflow-scrolling:touch;
+	-ms-overflow-scrolling:touch;
+	-o-overflow-scrolling:touch;
+	overflow-scrolling:touch;
 }
 
 .tabmenu-footer.ui.cv-button-group .ui.button.cv-button {
