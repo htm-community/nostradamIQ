@@ -841,6 +841,12 @@ function initLayers(includeOnly) {
     });
 }
 
+/* ----------------------------- DL3 DEMO----------------------------- */
+
+$('.dl3-demo-toggle').click(function () {
+  $('#dl3-chart').modal('hide');
+});
+
 /* ----------------------------- MAP MODES ----------------------------- */
 
 // MAP MODE BUTTONS

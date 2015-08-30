@@ -53,19 +53,20 @@
  
 <body>
   <div id="cesiumContainer"></div>
+
   <!-- D3 Chart Example TODO: https://github.com/abwood/d3cesium -->
   <!--
-  <div id="d3-chart">
+  <div id="d3-chart" class="ui basic modal">
+  <i class="close icon"></i>
       <div id="radio" style="position:absolute; top:0px; right:50%; height: 30px">
         <input type="radio" id="health" name="healthwealth" checked="checked"><label for="health">Health</label>
         <input type="radio" id="wealth" name="healthwealth"><label for="wealth">Wealth</label>
       </div>
       <div id="chart"></div>
       <div id="info" title="Nation Health and Wealth"></div>
-      <script type="text/javascript" src="lib/js/d3_chart.js"></script>
-      <script type="text/javascript" src="lib/js/d3_globe.js"></script>
   </div>
   <!-- END D3 -->
+  
   <div id="baseLayerPickerContainer"></div>
   <div class="ui large feed cv3d noselect">
       <div class="event">
@@ -225,15 +226,14 @@
             <div class="ui bottom attached tab segment about-container" data-tab="about">
               <h3 style="margin-top:0"><a href="//nostradamiq.org/"><span style="color:#FFF">About nostradam</span>IQ</a></h3>
               <p>Provided by <a href="//nostradamiq.org/" target="_blank"><strong>nostradam<i>IQ</i></strong></a>
-               as a free public service for a better World.</p><p>Know how to code? Make <a href="https://github.com/nupic-community/nostradamIQ" target="_blank"><strong>nostradamIQ</strong></a>
-               <!-- and <a href="https://github.com/rezn8d/climateviewer" target="_blank">Climate Viewer 3D</a> -->better!</p>
+               as a free public service for a better World.</p><p>Know how to code? Make <a href="https://github.com/nupic-community/nostradamIQ" target="_blank"><strong>nostradamIQ</strong></a>better!</p>
               
               <h4>Open-Source Technologies</h4>
               <ul>
                 <li><a href="//cesiumjs.org/" target="_blank" rel="nofollow">Cesium</a> </li>
                 <li><a href="//jquery.com/" target="_blank" rel="nofollow">jQuery 2.1.1</a></li>
                 <li><a href="//jqueryui.com/" target="_blank" rel="nofollow">jQuery-UI v1.11.4</a></li>
-                <li><a href="//d3js.org/" target="_blank" rel="nofollow">D3.js</a></li>
+                <li><a href="//d3js.org/" target="_blank" rel="nofollow" class"dl3-demo-toggle">D3.js</a></li>
                 <li><a href="//semantic-ui.com/" target="_blank" rel="nofollow">Semantic UI 2.0</a></li>
                 <li><a href="//amsul.github.io/pickadate.js" target="_blank" rel="nofollow">pickadate.js v3.5.6</a></li>
                 <li><a href="//www.tweepy.org/" target="_blank" rel="nofollow">Tweepy</a></li>
@@ -389,6 +389,13 @@
   <!-- <script type="text/javascript" src="lib/cesium/ol3cesium.js"></script> -->
   <!-- OL3 - Cesium Client -->
   <script type="text/javascript" src="lib/d3/d3.min.js"></script>
+
+  <!-- DL3 scripts -->
+  <!--
+    <script type="text/javascript" src="lib/js/d3_chart.js"></script>
+    <script type="text/javascript" src="lib/js/d3_globe.js"></script>
+  <!-- DL3 scripts END -->
+  
   <!-- <script type="text/javascript" src="lib/js/toGeoJSON.js"></script> -->
   <script type="text/javascript" src="lib/js/xml2geojson.js"></script>
   <script type="text/javascript" src="lib/js/nostradamiq.js?v9005"></script>
