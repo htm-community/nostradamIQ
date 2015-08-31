@@ -55,6 +55,7 @@ var layers = {
             { I: "eqs_nepal_ever", Z: true, T: 'geojson', ML: "usgs-eq", MI: "http://nostradamiq.org/webapp/img/earthquakes.png", G: "/webapp/layers/geojson/eqs_nepal_all_ever.geojson", S: "USGS Earthquake Search", U: "http://earthquake.usgs.gov/earthquakes/search/", N: "All Earthquakes in Nepal EVER"},
             { I: "eqs_results_01011900_2015_6", T: 'geojson', ML: "usgs-eq", MI: "http://nostradamiq.org/webapp/img/earthquakes.png", G: "/webapp/layers/geojson/nostradamIQ/eqs_results_01011900_2015_6.geojson", S: "nostradamIQ-Demo App", U: "https://github.com/nupic-communitiy/nostradamIQ/blob/master/demo_app", N: "All M6+ Earthquakes since 1900 processed by NuPIC"},
             { I: "realtime_earthquakes", T: 'kml', ML: "usgs-eq", MI: "http://nostradamiq.org/webapp/img/earthquakes.png", G: "/webapp/layers/kml/places/realtime_earthquakes.kmz", S: "USGS", U: "http://earthquake.usgs.gov/", N: "Real-Time Earthquakes (KML)"},
+            { I: "real_time_eqs_1.0_week_age", T: 'kml', ML: "usgs-eq", MI: "http://nostradamiq.org/webapp/img/earthquakes.png", G: "/webapp/layers/kml/real_time_eqs_1.0_week_age.kml", S: "USGS", U: "http://earthquake.usgs.gov/regional/nca/virtualtour/global.php", N: "Real-Time Earthquakes (KML)2 - TEST"},
             { I: "plate-faults", T: 'kml', G: "/webapp/layers/kml/places/tectonic_faults.kmz", S: "University of San Diego, Dept. of Geological Sciences", U: "http://www.geology.sdsu.edu/kmlgeology/eq_faults.html", N: "US Tectonic Plate Faults"},
             { I: "tectonic-plates", T: 'kml', G: "/webapp/layers/kml/places/EarthsTectonicPlates.kmz", S: "University of San Diego, Dept. of Geological Sciences", U: "http://www.geology.sdsu.edu/kmlgeology/eq_faults.html", N: "World Tectonic Plate Boundaries"}
         ]},
@@ -239,10 +240,12 @@ var layers = {
             { I: "Earthquake_Intensity_Zones", T: 'wms', G: "http://agsc.pdc.org/arcgis/rest/services/global/pdc_hazard_zones/MapServer/export", L: "3", S: "PDC", U: "http://agsc.pdc.org/arcgis/rest/services/global/pdc_hazard_zones/MapServer", N: "Earthquake Intensity Zones"},
             { I: "Land", T: 'wms', G: "http://agsc.pdc.org/arcgis/rest/services/global/pdc_hazard_zones/MapServer/export", L: "4", S: "PDC", U: "http://agsc.pdc.org/arcgis/rest/services/global/pdc_hazard_zones/MapServer", N: "Land"},
             { I: "Multi_Hazard_Risk_Index", T: 'wms', G: "http://agsc.pdc.org/arcgis/rest/services/global/pdc_hazard_zones/MapServer/export", L: "5,6", S: "PDC", U: "http://agsc.pdc.org/arcgis/rest/services/global/pdc_hazard_zones/MapServer", N: "Multi Hazard Risk Index"},
-            { I: "Vulnerability_and_Lack_of_Capacity_Index", T: 'wms', G: "http://agsc.pdc.org/arcgis/rest/services/global/pdc_hazard_zones/MapServer/export", L: "5,7", S: "PDC", U: "http://agsc.pdc.org/arcgis/rest/services/global/pdc_hazard_zones/MapServer", N: "Vulnerability and Lack of Capacity Index"}            
+            { I: "Vulnerability_and_Lack_of_Capacity_Index", T: 'wms', G: "http://agsc.pdc.org/arcgis/rest/services/global/pdc_hazard_zones/MapServer/export", L: "5,7", S: "PDC", U: "http://agsc.pdc.org/arcgis/rest/services/global/pdc_hazard_zones/MapServer", N: "Vulnerability and Lack of Capacity Index"},
+            { I: "BayAreaEQProbability", Z: true, T: 'kml', G: "/webapp/layers/kml/places/BayAreaEQProbability.kmz", S: "USGS", U: "http://earthquake.usgs.gov/regional/nca/virtualtour/modern.php",  N: "San Francisco Earthquake Probabilities"},
+            { I: "Liquefaction_SanFrancisco", Z: true, T: 'kml', G: "/webapp/layers/kml/places/Liquefaction_SanFrancisco.kmz", S: "USGS", U: "http://earthquake.usgs.gov/regional/nca/virtualtour/modern.php",  N: "San Francisco Liquification Index"}           
         ]},
         nostradamiq: {N: "Hazard-Likelihood-Zones by nostradamIQ", icon: "warning sign", '>': [
-                    // HERE nostradamIQ's own evaluations: TODO
+            // HERE nostradamIQ's own evaluations: TODO
         ]},
     },
 
@@ -551,6 +554,13 @@ var layers = {
         ]},
         Geographic: { N: "Geographic", icon: "info sign", '>': [
             { C: true, I: "kml-escope", T: 'kml', G: "http://anf.ucsd.edu/cachexml/google_earth/anf_stations.kmz", S: "The University of California, San Diego - EarthScope USArray ANF (array network facility)", U: "http://anf.ucsd.edu/stations.php", N: "EarthScope USArray"},
+            { I: "San_Francisco_County", H: true, Z: true, T: 'kml', G: "/webapp/layers/kml/places/San_Francisco_County.kmz", S: "USGS", U: "http://geomaps.wr.usgs.gov/sfgeo/geologic/downloads.html",  N: "San Francisco Geologic Map"},
+            { I: "SF_1906_FaultandShakingPhotographs", Z: true, T: 'kml', G: "/webapp/layers/kml/places/SF_1906_FaultandShakingPhotographs.kmz", S: "USGS", U: "http://geomaps.wr.usgs.gov/sfgeo/geologic/downloads.html",  N: "San Francisco Earthquake 1906 Pictures"},
+            { I: "UrbanAreas_ModernHistoric", Z: true, T: 'kml', G: "/webapp/layers/kml/places/UrbanAreas_ModernHistoric.kmz", S: "USGS", U: "http://geomaps.wr.usgs.gov/sfgeo/geologic/downloads.html",  N: "San Francisco Urban Areas (1906 and Today)"},
+            { I: "WNAmerica_MajorRuptures", Z: true, T: 'kml', G: "/webapp/layers/kml/places/WNAmerica_MajorRuptures.kmz", S: "USGS", U: "http://geomaps.wr.usgs.gov/sfgeo/geologic/downloads.html",  N: "North Western American Major Faults"},
+            { I: "SanAndreasBayAreaFaults", Z: true, T: 'kml', G: "/webapp/layers/kml/places/SanAndreasBayAreaFaults.kmz", S: "USGS", U: "http://geomaps.wr.usgs.gov/sfgeo/geologic/downloads.html",  N: "San Andreas Faults"},
+            { I: "BayAreaRuptures", Z: true, T: 'kml', G: "/webapp/layers/kml/places/BayAreaRuptures.kmz", S: "USGS", U: "http://geomaps.wr.usgs.gov/sfgeo/geologic/downloads.html",  N: "San Andreas Fault Raptures"},
+            { I: "all_eqs_cali_past1900to2015", Z: true, T: 'kml', G: "/webapp/layers/kml/places/all_eqs_cali_past1900to2015.kmz", S: "USGS", U: "http://geomaps.wr.usgs.gov/sfgeo/geologic/downloads.html",  N: "All Earthquakes in California Bay Area (since 1900)"},
             { I: "pyramids", T: 'kml', G: "/webapp/layers/kml/3rdparty/other/Pyramids-FR-CV3D.kmz", S: "based on the film &quot;Revelations of the PyramIs&quot;", U: "http://www.youtube.com/watch?v=GhC6lhAD4xY", N: "Pyramids of the World"},
             { I: "native-american1", Z: true, T: 'kml', G: "/webapp/layers/kml/3rdparty/other/Indian-Lands.kmz", S: "This map layer shows Indian lands of the United States. Only areas of 640 acres or more are included. Federally-administered lands within a reservation are included for continuity; these may or may not be consIered part of the reservation and are simply described with their feature type and the administrating Federal agency. This is an updated version of the December 2005 map layer.", U: "http://nationalatlas.gov/atlasftp.html#indlanp", N: "Native American Lands 2005" },
             { I: "ley-lines", Z: true, T: "kml", G: "/webapp/layers/kml/3rdparty/other/Ley-Line-Collection-CV3D.kmz", S: "Source unknown", U: "http://en.wikipedia.org/wiki/Ley_line", N: "Ley Lines of the World" },
