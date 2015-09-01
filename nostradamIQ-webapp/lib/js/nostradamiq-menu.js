@@ -852,13 +852,13 @@ $('.dl3-demo-toggle').click(function () {
 // MAP MODE BUTTONS
 $('.mode-3d').click(function () {
   currentViewModel = '3D';
-  viewer.scene.morphTo3D(5);
+  viewer.scene.morphTo3D();
   //$('.cesium-home-button').trigger('click');
   //setTimeout(viewer.scene.morphTo3D(5), 1000);
 });
 $('.mode-2d').click(function () {
   currentViewModel = '2D';
-  $('.cesium-home-button').trigger('click');
+  //$('.cesium-home-button').trigger('click');
   viewer.scene.morphTo2D();
   //setTimeout(viewer.scene.morphTo2D(), 100);
 });
