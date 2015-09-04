@@ -690,7 +690,7 @@ div.map-layers div.folder div.folder {
 }
 
 div.showcase-maps-info {
-	background:#39454C;
+	background:#1C2226;
     color: #eee !important;
 	margin:0;
 	padding:10px 10px 0;
@@ -698,11 +698,20 @@ div.showcase-maps-info {
 }
 
 div.showcase-maps {
-	background:#39454C;
+	background:#1C2226;
     color: #eee !important;
 	margin:0;
 	padding:10px 0;
 	border-bottom: 0px;
+}
+
+div.showcase-maps div {
+    margin: 10px 10px;
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: 700;
 }
 
 .ui.tab.segment.active h5 {
@@ -741,7 +750,7 @@ div.showcase-maps {
 
 div.legend {
     color: #EEE;
-    background:#39454C;
+    background:#1C2226;
     padding: 0px 4% 20px 4%;
     overflow-x: hidden;
     /* display: none; */
