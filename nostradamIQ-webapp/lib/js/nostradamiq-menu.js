@@ -902,18 +902,20 @@ if (viewerMode) {
 var allLayers = initialLayers.concat(disabledLayers);
 // LOAD LAYERS
 if (allLayers.length > 0) {
-    // LOAD LAYERS FROM URL // Show only the shared ones - Makes it easier to show sth. specific
+    // LOAD LAYERS FROM URL 
+    // Show only the shared ones - Makes it easier to show sth. specific
     var shared = true;
-    initLayers(allLayers);
+    initLayers();
+    //initLayers(allLayers);
     for (var i = 0; i < initialLayers.length; i++) {
       $('.' + initialLayers[i] + '-load').click(); 
-      console.log(initialLayers[i]);
+      //console.log(initialLayers[i]);
       //$('#' + initialLayers[i]).trigger('click'); // If you want to show the Details section when URL shared
     }
-    $('div.folder:empty').remove();
-    $('div.folder').show();
-    $('h2.toggle').hide();
-    $('<a class="button" href="' + baseURL + '" style="display:block;text-align:center;padding:20px 0;"><i class="home icon"></i> SHOW ALL LAYERS - OPEN NORMAL APP</a>').prependTo('#layers');
+    //$('div.folder:empty').remove();
+    //$('div.folder').show();
+    //$('h2.toggle').hide();
+    //$('<a class="button" href="' + baseURL + '" style="display:block;text-align:center;padding:20px 0;"><i class="home icon"></i> SHOW ALL LAYERS - OPEN NORMAL APP</a>').prependTo('#layers');
 } else { // not via shared link
     var shared = false;
     initLayers();
