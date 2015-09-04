@@ -975,6 +975,11 @@ $('.earthquake-showcase').click(function () {
   $('.seismic_stations-load').trigger('click');
 });
 
+$('.internet-showcase').click(function () {
+  $('.inet_all_official-load').trigger('click');
+  $('.inet_landp_official-load').trigger('click');
+  $('.internet_users-load').trigger('click');
+});
 /* TODO: Add more */
 
 /* ----------------------------- TAB MENU ----------------------------- */
@@ -987,7 +992,7 @@ $('.tab .menu .item').tab({
 
 $('.share-tab').one('click', function () {
     $('#share').addClass('panel-share');
-    $('head').append('<script type="text/javascript">var switchTo5x=true;</script><script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher: "709fb5b5-5b4a-4b63-b4b4-0a88e5bbed79", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>');
+    $('head').append('<script type="text/javascript">var switchTo5x=true;</script><script type="text/javascript" src="//w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher: "709fb5b5-5b4a-4b63-b4b4-0a88e5bbed79", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>');
 });
 
 var chatOn = false;
@@ -997,7 +1002,7 @@ function toggleChat() {
     $('.chat-title').html('<i class="comments outline icon"></i>LOAD CHAT');
     chat0n = false;
   } else { // Show chat
-    $('#chat').html('<iframe src="https://tlk.io/nostradamiq" class="container-fluid chat-iframe" style="height:600px"></iframe>');
+    $('#chat').html('<iframe src="//tlk.io/nostradamiq" class="container-fluid chat-iframe" style="height:600px"></iframe>');
     $('.chat-title').html('<i class="comments outline icon"></i>BE NICE! :)');
     chatOn = true;
   }
