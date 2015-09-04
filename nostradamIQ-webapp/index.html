@@ -113,27 +113,26 @@
             <!-- Tab panes -->
 
             <div id="layers" class="ui bottom attached active tab segment" data-tab="layers">
-              <h3 style="margin-top:0">Choose a Showcase-Analysis</h3>
+              <p class="instruct">Choose a Showcase-Analysis</p>
               <div id="showcase-maps" class="showcase-maps">
-                <p class="instruct earthquake-showcase">EARTHQUAKES</p>
-                <p class="instruct internet-showcase">INTERNET USAGE</p>
+                <div class="earthquake-showcase"><i class="fa fa-bar-chart fa-fw"></i> Earthquakes</div>
+                <div class="internet-showcase"><i class="fa fa-wifi"></i> Internet Usage</div>
               </div>
               <p class="instruct">What is this?</p>
               <div class="showcase-maps-info">
-                <p>Here we gathered some interesting Maps as a starting Point for different Questions for You!<br><br>
-                Pick one you are interested in and see what other Layers you can add to refine Your Analysis.<br><br>
-                If you have build a cool and insightful Map, feel free to <a href="mailto:info@nostradamiq.org">let us know</a> and we may add it here for others to use!<br><br>
-                <b><i>ENJOY!<br></i></b>
-                </p>
+                <p>Here we gathered some interesting Maps as a starting Point for different Questions for You!</p>
+                <p>Pick one you are interested in and see what other Layers you can add to refine Your Analysis.</p>
+                <p>If you have build a cool and insightful Map, feel free to <a href="mailto:info@nostradamiq.org">let us know</a> and we may add it here for others to use!</p>
+                <p><b><i>ENJOY!<br></i></b></p>
               </div>
-              <h3 style="margin-top:0">Build your own Analysis</h3>
+              <p class="instruct">Build your own Analysis</p>
               <div id="map-layers" class="map-layers"><!-- Build Layer Tree -->
               </div>
               <!-- <div id="geolocation-window"></div> -->
               <p onclick="getLocation()" class="instruct">Fly to where I am!</p>
                 <!-- <div id="searchbar1" class="cesium-viewer-geocoderContainer"></div> -->
               <div id="legend" class="ui bottom attached active tab segment"> 
-                <h3 style="margin-top:0">LEGEND</h3>
+                <p class="instruct">LEGEND</p>
                       <div class="legend">
                         <i class="play icon"></i> =&nbsp;&nbsp;&nbsp;Load Layer<br>
                         <i class="folder icon"></i> =&nbsp;&nbsp;&nbsp;Toggle Layer Details<br>
@@ -171,41 +170,50 @@
                   <b><i>See here for answers!</i></b>
                 </p>
                 <div>
-                  <ul class="banner-social-buttons2">
+                  <ul class="banner-social-buttons">
                       <li>
                           <a href="//nostradamiq.org/resources/disaster_supply_kit.html" target="_blank">
+                          <img src="img/unicorn.png">
                           <div>Supply Kit</div></a>
                       </li>
                       <li>
                           <a href="//nostradamiq.org/resources/family_awareness_plan.html" target="_blank">
+                          <img src="img/unicorn.png">
                           <div>Prepare Your Family!</div></a>
                       </li>
                       <li>
                           <a href="//nostradamiq.org/resources/general_disaster_resources.html" target="_blank">
+                          <img src="img/unicorn.png">
                           <div>Generally useful Resources for your House, Pet and more!</div></a>
                       </li>
                       <li>
                           <a href="//nostradamiq.org/resources/floods_resources.html" target="_blank">
+                          <img src="img/unicorn.png">
                           <div>Floods</div></a>
                       </li>
                       <li>
                           <a href="//nostradamiq.org/resources/earthquake_resources.html" target="_blank">
+                          <img src="img/unicorn.png">
                           <div>Earthquakes</div></a>
                       </li>
                       <li>
                           <a href="//nostradamiq.org/resources/tsunami_resources.html" target="_blank">
+                          <img src="img/unicorn.png">
                           <div>Tsunamis</div></a>
                       </li>
                       <li>
                           <a href="//nostradamiq.org/resources/high_surf_resources.html" target="_blank">
+                          <img src="img/unicorn.png">
                           <div>High Surf</div></a>
                       </li>
                       <li>
                           <a href="//nostradamiq.org/resources/volcanoes_resources.html" target="_blank">
+                          <img src="img/unicorn.png">
                           <div>Volcanoes</div></a>
                       </li>
                       <li>
                           <a href="//nostradamiq.org/resources/tropical_cyclones_resources.html" target="_blank">
+                          <img src="img/unicorn.png">
                           <div>Tropical Cyclones</div></a>
                       </li>
                    </ul>
@@ -250,7 +258,7 @@
                 <li><a href="//cesiumjs.org/" target="_blank" rel="nofollow">Cesium</a> </li>
                 <li><a href="//jquery.com/" target="_blank" rel="nofollow">jQuery 2.1.1</a></li>
                 <li><a href="//jqueryui.com/" target="_blank" rel="nofollow">jQuery-UI v1.11.4</a></li>
-                <li><a href="//d3js.org/" target="_blank" rel="nofollow" class"dl3-demo-toggle">D3.js</a></li>
+                <li><a href="//d3js.org/" target="_blank" rel="nofollow" class="dl3-demo-toggle">D3.js</a></li>
                 <li><a href="//semantic-ui.com/" target="_blank" rel="nofollow">Semantic UI 2.0</a></li>
                 <li><a href="//amsul.github.io/pickadate.js" target="_blank" rel="nofollow">pickadate.js v3.5.6</a></li>
                 <li><a href="//www.tweepy.org/" target="_blank" rel="nofollow">Tweepy</a></li>
@@ -263,7 +271,7 @@
               <p>This service is made possible by <strong><a target="_blank" rel="nofollow" href="//www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JH4BWPHA326TL" title="PayPal Link">donations from caring individuals like you!</a></strong><br>
               <a  rel="nofollow" href="//www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JH4BWPHA326TL" class="btn btn-default btn-lg"><i class="fa fa-paypal fa-fw" title="PayPal Link"></i> <span class="network-name">Donate</span></a><br>
               Thank you for your support. <i class="fa fa-heart fa-fw"></i></p>
-              <p><b>Do you know some nice sources for Geo-Data? Do you have any? We can help you in conversion etc. But Data in geoJSON, KML, CZML and other geo-ready formats are preffered! We would love to <a href="mailto:info@nostradamiq.org">hear suggestions from you</a>!</p>
+              <p>Do you know some nice sources for Geo-Data? Do you have any? We can help you in conversion etc. But Data in geoJSON, KML, CZML and other geo-ready formats are preffered! We would love to <a href="mailto:info@nostradamiq.org">hear suggestions from you</a>!</p>
               
               <h5><strong><i class="fa fa-copyright fa-fw"></i><a style='text-decoration:none' title='nostradamIQ' href="//nostradamiq.org/terms_of_service.html">nostradamIQ</a>&nbsp;2015-<script type="text/javascript">today=new Date(); year=today.getYear(); if (year<1999) {year=year+1900;} document.write(year);</script></strong></h5> 
               <p><a href="//nostradamiq.org/terms_of_service.html">Terms of Service</a></p>
