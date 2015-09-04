@@ -401,7 +401,6 @@ function loadPDC_XML(layerId, geoDataSrc, proxy, markerLabel, markerScale, marke
     console.log('load PDC-XML');
     if (proxy) {
       new Cesium.loadXML(proxyURL + '?' + geoDataSrc).then(function(xmlData) {
-          // convert xml to geoJSON:
           console.log(xmlData);
           var geoData = xml2geojson(xmlData);
           modMarkers(geoData, markerImg, markerScale, markerColor, markerLabel);
@@ -416,7 +415,6 @@ function loadPDC_XML(layerId, geoDataSrc, proxy, markerLabel, markerScale, marke
       });
     } else {
       new Cesium.loadXML(geoDataSrc).then(function(xmlData) {
-          // convert xml to geoJSON:
           console.log(xmlData);
           var geoData = xml2geojson(xmlData);
           modMarkers(geoData, markerImg, markerScale, markerColor, markerLabel);
@@ -915,7 +913,7 @@ if (allLayers.length > 0) {
     $('div.folder:empty').remove();
     $('div.folder').show();
     $('h2.toggle').hide();
-    $('<a class="button" href="' + baseURL + '" style="display:block;text-align:center;padding:20px 0;"><i class="home icon"></i> SHOW ALL LAYERS - OPEN NORMAL APP</a>').appendTo('#layers');
+    $('<a class="button" href="' + baseURL + '" style="display:block;text-align:center;padding:20px 0;"><i class="home icon"></i> SHOW ALL LAYERS - OPEN NORMAL APP</a>').prependTo('#layers');
 } else { // not via shared link
     var shared = false;
     initLayers();
@@ -969,7 +967,15 @@ function shareLink() {
     shareToggle.attr('href', url).html(url);
 }
 
+/* ----------------------------- SHOWCASE ----------------------------- */
 
+$('.earthquake-showcase').click(function () {
+  $('.usgs-all-7day-load').trigger('click');
+  $('.tectonic-plates-load').trigger('click');
+  $('.seismic_stations-load').trigger('click');
+});
+
+/* TODO: Add more */
 
 /* ----------------------------- TAB MENU ----------------------------- */
 
@@ -1286,6 +1292,7 @@ $('.share-modal').on('click', function () {
 // Modal Close (right button)
 $('.close-Greeting').click(function () {
   $('#Greeting').modal('hide');
+  getLocation();
 });
 
 if (!shared) setTimeout(welcome, 500);

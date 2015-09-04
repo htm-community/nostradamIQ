@@ -111,15 +111,28 @@
               <a class="item" data-tab="about">About</a>
             </div>
             <!-- Tab panes -->
+
             <div id="layers" class="ui bottom attached active tab segment" data-tab="layers">
-              <p class="instruct">Choose Category</p>
+              <h3 style="margin-top:0">Choose a Showcase-Analysis</h3>
+              <div id="showcase-maps" class="showcase-maps">
+                <p class="instruct earthquake-showcase">EARTHQUAKES</p>
+              </div>
+              <p class="instruct">What is this?</p>
+              <div class="showcase-maps-info">
+                <p>Here we gathered some interesting Maps as a starting Point for different Questions for You!<br><br>
+                Pick one you are interested in and see what other Layers you can add to refine Your Analysis.<br><br>
+                If you have build a cool and insightful Map, feel free to <a href="mailto:info@nostradamiq.org">let us know</a> and we may add it here for others to use!<br><br>
+                <b><i>ENJOY!<br></i></b>
+                </p>
+              </div>
+              <h3 style="margin-top:0">Build your own Analysis</h3>
               <div id="map-layers" class="map-layers"><!-- Build Layer Tree -->
               </div>
               <!-- <div id="geolocation-window"></div> -->
               <p onclick="getLocation()" class="instruct">Fly to where I am!</p>
                 <!-- <div id="searchbar1" class="cesium-viewer-geocoderContainer"></div> -->
-              <div id="legend" class="ui bottom attached active tab segment">
-                <p id="legend-title" class="instruct">LEGEND</p>
+              <div id="legend" class="ui bottom attached active tab segment"> 
+                <h3 style="margin-top:0">LEGEND</h3>
                       <div class="legend">
                         <i class="play icon"></i> =&nbsp;&nbsp;&nbsp;Load Layer<br>
                         <i class="folder icon"></i> =&nbsp;&nbsp;&nbsp;Toggle Layer Details<br>
@@ -138,6 +151,7 @@
                       </div>
               </div>
             </div> <!-- segment -->
+
             <div id="base" class="ui bottom attached tab segment" data-tab="base">
               <p class="instruct">Map Mode</p>
               <div class="ui three cv-button-group buttons">
@@ -196,6 +210,7 @@
                    </ul>
               </div>
             </div> <!-- segment -->
+
             <div class="ui bottom attached tab segment share-container" data-tab="share">
                 <h3 style='margin-top:0'>
                   <i class='heart icon'></i>Sharing is Caring
@@ -217,16 +232,17 @@
                 <h3 id="giveData-title">
                   <i class='database icon'></i>I HAVE DATA!
                 </h3>
-                <div id="give-data">
-                  <p>DO YOU KNOW OF HAVE SOME INTERESTING DATA?<br>We are happy to visualize Your, or any other Data for anybody, or privately!<br>We build nostradamIQ so that it is incredibally easy to add more data sources - We support various data formats and are happy to help you convert your non-geo dataformat like csv, exel, txt and so on... Open or Your Online Data-Sources are also welcome!<br>
+                <div id="give-data" class="ui bottom attached active tab segment about-container">
+                  <p><b><i>DO YOU KNOW OF HAVE SOME INTERESTING DATA?</i></b><br><br><br>We are happy to visualize Your, or any other Data for anybody, or privately!<br><br>We build nostradamIQ so that it is incredibally easy to add more data sources - We support various data formats and are happy to help you convert your non-geo dataformat like csv, exel, txt and so on... Open or Your Online Data-Sources are also welcome!<br><br>
                   <a href='mailto:info@nostradamiq.org?subject=nostradamIQ%20Data%20Suggestion&amp;body=I%20have%20some%20cool%20Data%20for%20you%20to%20include%20in%20nostradamIQ!%0D%0A%0D%0AFormat:%20%0D%0A%0D%0ASource:%20%0D%0A(If%20not%20an%20online%20source,%20please%20attach%20the%20data!)%0D%0A%0D%0AWhy%20is%20this%20interesting?%20%0D%0A%0D%0ASuggested%20Name:%20%0D%0A%0D%0AOrigin%20to%20be%20credited:%20%0D%0A%0D%0A' target="_top">Please contact us!</a>
-                  <br>If you feel like coding yourself, see <a href='https://github.com/nupic-community/nostradamIQ/tree/master/nostradamIQ-webapp' target='_blank'>our source-code</a> and <a href='https://github.com/nupic-community/nostradamIQ/pulls' target='_blank'>make a PR!</a></p>
+                  <br><br>If you feel like coding yourself, see <a href='https://github.com/nupic-community/nostradamIQ/tree/master/nostradamIQ-webapp' target='_blank'>our source-code</a> and <a href='https://github.com/nupic-community/nostradamIQ/pulls' target='_blank'>make a PR!</a></p>
                 </div> <!-- #give-data -->
             </div> <!-- segment -->
+
             <div class="ui bottom attached tab segment about-container" data-tab="about">
               <h3 style="margin-top:0"><a href="//nostradamiq.org/"><span style="color:#FFF">About nostradam</span>IQ</a></h3>
               <p>Provided by <a href="//nostradamiq.org/" target="_blank"><strong>nostradam<i>IQ</i></strong></a>
-               as a free public service for a better World.</p><p>Know how to code? Make <a href="https://github.com/nupic-community/nostradamIQ" target="_blank"><strong>nostradamIQ</strong></a>better!</p>
+               as a free public service for a better World.</p><p>Know how to code? Make <a href="https://github.com/nupic-community/nostradamIQ" target="_blank"><strong>nostradamIQ</strong></a> better!</p>
               
               <h4>Open-Source Technologies</h4>
               <ul>
@@ -252,6 +268,7 @@
               <p><a href="//nostradamiq.org/terms_of_service.html">Terms of Service</a></p>
             </div> <!-- about -->
           </div> <!-- segment -->
+
         </div> <!-- tab -->
       </div> <!-- tabmenu-body -->
       <div class="tabmenu-footer ui nine cv-button-group bottom attached buttons">
