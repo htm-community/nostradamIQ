@@ -689,15 +689,66 @@ div.map-layers div.folder div.folder {
 	border-bottom: 0px;
 }
 
+div.showcase-maps-info {
+	background:#39454C;
+    color: #eee !important;
+	margin:0;
+	padding:10px 10px 0;
+	border-bottom: 0px;
+}
+
+div.showcase-maps {
+	background:#39454C;
+    color: #eee !important;
+	margin:0;
+	padding:10px 0;
+	border-bottom: 0px;
+}
+
+.ui.tab.segment.active h5 {
+	margin:2px 20px;
+	text-align:center;
+}
+
+.ui.tab.segment.active h3 {
+	display:block;
+	font-family:sans-serif;
+	color:#FF7214;
+	margin:11px;
+	padding:9px;
+	padding-top: 10px;
+	font-size:1.2rem;
+	text-transform:uppercase;
+	font-weight:700;
+	border:1px solid rgba(255,255,255,0.2);
+	text-align:center;
+}
+
+.ui.tab.segment.active h4 {
+	display:block;
+	font-family:sans-serif;
+	color:#999;
+	margin:11px;
+	padding:9px;
+	padding-top: 10px;
+	font-size:.8rem;
+	text-transform:uppercase;
+	font-weight:700;
+	border:1px solid rgba(255,255,255,0.2);
+	text-align:center;
+}
+
+
 div.legend {
     color: #EEE;
+    background:#39454C;
     padding: 0px 4% 20px 4%;
     overflow-x: hidden;
     /* display: none; */
 }
 
 .tabmenu-body {
-	width:420px!important;
+	width:420px!important; 
 	margin:0;
 	overflow:auto;
 	overflow-x: hidden;
