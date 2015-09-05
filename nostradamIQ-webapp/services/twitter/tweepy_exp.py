@@ -16,6 +16,7 @@ from httplib import IncompleteRead
 from API_KEYS import consumer_key, consumer_secret, access_token, access_token_secret
 
 CUTOFF = -1
+WRITE2TXT = False
 
 countAll = 0
 countLoc = 0
@@ -52,10 +53,12 @@ class StdOutListener(StreamListener):
             print('@%s tweeted: %s\nPlace: %s (%s)\n' % ( tweet['user']['screen_name'], tweet['text'], tweet['place'], tweet['coordinates']))
             countAll += 1
             # write to .txt file
-            with open(outputfile, 'a+') as outP:
-                    outP.write(str(tweet)) 
-                    outP.write('\n')
-            outP.close()
+            if WRITE2TXT:
+                with open(outputfile, 'a+') as outP:
+                        outP.write(str(tweet)) 
+                        outP.write('\n')
+                outP.close()
+
             # convert to and write as .geoJSON:
             geoJson = format2geoJSON(tweet)
             if geoJson != None:
