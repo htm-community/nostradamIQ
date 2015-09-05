@@ -969,18 +969,35 @@ function shareLink() {
     shareToggle.attr('href', url).html(url);
 }
 
+/* ----------------------------- LEGEND ----------------------------- */
+
+var legendOn = false;
+function toggleLegend() {
+  if (legendOn) { // Hide info
+    $('#legend-content').html('');
+    $('.legend-title').html('<i class="fa fa-arrow-circle-down"></i>  SHOW LEGEND');
+    legendOn = false;
+  } else { // Show info
+    $('#legend-content').html('<i class="play icon"></i> =&nbsp;&nbsp;&nbsp;Load Layer<br><i class="folder icon"></i> =&nbsp;&nbsp;&nbsp;Toggle Layer Details<br><i class="play icon new-layer"></i> =&nbsp;&nbsp;&nbsp;New Layer!<br><i class="play icon large-layer"></i> =&nbsp;&nbsp;&nbsp;Warning, Large Layer - High-performance processor required, may crash weaker systems<br><p class="instruct">Bottom Menu</p><i class="close icon"></i> =&nbsp;&nbsp;&nbsp;Close this menu<br><i class="trash icon"></i> =&nbsp;&nbsp;&nbsp;Clear Globe. Remove all layers<br><i class="fa fa-search-minus fa-fw"></i> =&nbsp;&nbsp;&nbsp;Zoom back out<br><i class="clock icon"></i> =&nbsp;&nbsp;&nbsp;Toggle Timeline<br><i class="star icon"></i> =&nbsp;&nbsp;&nbsp;Toggle Stars - WARNING: Takes a lot of work!<br><i class="sun icon"></i> =&nbsp;&nbsp;&nbsp;Toggle Sun<br><i class="share alternate icon"></i> =&nbsp;&nbsp;&nbsp;Generate URL to share all currently active layers<br><i class="compress icon"></i> =&nbsp;&nbsp;&nbsp;Collapse layer category list<br><i class="chevron up icon"></i> =&nbsp;&nbsp;&nbsp;Scroll to menu top<br>');
+    $('.legend-title').html('<i class="fa fa-arrow-circle-up"></i>  HIDE LEGEND');
+    legendOn = true;
+  }
+}
+$('.legend-title').click(toggleLegend);
+
+
 /* ----------------------------- SHOWCASE ----------------------------- */
 
 var showcaseInfoOn = false;
 function toggleShowcaseInfo() {
   if (showcaseInfoOn) { // Hide info
     $('#showcase-maps-info').html('');
-    $('.showcase-title').html('<i class="question icon"></i> What is this?');
+    $('.showcase-title').html('<i class="fa fa-question"></i>  What is this?');
     showcaseInfoOn = false;
   } else { // Show info
-    $('#showcase-maps-info').html('<p>Here we gathered some interesting Maps as a starting Point for different Questions for You!</p><p>Pick one you are interested in and see what other Layers you can add to refine Your Analysis.</p><p>If you have build a cool and insightful Map, feel free to <a href="mailto:info@nostradamiq.org">let us know</a> and we may add it here for others to use!</p><p><b><i>ENJOY!<br></i></b></p>');
-    $('.showcase-title').html('<i class="question icon"></i> Make your own below!');
-    showcaseInfoOn= true;
+    $('#showcase-maps-info').html('<p>Here we gathered some interesting Maps as a starting Point for different Questions for You!</p><p>Pick one you are interested in and see what other Layers you can add to refine Your Analysis.</p><p>If you have build a cool and insightful Map, please <a href="mailto:info@nostradamiq.org?subject=Add my Analysis to the Showcase!">let us know</a> and we may add it here for others to use!</p><p><b><i>ENJOY!<br></i></b></p>');
+    $('.showcase-title').html('<i class="fa fa-exclamation"></i>  Make your own below!');
+    showcaseInfoOn = true;
   }
 }
 $('.showcase-title').click(toggleShowcaseInfo);
@@ -1015,11 +1032,11 @@ var chatOn = false;
 function toggleChat() {
   if (chatOn) { // Hide Chat
     $('#chat').html('');
-    $('.chat-title').html('<i class="comments outline icon"></i>LOAD CHAT');
+    $('.chat-title').html('<i class="comments outline icon"></i> LOAD CHAT');
     chat0n = false;
   } else { // Show chat
     $('#chat').html('<iframe src="//tlk.io/nostradamiq" class="container-fluid chat-iframe" style="height:600px"></iframe>');
-    $('.chat-title').html('<i class="comments outline icon"></i>BE NICE! :)');
+    $('.chat-title').html('<i class="comments outline icon"></i> BE NICE! :)');
     chatOn = true;
   }
 }
@@ -1029,11 +1046,11 @@ var commentOn = false;
 function toggleComments() {
   if (commentOn) { // Hide Comments
     $('#comments').html('');
-    $('.comments-title').html('<i class="comments outline icon"></i>LOAD COMMENTS');
+    $('.comments-title').html('<i class="comments outline icon"></i> LOAD COMMENTS');
     comment0n = false;
   } else { // Show Comments
     $('#comments').html("<div id='disqus_thread'></div><script type='text/javascript'>var disqus_shortname = 'nostradamiq'; (function() { var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true; dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js'; (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); })();</script>").addClass('panel-comments');
-    $('.chat-title').html('<i class="comments icon"></i>WHAT DO YOU THINK?');
+    $('.chat-title').html('<i class="comments icon"></i> WHAT DO YOU THINK?');
     commentOn = true;
   }
 }
