@@ -118,16 +118,19 @@
                 <div class="earthquake-showcase"><i class="fa fa-bar-chart fa-fw"></i> Earthquakes</div>
                 <div class="internet-showcase"><i class="fa fa-wifi"></i> Internet Usage</div>
               </div>
-              <p class="instruct showcase-title">What is this?</p>
-              <div id="showcase-maps-info" class="showcase-maps-info">
-              </div> 
-              
+              <p class="instruct">What is this?</p>
+              <div class="showcase-maps-info">
+                <p>Here we gathered some interesting Maps as a starting Point for different Questions for You!</p>
+                <p>Pick one you are interested in and see what other Layers you can add to refine Your Analysis.</p>
+                <p>If you have build a cool and insightful Map, feel free to <a href="mailto:info@nostradamiq.org">let us know</a> and we may add it here for others to use!</p>
+                <p><b><i>ENJOY!<br></i></b></p>
+              </div>
               <p class="instruct">Build your own Analysis</p>
               <div id="map-layers" class="map-layers"><!-- Build Layer Tree -->
               </div>
               <!-- <div id="geolocation-window"></div> -->
               <p onclick="getLocation()" class="instruct">Fly to where I am!</p>
-                <!-- <div id="searchbar1" class="cesium-viewer-geocoderContainer"></div> -->   
+                <!-- <div id="searchbar1" class="cesium-viewer-geocoderContainer"></div> -->
               <div id="legend" class="ui bottom attached active tab segment"> 
                 <p class="instruct">LEGEND</p>
                       <div class="legend">
@@ -159,7 +162,7 @@
               <p class="instruct">Base Layers</p>
             </div> <!-- segment -->
             <div id="learn" class="ui bottom attached tab segment" data-tab="learn">
-              <p class="instruct">LEARN &amp; Prepare</p>
+              <p class="instruct"><a href="//nostradamiq.org/#learn" target="_blank">LEARN &amp; Prepare</a></p>
                 <p>
                   Learn about various disasters!<br>
                   How do I prepare?<br>
@@ -170,47 +173,47 @@
                   <ul class="banner-social-buttons">
                       <li>
                           <a href="//nostradamiq.org/resources/disaster_supply_kit.html" target="_blank">
-                          <img src="img/icon_supply_kit.svg">
+                          <img src="img/unicorn.png">
                           <div>Supply Kit</div></a>
                       </li>
                       <li>
                           <a href="//nostradamiq.org/resources/family_awareness_plan.html" target="_blank">
-                          <img src="img/icon_family.svg">
+                          <img src="img/unicorn.png">
                           <div>Prepare Your Family!</div></a>
                       </li>
                       <li>
                           <a href="//nostradamiq.org/resources/general_disaster_resources.html" target="_blank">
-                          <img src="img/icon_rescue.svg">
+                          <img src="img/unicorn.png">
                           <div>Generally useful Resources for your House, Pet and more!</div></a>
                       </li>
                       <li>
                           <a href="//nostradamiq.org/resources/floods_resources.html" target="_blank">
-                          <img src="img/icon_flood.svg">
+                          <img src="img/unicorn.png">
                           <div>Floods</div></a>
                       </li>
                       <li>
                           <a href="//nostradamiq.org/resources/earthquake_resources.html" target="_blank">
-                          <img src="img/icon_earthquake.svg">
+                          <img src="img/unicorn.png">
                           <div>Earthquakes</div></a>
                       </li>
                       <li>
                           <a href="//nostradamiq.org/resources/tsunami_resources.html" target="_blank">
-                          <img src="img/icon_tsunami.svg">
+                          <img src="img/unicorn.png">
                           <div>Tsunamis</div></a>
                       </li>
                       <li>
                           <a href="//nostradamiq.org/resources/high_surf_resources.html" target="_blank">
-                          <img src="">
+                          <img src="img/unicorn.png">
                           <div>High Surf</div></a>
                       </li>
                       <li>
                           <a href="//nostradamiq.org/resources/volcanoes_resources.html" target="_blank">
-                          <img src="img/icon_volcano.svg">
+                          <img src="img/unicorn.png">
                           <div>Volcanoes</div></a>
                       </li>
                       <li>
                           <a href="//nostradamiq.org/resources/tropical_cyclones_resources.html" target="_blank">
-                          <img src="img/icon_tropical_cyclones.svg">
+                          <img src="img/unicorn.png">
                           <div>Tropical Cyclones</div></a>
                       </li>
                    </ul>

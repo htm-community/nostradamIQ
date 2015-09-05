@@ -3,7 +3,7 @@
 // Set web root url
 var baseURL = window.location.protocol + "//" + window.location.host + "/webapp/";  // production
 var proxyURL = 'http://climateviewer.net/netj1/proxy';  // production
-//var proxyURL = 'http://nostradamiq.org:8888/webapp/proxy/proxy/';  
+//var proxyURL = 'https://nostradamiq.org/webapp/proxy/traytention/proxy';  
 //var proxyURL = 'http://localhost:8080/proxy/';  // dev
 
 var activeLayers = {};
@@ -400,7 +400,7 @@ function loadKml(layerId, geoDataSrc, proxy, zoom, markerImg, markerScale, marke
 function loadPDC_XML(layerId, geoDataSrc, proxy, markerLabel, markerScale, markerImg, markerColor, zoom) {
     console.log('load PDC-XML');
     if (proxy) {
-      new Cesium.loadXML(proxyURL + '?' + geoDataSrc).then(function(xmlData) {
+      new Cesium.loadXML(proxyURL + '/?' + geoDataSrc).then(function(xmlData) {
           console.log(xmlData);
           var geoData = xml2geojson(xmlData);
           modMarkers(geoData, markerImg, markerScale, markerColor, markerLabel);
@@ -970,6 +970,20 @@ function shareLink() {
 }
 
 /* ----------------------------- SHOWCASE ----------------------------- */
+
+var showcaseInfoOn = false;
+function toggleShowcaseInfo() {
+  if (showcaseInfoOn) { // Hide info
+    $('#showcase-maps-info').html('');
+    $('.showcase-title').html('<i class="question icon"></i> What is this?');
+    showcaseInfoOn = false;
+  } else { // Show info
+    $('#showcase-maps-info').html('<p>Here we gathered some interesting Maps as a starting Point for different Questions for You!</p><p>Pick one you are interested in and see what other Layers you can add to refine Your Analysis.</p><p>If you have build a cool and insightful Map, feel free to <a href="mailto:info@nostradamiq.org">let us know</a> and we may add it here for others to use!</p><p><b><i>ENJOY!<br></i></b></p>');
+    $('.showcase-title').html('<i class="question icon"></i> Make your own below!');
+    showcaseInfoOn= true;
+  }
+}
+$('.showcase-title').click(toggleShowcaseInfo);
 
 $('.earthquake-showcase').click(function () {
   $('.usgs-all-7day-load').trigger('click');
