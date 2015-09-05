@@ -995,7 +995,7 @@ function toggleShowcaseInfo() {
     $('.showcase-title').html('<i class="fa fa-question"></i>  What is this?');
     showcaseInfoOn = false;
   } else { // Show info
-    $('#showcase-maps-info').html('<p>Here we gathered some interesting Maps as a starting Point for different Questions for You!</p><p>Pick one you are interested in and see what other Layers you can add to refine Your Analysis.</p><p>If you have build a cool and insightful Map, feel free to <a href="mailto:info@nostradamiq.org">let us know</a> and we may add it here for others to use!</p><p><b><i>ENJOY!<br></i></b></p>');
+    $('#showcase-maps-info').html('<p>Here we gathered some interesting Maps as a starting Point for different Questions for You!</p><p>Pick one you are interested in and see what other Layers you can add to refine Your Analysis.</p><p>If you have build a cool and insightful Map, please <a href="mailto:info@nostradamiq.org?subject=Add my Analysis to the Showcase!">let us know</a> and we may add it here for others to use!</p><p><b><i>ENJOY!<br></i></b></p>');
     $('.showcase-title').html('<i class="fa fa-exclamation"></i>  Make your own below!');
     showcaseInfoOn = true;
   }
@@ -1032,11 +1032,11 @@ var chatOn = false;
 function toggleChat() {
   if (chatOn) { // Hide Chat
     $('#chat').html('');
-    $('.chat-title').html('<i class="comments outline icon"></i>LOAD CHAT');
+    $('.chat-title').html('<i class="comments outline icon"></i> LOAD CHAT');
     chat0n = false;
   } else { // Show chat
     $('#chat').html('<iframe src="//tlk.io/nostradamiq" class="container-fluid chat-iframe" style="height:600px"></iframe>');
-    $('.chat-title').html('<i class="comments outline icon"></i>BE NICE! :)');
+    $('.chat-title').html('<i class="comments outline icon"></i> BE NICE! :)');
     chatOn = true;
   }
 }
@@ -1046,11 +1046,11 @@ var commentOn = false;
 function toggleComments() {
   if (commentOn) { // Hide Comments
     $('#comments').html('');
-    $('.comments-title').html('<i class="comments outline icon"></i>LOAD COMMENTS');
+    $('.comments-title').html('<i class="comments outline icon"></i> LOAD COMMENTS');
     comment0n = false;
   } else { // Show Comments
     $('#comments').html("<div id='disqus_thread'></div><script type='text/javascript'>var disqus_shortname = 'nostradamiq'; (function() { var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true; dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js'; (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); })();</script>").addClass('panel-comments');
-    $('.chat-title').html('<i class="comments icon"></i>WHAT DO YOU THINK?');
+    $('.chat-title').html('<i class="comments icon"></i> WHAT DO YOU THINK?');
     commentOn = true;
   }
 }
