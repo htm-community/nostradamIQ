@@ -573,6 +573,7 @@ ul.banner-social-buttons2 li a {
     width: 80px;
     text-align: center;
     margin: 4px 5px;
+    padding: 0 0 5px 0;
     display: inline-block;
     vertical-align: top;
     cursor: pointer;
@@ -600,7 +601,7 @@ ul.banner-social-buttons2 li a {
 }
 
 .banner-social-buttons li:hover {
-    background-color: #FF7214;
+    background-color: #2F393F;
     color: #fff;
 }
 
