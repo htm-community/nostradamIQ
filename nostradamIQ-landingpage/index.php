@@ -145,12 +145,6 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
                 
-                <ul class="list-inline banner-social-buttons">
-                    <li>
-                        <a href="//github.com/nupic-community/nostradamIQ/blob/master/CONTRIBUTING.md" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> Contribute now</a>
-                    </li>
-                </ul>
-                
                 <h2>About nostradam<i>IQ</i></h2>
                 <p>How can we sense our World's disasters in advance?</p>
                 <div class="video-container">
