@@ -1,13 +1,16 @@
-(function() {
-  var DrawingThing, SIZE, TWO_PI, c, canvas, clear, createCanvas, ct, drawingThings, quarterSize, threQuarters, trails;
-
-  SIZE = 400;
-
-  quarterSize = SIZE / 4;
-
-  threQuarters = SIZE - quarterSize;
-
-  TWO_PI = Math.PI * 2;
+var preload = function() {
+  var DrawingThing, 
+      SIZE = 400, 
+      TWO_PI = Math.PI * 2, 
+      quarterSize = SIZE / 4, 
+      threQuarters  = SIZE - quarterSize, 
+      c, 
+      canvas, 
+      clear, 
+      createCanvas, 
+      ct, 
+      drawingThings, 
+      trails;
 
   createCanvas = function() {
     var canvas;
@@ -18,13 +21,9 @@
   };
 
   canvas = createCanvas();
-
   document.body.appendChild(canvas);
-
   c = canvas.getContext("2d");
-
   trails = createCanvas();
-
   ct = trails.getContext("2d");
 
   clear = function() {
@@ -33,7 +32,6 @@
     ct.fillStyle = "black";
     ct.fillRect(0, 0, SIZE, SIZE);
   };
-
   clear();
 
   document.getElementById("preload").onclick = clear;
@@ -73,9 +71,7 @@
       ct.closePath();
       ct.stroke();
     };
-
     return DrawingThing;
-
   })();
 
   drawingThings = [new DrawingThing(quarterSize, quarterSize), new DrawingThing(threQuarters, quarterSize), new DrawingThing(threQuarters, threQuarters), new DrawingThing(quarterSize, threQuarters)];
@@ -90,7 +86,5 @@
     }
     return results;
   }, 30);
-
   return;
-
-}).call(this);
+}
