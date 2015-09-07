@@ -71,15 +71,22 @@
  
 <body>
   
-  <!-- START PRELOAD -->
-  <!--<div id="preload-wrapper">
-    <div id="preload"></div>
-  </div>
+<!-- START PRELOAD -->
+  <div id="preload-wrapper" class="ui basic modal"></div>
   <script type="text/javascript" src="lib/js/preload.js"></script>
-   <!-- END PRELOAD -->
+  <script type="text/javascript"> 
+    $('#cesiumContainer').hide();
+    $('#Greeting').hide();
+    preload();
+    $(window).load(function() {
+      $('#preload').hide();
+      $('#cesiumContainer').show();
+      $('#Greeting').show();
+    });
+  </script>
+<!-- END PRELOAD -->
 
   <div id="cesiumContainer"></div>
-
   <!-- D3 Chart Example TODO: https://github.com/abwood/d3cesium -->
   <!--
   <div id="d3-chart" class="ui basic modal">

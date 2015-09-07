@@ -1,8 +1,8 @@
 // PRELOAD
 var preload = function() {
   var TWO_PI = Math.PI * 2,
-      WIDTH = screen.width,
-      HEIGHT = screen.height,
+      WIDTH = $(window).width,
+      HEIGHT = $(window).height,
       RADIUS;
 
   if (WIDTH < HEIGHT) {
@@ -20,15 +20,15 @@ var preload = function() {
   };
 
   var canvas = createCanvas();
-  document.body.appendChild(canvas);
+  document.getElementById('preload-wrapper').appendChild(canvas);
   var c = canvas.getContext("2d");
   var trails = createCanvas();
   var ct = trails.getContext("2d");
 
   var clear = function() {
-    c.fillStyle = "black";
+    c.fillStyle = "#232528";
     c.fillRect(0, 0, WIDTH, HEIGHT);
-    ct.fillStyle = "black";
+    ct.fillStyle = "#232528";
     ct.fillRect(0, 0, WIDTH, HEIGHT);
   };
   clear();
