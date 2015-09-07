@@ -1,11 +1,10 @@
 // PRELOAD
-//var preload = 
-var DrawingThing, HEIGHT, RADIUS, TWO_PI, WIDTH, c, canvas, clear, createCanvas, ct, drawingThings, i, trails;
+var DrawingThing, HEIGHT, RADIUS, TWO_PI, WIDTH, c, canvas, clear, createCanvas, ct, drawingThings, drawThing, i, trails, results;
 
 (function() {
   TWO_PI = Math.PI * 2;
-  WIDTH = $(window).width; //screen.width;
-  HEIGHT = $(window).height; //screen.height;
+  WIDTH = screen.width; //$(window).width;
+  HEIGHT = screen.height; //$(window).height;
 
   if (WIDTH < HEIGHT) {
     RADIUS = (WIDTH - WIDTH / 2) / 10;
@@ -74,15 +73,14 @@ var DrawingThing, HEIGHT, RADIUS, TWO_PI, WIDTH, c, canvas, clear, createCanvas,
       ct.closePath();
       ct.stroke();
     };
-
     return DrawingThing;
   };
 
-  drawingThings = [new DrawingThing(WIDTH / 2, HEIGHT / 2)];
+  drawingThings = [new DrawingThing(WIDTH/2, HEIGHT/2)];
 
   i = 0;
   setInterval(function() {
-    var drawThing, j, len, results;
+    var j, len;
     c.drawImage(trails, 0, 0);
     i += 1;
     if (i > 1200) {
