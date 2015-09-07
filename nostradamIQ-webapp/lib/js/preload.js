@@ -1,26 +1,35 @@
 // PRELOAD
-var preload = function () {
-  var TWO_PI = Math.PI * 2, 
+var preload = function() {
+  var TWO_PI = Math.PI * 2,
+      WIDTH = screen.width,
+      HEIGHT = screen.height,
+      RADIUS;
 
-   createCanvas = function() {
+  if (WIDTH < HEIGHT) {
+    RADIUS = (WIDTH - WIDTH / 2) / 10;
+  } else {
+    RADIUS = (HEIGHT - HEIGHT / 2) / 10;
+  }
+
+  createCanvas = function() {
     var canvas;
     canvas = document.createElement("canvas");
-    canvas.width = screen.width;
-    canvas.height = screen.height;
+    canvas.width = WIDTH;
+    canvas.height = HEIGHT;
     return canvas;
   };
 
-  canvas = createCanvas();
+  var canvas = createCanvas();
   document.body.appendChild(canvas);
   var c = canvas.getContext("2d");
   var trails = createCanvas();
   var ct = trails.getContext("2d");
 
-  clear = function() {
+  var clear = function() {
     c.fillStyle = "black";
-    c.fillRect(0, 0, screen.width, screen.height);
+    c.fillRect(0, 0, WIDTH, HEIGHT);
     ct.fillStyle = "black";
-    ct.fillRect(0, 0, screen.width, screen.height);
+    ct.fillRect(0, 0, WIDTH, HEIGHT);
   };
   clear();
 
@@ -28,7 +37,7 @@ var preload = function () {
     function DrawingThing(x, y) {
       this.x = x;
       this.y = y;
-      this.radii = [30, 60, 90, 120, 150, 180, 210, 240, 270, 300];
+      this.radii = [RADIUS * 1, RADIUS * 2, RADIUS * 3, RADIUS * 4, RADIUS * 5, RADIUS * 6, RADIUS * 7, RADIUS * 8, RADIUS * 9, RADIUS * 10];
       this.num = this.radii.length;
       this.thetas = [Math.random() * TWO_PI, Math.random() * TWO_PI, Math.random() * TWO_PI, Math.random() * TWO_PI, Math.random() * TWO_PI, Math.random() * TWO_PI, Math.random() * TWO_PI, Math.random() * TWO_PI, Math.random() * TWO_PI, Math.random() * TWO_PI];
       this.thetasInc = [Math.random() * 0.2 - 0.1, Math.random() * 0.2 - 0.1, Math.random() * 0.2 - 0.1, Math.random() * 0.2 - 0.1, Math.random() * 0.2 - 0.1, Math.random() * 0.2 - 0.1, Math.random() * 0.2 - 0.1, Math.random() * 0.2 - 0.1, Math.random() * 0.2 - 0.1, Math.random() * 0.2 - 0.1];
@@ -67,9 +76,9 @@ var preload = function () {
     return DrawingThing;
   })();
 
-  var drawingThings = [new DrawingThing(screen.width / 2, screen.height / 2)];
+  var drawingThings = [new DrawingThing(WIDTH / 2, HEIGHT / 2)];
 
-  i = 0;
+  var i = 0;
   setInterval(function() {
     var drawThing, j, len, results;
     c.drawImage(trails, 0, 0);
