@@ -3,10 +3,6 @@ body {
   background: #444;
 }
 
-div#preload {
-  position: absolute;
-}
-
 div#preload-wrapper {
   height: 100%;
   width: 100%;

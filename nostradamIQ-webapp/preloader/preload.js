@@ -97,3 +97,12 @@ function preload() {
 
   return;
 }
+
+var showPreload = function() {
+  $('#preload-wrapper').hide();
+  preload();
+}
+
+var hidePreload = function() {
+  $('#preload-wrapper').hide();
+}
