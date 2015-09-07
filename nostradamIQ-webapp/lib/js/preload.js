@@ -1,38 +1,30 @@
 // PRELOAD
 var preload = function () {
-  var DrawingThing, 
-      SIZE = 800, 
-      TWO_PI = Math.PI * 2, 
-      c, 
-      canvas, 
-      ct, 
-      drawingThings, 
-      trails;
+  var TWO_PI = Math.PI * 2, 
 
-
-  var createCanvas = function() {
+   createCanvas = function() {
     var canvas;
     canvas = document.createElement("canvas");
-    canvas.width = SIZE;
-    canvas.height = SIZE;
+    canvas.width = screen.width;
+    canvas.height = screen.height;
     return canvas;
   };
 
   canvas = createCanvas();
   document.body.appendChild(canvas);
-  c = canvas.getContext("2d");
-  trails = createCanvas();
-  ct = trails.getContext("2d");
+  var c = canvas.getContext("2d");
+  var trails = createCanvas();
+  var ct = trails.getContext("2d");
 
-  var clear = function() {
+  clear = function() {
     c.fillStyle = "black";
-    c.fillRect(0, 0, SIZE, SIZE);
+    c.fillRect(0, 0, screen.width, screen.height);
     ct.fillStyle = "black";
-    ct.fillRect(0, 0, SIZE, SIZE);
+    ct.fillRect(0, 0, screen.width, screen.height);
   };
   clear();
 
-  DrawingThing = (function() {
+  var DrawingThing = (function() {
     function DrawingThing(x, y) {
       this.x = x;
       this.y = y;
@@ -75,7 +67,7 @@ var preload = function () {
     return DrawingThing;
   })();
 
-  drawingThings = [new DrawingThing(SIZE / 2, SIZE / 2)];
+  var drawingThings = [new DrawingThing(screen.width / 2, screen.height / 2)];
 
   i = 0;
   setInterval(function() {
