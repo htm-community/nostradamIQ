@@ -1743,6 +1743,23 @@ div#disqus_thread {
 	top:7px;
 }
 
+.ui.modal>.header {
+    font-size:1.2em;
+    background: #2F393F;
+    color: #fff;
+}
+.ui.modal>.content {
+    background: #39454C;
+    color: #fff;
+    max-height: 300px;
+    overflow: auto;
+}
+.ui.modal>.actions {
+    background: #2F393F;
+    color: #fff;
+
+}
+
 .cesium-viewer .cesium-widget-credits {
 	display:none;
 }
