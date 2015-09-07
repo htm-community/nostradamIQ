@@ -11,8 +11,8 @@ function preload() {
     RADIUS = (HEIGHT - HEIGHT / 2) / 10;
   }
 
-  document.getElementById('preloader-img').setAttribute('style', 'position:absolute; TOP:' + (HEIGHT/2 - RADIUS/2) + 'px; LEFT:' + (WIDTH/2 - RADIUS/2) + 'px; width:'+ RADIUS*2 + 'px; height:' + RADIUS*2 + 'px;');
-
+  //document.getElementById('preloader-img').setAttribute('style', 'position:absolute; TOP:' + 50 + '%; LEFT:' + 50 + '%; width:'+ RADIUS*2 + 'px; height:' + RADIUS*2 + 'px;'); //'position:absolute; TOP:' + (HEIGHT/2 - RADIUS) + 'px; LEFT:' + (WIDTH/2 - RADIUS) + 'px; width:'+ RADIUS*2 + 'px; height:' + RADIUS*2 + 'px;');
+  
   createCanvas = function() {
     var canvas = document.createElement("canvas");
     canvas.setAttribute("id", "preload");

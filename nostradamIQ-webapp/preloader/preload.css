@@ -1,12 +1,8 @@
-body {
-  height: 100%;
-  background: #444;
-}
-
 div#preload-wrapper {
   height: 100%;
   width: 100%;
   background: #000;
+  overflow:hidden;
 }
 div#preload {
    width: 100%;
@@ -16,7 +12,7 @@ div#preload {
    position: absolute;
    display: block;
    opacity: 0.75;
-   background-color: #fff;
-   z-index: 99;
+   background-color: #000;
    text-align: center;
+   overflow:hidden;
 }
