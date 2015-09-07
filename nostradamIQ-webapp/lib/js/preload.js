@@ -1,9 +1,9 @@
 // PRELOAD
-var preload = function() {
-  var TWO_PI = Math.PI * 2,
-      WIDTH = $(window).width,
-      HEIGHT = $(window).height,
-      RADIUS;
+function preload() {
+  var DrawingThing, c, canvas, clear, createCanvas, ct, drawingThings, drawThing, i, trails, results;
+  TWO_PI = Math.PI * 2;
+  WIDTH = screen.width; //$(window).width;
+  HEIGHT = screen.height; //$(window).height;
 
   if (WIDTH < HEIGHT) {
     RADIUS = (WIDTH - WIDTH / 2) / 10;
@@ -12,38 +12,38 @@ var preload = function() {
   }
 
   createCanvas = function() {
-    var canvas;
-    canvas = document.createElement("canvas");
+    var canvas = document.createElement("canvas");
+    canvas.setAttribute("id", "preload");
     canvas.width = WIDTH;
     canvas.height = HEIGHT;
     return canvas;
   };
 
-  var canvas = createCanvas();
+  canvas = createCanvas();
   document.getElementById('preload-wrapper').appendChild(canvas);
-  var c = canvas.getContext("2d");
-  var trails = createCanvas();
-  var ct = trails.getContext("2d");
+  c = canvas.getContext("2d");
+  trails = createCanvas();
+  ct = trails.getContext("2d");
 
-  var clear = function() {
-    c.fillStyle = "#232528";
+  clear = function() {
+    c.fillStyle = "black";
     c.fillRect(0, 0, WIDTH, HEIGHT);
-    ct.fillStyle = "#232528";
+    ct.fillStyle = "black";
     ct.fillRect(0, 0, WIDTH, HEIGHT);
   };
   clear();
 
-  var DrawingThing = (function() {
-    function DrawingThing(x, y) {
+
+  DrawingThing = function(x, y) {
       this.x = x;
       this.y = y;
-      this.radii = [RADIUS * 1, RADIUS * 2, RADIUS * 3, RADIUS * 4, RADIUS * 5, RADIUS * 6, RADIUS * 7, RADIUS * 8, RADIUS * 9, RADIUS * 10];
+      this.radii = [RADIUS*1, RADIUS*2, RADIUS*3, RADIUS*4, RADIUS*5, RADIUS*6, RADIUS*7, RADIUS*8, RADIUS*9, RADIUS*10];
       this.num = this.radii.length;
       this.thetas = [Math.random() * TWO_PI, Math.random() * TWO_PI, Math.random() * TWO_PI, Math.random() * TWO_PI, Math.random() * TWO_PI, Math.random() * TWO_PI, Math.random() * TWO_PI, Math.random() * TWO_PI, Math.random() * TWO_PI, Math.random() * TWO_PI];
       this.thetasInc = [Math.random() * 0.2 - 0.1, Math.random() * 0.2 - 0.1, Math.random() * 0.2 - 0.1, Math.random() * 0.2 - 0.1, Math.random() * 0.2 - 0.1, Math.random() * 0.2 - 0.1, Math.random() * 0.2 - 0.1, Math.random() * 0.2 - 0.1, Math.random() * 0.2 - 0.1, Math.random() * 0.2 - 0.1];
-    }
+  };
 
-    DrawingThing.prototype.draw = function() {
+  DrawingThing.prototype.draw = function() {
       var i, j, ref, x, y;
       ct.strokeStyle = "rgba(255,114,20,0.1)";
       for (i = j = 0, ref = this.num; 0 <= ref ? j < ref : j > ref; i = 0 <= ref ? ++j : --j) {
@@ -73,18 +73,18 @@ var preload = function() {
       ct.closePath();
       ct.stroke();
     };
-    return DrawingThing;
-  })();
 
-  var drawingThings = [new DrawingThing(WIDTH / 2, HEIGHT / 2)];
+  drawingThings = [new DrawingThing(WIDTH/2, HEIGHT/2)];
 
-  var i = 0;
+  i = 0;
   setInterval(function() {
-    var drawThing, j, len, results;
+    var j, len;
     c.drawImage(trails, 0, 0);
     i += 1;
-    if (i > 1200) {
+    if (i > 1000) {
       clear();
+      delete DrawingThing;
+      drawingThings = [new DrawingThing(WIDTH/2, HEIGHT/2)];
       i = 0;
     }
     results = [];

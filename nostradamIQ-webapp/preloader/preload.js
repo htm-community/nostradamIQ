@@ -1,7 +1,6 @@
 // PRELOAD
-var DrawingThing, HEIGHT, RADIUS, TWO_PI, WIDTH, c, canvas, clear, createCanvas, ct, drawingThings, drawThing, i, trails, results;
-
-(function() {
+function preload() {
+  var DrawingThing, c, canvas, clear, createCanvas, ct, drawingThings, drawThing, i, trails, results;
   TWO_PI = Math.PI * 2;
   WIDTH = screen.width; //$(window).width;
   HEIGHT = screen.height; //$(window).height;
@@ -14,6 +13,7 @@ var DrawingThing, HEIGHT, RADIUS, TWO_PI, WIDTH, c, canvas, clear, createCanvas,
 
   createCanvas = function() {
     var canvas = document.createElement("canvas");
+    canvas.setAttribute("id", "preload");
     canvas.width = WIDTH;
     canvas.height = HEIGHT;
     return canvas;
@@ -33,17 +33,17 @@ var DrawingThing, HEIGHT, RADIUS, TWO_PI, WIDTH, c, canvas, clear, createCanvas,
   };
   clear();
 
-  DrawingThing = function() {
-    function DrawingThing(x, y) {
+
+  DrawingThing = function(x, y) {
       this.x = x;
       this.y = y;
       this.radii = [RADIUS*1, RADIUS*2, RADIUS*3, RADIUS*4, RADIUS*5, RADIUS*6, RADIUS*7, RADIUS*8, RADIUS*9, RADIUS*10];
       this.num = this.radii.length;
       this.thetas = [Math.random() * TWO_PI, Math.random() * TWO_PI, Math.random() * TWO_PI, Math.random() * TWO_PI, Math.random() * TWO_PI, Math.random() * TWO_PI, Math.random() * TWO_PI, Math.random() * TWO_PI, Math.random() * TWO_PI, Math.random() * TWO_PI];
       this.thetasInc = [Math.random() * 0.2 - 0.1, Math.random() * 0.2 - 0.1, Math.random() * 0.2 - 0.1, Math.random() * 0.2 - 0.1, Math.random() * 0.2 - 0.1, Math.random() * 0.2 - 0.1, Math.random() * 0.2 - 0.1, Math.random() * 0.2 - 0.1, Math.random() * 0.2 - 0.1, Math.random() * 0.2 - 0.1];
-    }
+  };
 
-    DrawingThing.prototype.draw = function() {
+  DrawingThing.prototype.draw = function() {
       var i, j, ref, x, y;
       ct.strokeStyle = "rgba(255,114,20,0.1)";
       for (i = j = 0, ref = this.num; 0 <= ref ? j < ref : j > ref; i = 0 <= ref ? ++j : --j) {
@@ -73,8 +73,6 @@ var DrawingThing, HEIGHT, RADIUS, TWO_PI, WIDTH, c, canvas, clear, createCanvas,
       ct.closePath();
       ct.stroke();
     };
-    return DrawingThing;
-  };
 
   drawingThings = [new DrawingThing(WIDTH/2, HEIGHT/2)];
 
@@ -83,8 +81,10 @@ var DrawingThing, HEIGHT, RADIUS, TWO_PI, WIDTH, c, canvas, clear, createCanvas,
     var j, len;
     c.drawImage(trails, 0, 0);
     i += 1;
-    if (i > 1200) {
+    if (i > 1000) {
       clear();
+      delete DrawingThing;
+      drawingThings = [new DrawingThing(WIDTH/2, HEIGHT/2)];
       i = 0;
     }
     results = [];
@@ -96,5 +96,4 @@ var DrawingThing, HEIGHT, RADIUS, TWO_PI, WIDTH, c, canvas, clear, createCanvas,
   }, 30);
 
   return;
-
-}).call(this);
+}
