@@ -74,16 +74,6 @@
 <!-- START PRELOAD -->
   <div id="preload-wrapper" class="ui basic modal"></div>
   <script type="text/javascript" src="lib/js/preload.js"></script>
-  <script type="text/javascript"> 
-    $('#cesiumContainer').hide();
-    $('#Greeting').hide();
-    preload();
-    $(window).load(function() {
-      $('#preload').hide();
-      $('#cesiumContainer').show();
-      $('#Greeting').show();
-    });
-  </script>
 <!-- END PRELOAD -->
 
   <div id="cesiumContainer"></div>
@@ -435,6 +425,20 @@
 
   <!-- <script type="text/javascript" src="lib/jquery-ui-1.11.4/jquery-1.9.1.js"></script> -->
   <script type="text/javascript" src="lib/jquery-ui-1.11.4/jquery-ui.min.js"></script>
+
+<!-- START PRELOAD -->
+  <!--
+  <script type="text/javascript"> 
+    $('#cesiumContainer').hide();
+    $('#Greeting').hide();
+    preload();
+    $(window).load(function() {
+      $('#preload').hide();
+      $('#cesiumContainer').show();
+      $('#Greeting').show();
+    });
+  </script>
+<!-- END PRELOAD -->
   
   <script type="text/javascript" src="lib/semantic-ui/2.0/semantic.min.js"></script> 
   <script type="text/javascript" src="lib/lodash/lodash.min.js"></script>
