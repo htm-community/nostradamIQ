@@ -88,3 +88,5 @@ nostradamIQ-webapp/layers
 nostradamIQ-webapp/layers/*
 nostradamIQ-webapp/layers/*/*
 nostradamIQ-webapp/layers/*/*/*
+
+nostradamIQ-webapp/mobile-test

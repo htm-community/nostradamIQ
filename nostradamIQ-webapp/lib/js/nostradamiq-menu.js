@@ -1023,10 +1023,12 @@ $('.tab .menu .item').tab({
 
 /* ----------------------------- SOCIAL ----------------------------- */
 
+/*
 $('.share-tab').one('click', function () {
     $('#share').addClass('panel-share');
-    $('head').append('<script type="text/javascript">var switchTo5x=true;</script><script type="text/javascript" src="//w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher: "709fb5b5-5b4a-4b63-b4b4-0a88e5bbed79", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>');
+    $('head').append('<script type="text/javascript">var switchTo5x=true;</script><script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher: "709fb5b5-5b4a-4b63-b4b4-0a88e5bbed79", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>');
 });
+*/
 
 var chatOn = false;
 function toggleChat() {
@@ -1057,21 +1059,19 @@ function toggleComments() {
 $('.chat-title').click(toggleComments);
 
 // TODO NOT WORKING!
-/*
 var giveDataOn = false;
 function toggleGiveData() {
   if (giveDataOn) { // Hide give-data
     $('#give-data').html('');
-    $('.giveData-title').html('<i class="database icon"></i>I HAVE DATA!');
+    $('.give-data-title').html('<i class="database icon"></i> I HAVE DATA!');
     giveDataOn = false;
   } else { // Show give-data
-    $('#give-data').html("<p>DO YOU KNOW OF HAVE SOME INTERESTING DATA?<br>We are happy to visualize Your, or any other Data for anybody, or privately!<br>We build nostradamIQ so that it is incredibally easy to add more data sources - We support various data formats and are happy to help you convert your non-geo dataformat like csv, exel, txt and so on... Open or Your Online Data-Sources are also welcome!<br><a href='mailto:info@nostradamiq.org?subject=nostradamIQ Data Suggestion&amp;body=I have some cool Data for you to include in nostradamIQ!\n\nFormat:____________\nSource:___________(If not an oline source, please attach the data!)\nWhy is this interesting?\nSuggested Name:____________\nOrigin to be credited:__________\n'>Please contact us!</a><br>If you feel like coding yourself, see <a href='https://github.com/nupic-community/nostradamIQ/tree/master/nostradamIQ-webapp' target='_blank'>our source-code</a> and <a href='https://github.com/nupic-community/nostradamIQ/pulls' target='_blank'>make a PR!</a></p>"); 
-    $('.giveData-title').html('<i class="database icon"></i>CONTRIBUTE IT!');
+    $('#give-data').html("<p><b><i>DO YOU KNOW OF HAVE SOME INTERESTING DATA?</i></b><br><br><br>We are happy to visualize Your, or any other Data for anybody, or privately!<br><br>We build nostradamIQ so that it is incredibally easy to add more data sources - We support various data formats and are happy to help you convert your non-geo dataformat like csv, exel, txt and so on... Open or Your Online Data-Sources are also welcome!<br><br><a href='mailto:info@nostradamiq.org?subject=nostradamIQ%20Data%20Suggestion&amp;body=I%20have%20some%20cool%20Data%20for%20you%20to%20include%20in%20nostradamIQ!%0D%0A%0D%0AFormat:%20%0D%0A%0D%0ASource:%20%0D%0A(If%20not%20an%20online%20source,%20please%20attach%20the%20data!)%0D%0A%0D%0AWhy%20is%20this%20interesting?%20%0D%0A%0D%0ASuggested%20Name:%20%0D%0A%0D%0AOrigin%20to%20be%20credited:%20%0D%0A%0D%0A' target='_top'>Please contact us!</a><br><br>If you feel like coding yourself, see <a href='https://github.com/nupic-community/nostradamIQ/tree/master/nostradamIQ-webapp' target='_blank'>our source-code</a> and <a href='https://github.com/nupic-community/nostradamIQ/pulls' target='_blank'>make a PR!</a></p>");
+    $('.give-data-title').html('<i class="database icon"></i> CONTRIBUTE IT!');
     giveDataOn = true;
   }
 }
-$('.giveData-title').click(toggleGiveData);
-*/
+$('.give-data-title').click(toggleGiveData);
 
 /* ----------------------------- FOOTER MENU ----------------------------- */
 
@@ -1330,6 +1330,8 @@ $('.share-modal').on('click', function () {
 // Modal Close (right button)
 $('.close-Greeting').click(function () {
   $('#Greeting').modal('hide');
+  $('.show-menu').trigger('click');
+  $('.share-tab').trigger('click');
   getLocation();
 });
 

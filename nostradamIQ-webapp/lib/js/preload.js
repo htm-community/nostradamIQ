@@ -1,6 +1,7 @@
 // PRELOAD
+var drawingThings;
 function preload() {
-  var DrawingThing, c, canvas, clear, createCanvas, ct, drawingThings, drawThing, i, trails, results;
+  var DrawingThing, c, canvas, clear, createCanvas, ct, drawThing, i, trails, results;
   TWO_PI = Math.PI * 2;
   WIDTH = screen.width; //$(window).width;
   HEIGHT = screen.height; //$(window).height;
@@ -11,6 +12,8 @@ function preload() {
     RADIUS = (HEIGHT - HEIGHT / 2) / 10;
   }
 
+  //document.getElementById('preloader-img').setAttribute('style', 'position:absolute; TOP:' + 50 + '%; LEFT:' + 50 + '%; width:'+ RADIUS*2 + 'px; height:' + RADIUS*2 + 'px;'); //'position:absolute; TOP:' + (HEIGHT/2 - RADIUS) + 'px; LEFT:' + (WIDTH/2 - RADIUS) + 'px; width:'+ RADIUS*2 + 'px; height:' + RADIUS*2 + 'px;');
+  
   createCanvas = function() {
     var canvas = document.createElement("canvas");
     canvas.setAttribute("id", "preload");
@@ -77,32 +80,39 @@ function preload() {
   drawingThings = [new DrawingThing(WIDTH/2, HEIGHT/2)];
 
   i = 0;
-  setInterval(function() {
-    var j, len;
-    c.drawImage(trails, 0, 0);
-    i += 1;
-    if (i > 1000) {
-      clear();
-      delete DrawingThing;
-      drawingThings = [new DrawingThing(WIDTH/2, HEIGHT/2)];
-      i = 0;
-    }
-    results = [];
-    for (j = 0, len = drawingThings.length; j < len; j++) {
-      drawThing = drawingThings[j];
-      results.push(drawThing.draw());
-    }
-    return results;
-  }, 30);
+  if (drawingThings) {
+    setInterval(function() {
+      if (drawingThings) {
+        var j, len;
+        c.drawImage(trails, 0, 0);
+        i += 1;
+        if (i > 1000) {
+          clear();
+          delete DrawingThing;
+          drawingThings = [new DrawingThing(WIDTH/2, HEIGHT/2)];
+          i = 0;
+        }
+        results = [];
+        for (j = 0, len = drawingThings.length; j < len; j++) {
+          drawThing = drawingThings[j];
+          results.push(drawThing.draw());
+        }
+        return results;
+      }
+    }, 30);
+  }
 
   return;
 }
 
 var showPreload = function() {
-  $('#preload-wrapper').hide();
+  $('#cesiumContainer').hide();
+  $('#preload-wrapper').show();
   preload();
 }
 
 var hidePreload = function() {
   $('#preload-wrapper').hide();
+  $('#cesiumContainer').show();
+  delete drawingThings;
 }

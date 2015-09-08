@@ -187,6 +187,7 @@ imageryViewModels.push(new Cesium.ProviderViewModel({
         });
     }
 }));
+
 imageryViewModels.push(new Cesium.ProviderViewModel({
     name: 'Toner Lite',
     iconUrl: Cesium.buildModuleUrl('Widgets/Images/ImageryProviders/toner_light.jpg'),
@@ -198,7 +199,6 @@ imageryViewModels.push(new Cesium.ProviderViewModel({
         });
     }
 }));
-
 
 imageryViewModels.push(new Cesium.ProviderViewModel({
     name: 'ESRI World Imagery',
@@ -369,6 +369,7 @@ var viewer;
 var scene;
 
 // If Mobile start in 2D scene mode for increased performance
+$('#cesiumContainer').hide();
 if ($('body').hasClass('mobile')) {
     // is mobile
     viewer = new Cesium.Viewer('cesiumContainer', {
@@ -443,7 +444,7 @@ function fly(position) {
 }
 function showAndFlyPosition(position) {
     fly(position);
-    $('#geolocation-window').innerHTML = "<i><b>Your Position:</b><br>Latitude: "+Number((position.coords.latitude).toFixed(3))+"<br>Longitude: "+Number((position.coords.longitude).toFixed(3)+"</i><br><button onclick='fly()'>FLY ME THERE!</button>");
+    //$('#geolocation-window').innerHTML = "<i><b>Your Position:</b><br>Latitude: "+Number((position.coords.latitude).toFixed(3))+"<br>Longitude: "+Number((position.coords.longitude).toFixed(3)+"</i><br><button onclick='fly()'>FLY ME THERE!</button>");
 }
 function showError(error) {
     $('#geolocation-window').hide();

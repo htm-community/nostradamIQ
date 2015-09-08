@@ -66,7 +66,13 @@
     <meta name="application-name" content="nostradamIQ"/>
     <meta name="msapplication-TileColor" content="#e3000b"/>
 
-    <meta name="theme-color" content="#111111"> <!-- Chrome Adnroid -->
+    <meta name="theme-color" content="#111111"> <!-- Chrome Android -->
+
+    <!-- SHARE-THIS -->
+    <script type="text/javascript">var switchTo5x=true;</script>
+    <script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">stLight.options({publisher: "709fb5b5-5b4a-4b63-b4b4-0a88e5bbed79", doNotHash: true, doNotCopy: false, hashAddressBar: false});</script>
+    <!-- END SHARE-THIS -->
 </head>
  
 <body>
@@ -110,9 +116,9 @@
         <i class="fa fa-newspaper-o fa-fw"></i>
         <span>NEWS</span>
       </button>-->
-      <button class="ui button cv-button show-menu" title="Layers">
-        <i class="fa fa-bars fa-fw"></i>
-        <span>LAYERS</span>
+      <button class="ui button cv-button show-menu" title="Menu">
+        <i class="fa fa-magic fa-fw"></i>
+        <span>MENU</span>
       </button>
       <button class="ui button cv-button clear-layers" title="Clear">
           <i class="fa fa-trash fa-fw"></i>
@@ -141,7 +147,7 @@
             <div id="layers" class="ui bottom attached active tab segment" data-tab="layers">
               <p class="instruct">Choose a Showcase-Analysis</p>
               <div id="showcase-maps" class="showcase-maps">
-                <div class="earthquake-showcase"><i class="fa fa-bar-chart fa-fw"></i> Earthquakes</div>
+                <div class="earthquake-showcase"><i class="fa fa-rss fa-fw"></i> Earthquakes</div>
                 <div class="internet-showcase"><i class="fa fa-wifi"></i> Internet Usage</div>
                 <div><i class="fa fa-hand-o-down"></i>  <a href="mailto:info@nostradamiq.org?subject=Add my Analysis to the Showcase!">YOURS?</a></div>
               </div>
@@ -232,29 +238,30 @@
 
             <div class="ui bottom attached tab segment share-container" data-tab="share">
                 <h3 style='margin-top:0'>
-                  <i class='heart icon'></i>Sharing is Caring
+                  <i class='heart icon'></i> Sharing is Caring
                 </h3>
-                <div id="share">
-                  <span class='st_facebook_vcount'></span>
-                  <span class='st_twitter_vcount'></span>
-                  <span class='st_sharethis_vcount'></span>
-                  <span class='st_email_vcount'></span>
+                <div id="share" class="panel-share">
+                  <span class='st_facebook_small' displayText='Facebook'></span>
+                  <span class='st_twitter_small' displayText='Tweet'></span>
+                  <span class='st_linkedin_small' displayText='LinkedIn'></span>
+                  <span class='st_whatsapp_small' displayText='WhatsApp'></span>
+                  <span class='st_pinterest_small' displayText='Pinterest'></span>
+                  <span class='st_email_small' displayText='Email'></span>
+                  <span class='st_print_small' displayText='Print'></span>
                 </div> <!-- #share -->
                 <h3 class="chat-title">
-                  <i class="comments outline icon"></i>LOAD CHAT
+                  <i class="comments outline icon"></i> LOAD CHAT
                 </h3>
                 <div id="chat"></div> <!-- #chat -->
                 <h3 id="comments-title">
-                  <i class='comments icon'></i>LOAD COMMENTS
+                  <i class='comments icon'></i> LOAD COMMENTS
                 </h3>
                 <div id="comments"></div> <!-- #comments -->
-                <h3 id="giveData-title">
-                  <i class='database icon'></i>I HAVE DATA!
+                <h3 id="give-data-title">
+                  <i class='database icon'></i> I HAVE DATA!
                 </h3>
                 <div id="give-data" class="ui bottom attached active tab segment about-container">
-                  <p><b><i>DO YOU KNOW OF HAVE SOME INTERESTING DATA?</i></b><br><br><br>We are happy to visualize Your, or any other Data for anybody, or privately!<br><br>We build nostradamIQ so that it is incredibally easy to add more data sources - We support various data formats and are happy to help you convert your non-geo dataformat like csv, exel, txt and so on... Open or Your Online Data-Sources are also welcome!<br><br>
-                  <a href='mailto:info@nostradamiq.org?subject=nostradamIQ%20Data%20Suggestion&amp;body=I%20have%20some%20cool%20Data%20for%20you%20to%20include%20in%20nostradamIQ!%0D%0A%0D%0AFormat:%20%0D%0A%0D%0ASource:%20%0D%0A(If%20not%20an%20online%20source,%20please%20attach%20the%20data!)%0D%0A%0D%0AWhy%20is%20this%20interesting?%20%0D%0A%0D%0ASuggested%20Name:%20%0D%0A%0D%0AOrigin%20to%20be%20credited:%20%0D%0A%0D%0A' target="_top">Please contact us!</a>
-                  <br><br>If you feel like coding yourself, see <a href='https://github.com/nupic-community/nostradamIQ/tree/master/nostradamIQ-webapp' target='_blank'>our source-code</a> and <a href='https://github.com/nupic-community/nostradamIQ/pulls' target='_blank'>make a PR!</a></p>
+                  <p><b><i>DO YOU KNOW OF HAVE SOME INTERESTING DATA?</i></b><br><br><br>We are happy to visualize your, or any other Data for anybody, or privately!<br><br>We build nostradamIQ so that it is incredibally easy to add more data sources - We support various data formats and are happy to help you convert your non-geo dataformat like csv, exel, txt and so on... Open or Your Online Data-Sources are also welcome!<br><br><a href='mailto:info@nostradamiq.org?subject=nostradamIQ%20Data%20Suggestion&amp;body=I%20have%20some%20cool%20Data%20for%20you%20to%20include%20in%20nostradamIQ!%0D%0A%0D%0AFormat:%20%0D%0A%0D%0ASource:%20%0D%0A(If%20not%20an%20online%20source,%20please%20attach%20the%20data!)%0D%0A%0D%0AWhy%20is%20this%20interesting?%20%0D%0A%0D%0ASuggested%20Name:%20%0D%0A%0D%0AOrigin%20to%20be%20credited:%20%0D%0A%0D%0A' target='_top'>Please contact us!</a><br><br>If you feel like coding yourself, see <a href='https://github.com/nupic-community/nostradamIQ/tree/master/nostradamIQ-webapp' target='_blank'>our source-code</a> and <a href='https://github.com/nupic-community/nostradamIQ/pulls' target='_blank'>make a PR!</a></p>
                 </div> <!-- #give-data -->
             </div> <!-- segment -->
 
@@ -450,11 +457,12 @@
   <script type="text/javascript" src="lib/js/nostradamiq-layers.js?v9005"></script>
   <script type="text/javascript" src="lib/js/nostradamiq-menu.js?v9005"></script>
 
-  <!-- START PRELOAD -->
+<!-- START PRELOAD -->
   <script type="text/javascript">
-     $(window).load(function() {
+    $(window).load(function() {
       setTimeout(hidePreload, 1000);
-  });
+    });
+
   </script>
 <!-- END PRELOAD -->
 
