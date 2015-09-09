@@ -1023,12 +1023,12 @@ $('.tab .menu .item').tab({
 
 /* ----------------------------- SOCIAL ----------------------------- */
 
-/*
+
 $('.share-tab').one('click', function () {
     $('#share').addClass('panel-share');
     $('head').append('<script type="text/javascript">var switchTo5x=true;</script><script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher: "709fb5b5-5b4a-4b63-b4b4-0a88e5bbed79", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>');
 });
-*/
+
 
 var chatOn = false;
 function toggleChat() {
@@ -1107,26 +1107,6 @@ $('.sun-control').toggle(
   function () { hideSun(); $(this).removeClass('active'); }
 );
 
-/* ----------------------------- LEGEND ----------------------------- */
-
-// TODO NOT WORKING!
-/*
-
-var legendOn = false;
-function toggleLegend() {
-  if (legendOn) { // Hide Legend
-    $('#legend').html('');
-    $('.legend-title').html('<i class="info icon"></i>SHOW LEGEND');
-    legend0n = false;
-  } else { // Show Legend
-    $('#legend').html('<i class="play icon"></i> =&nbsp;&nbsp;&nbsp;Load Layer<br><i class="folder icon"></i> =&nbsp;&nbsp;&nbsp;Toggle Layer Details<br><i class="play icon new-layer"></i> =&nbsp;&nbsp;&nbsp;New Layer!<br><i class="play icon large-layer"></i> =&nbsp;&nbsp;&nbsp;Warning, Large Layer - High-performance processor required, may crash weaker systems<br><p class="instruct">Bottom Menu</p><i class="trash icon"></i> =&nbsp;&nbsp;&nbsp;Clear Globe. Remove all layers<br><i class="clock icon"></i> =&nbsp;&nbsp;&nbsp;Toggle timeline<br><i class="sun icon"></i> =&nbsp;&nbsp;&nbsp;Toggle Sun<br><i class="share alternate icon"></i> =&nbsp;&nbsp;&nbsp;Generate URL to share all currently active layers<br><i class="compress icon"></i> =&nbsp;&nbsp;&nbsp;Collapse layer category list<br><i class="chevron up icon"></i> =&nbsp;&nbsp;&nbsp;Scroll to menu top<br><i class="close icon"></i> =&nbsp;&nbsp;&nbsp;Close this menu<br>');
-    $('.legend-title').html('<i class="info icon"></i>HIDE LEGEND! :)');
-    legendOn = true;
-  }
-}
-$('.legend-title').click(toggleLegend);
-
-*/
 
 /* ----------------------------- TIMEZONES ----------------------------- */
 /* TODO: Show timezones like Sunlight
@@ -1247,10 +1227,19 @@ function showStars(show) {
           positiveZ : '/webapp/lib/cesium/cesium-assets/stars/TychoSkymapII.t3_08192x04096/TychoSkymapII.t3_08192x04096_80_pz.jpg',
           negativeZ : '/webapp/lib/cesium/cesium-assets/stars/TychoSkymapII.t3_08192x04096/TychoSkymapII.t3_08192x04096_80_mz.jpg'
         },
-        show : true
-    });
+        show: true
+      });
+      if (!viewer.sceene.moon) {
+        viewer.scene.moon = new Cesium.Moon({ 
+          textureUrl: '/webapp/lib/cesium/Cesium/Assets/Textures/moonSmall.jpg', 
+          onlySunLightning: false 
+        });
+      }
     } else {
       viewer.scene.skyBox.show = false;
+      if (viewer.scene.moon) {
+        viewer.scene.moon = null;
+      }
     }
 }
 var showSkyBox = true;
@@ -1277,7 +1266,6 @@ function toggleTimeline(show) {
 $('.toggle-timeline').click(function () {
   toggleTimeline();
 });
-
 
 var rightSidebar = $('.toolbar');
 var controls = $('.cv-toolbar');
