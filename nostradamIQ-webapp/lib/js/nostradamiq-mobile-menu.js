@@ -1,7 +1,7 @@
 "use strict";
 
 // Set web root url
-var homeURL = window.location.protocol + "//" + window.location.host + "/";  // production
+var homeURL = window.location.protocol + "//" + window.location.host + "/webapp/";  // production
 var proxyURL = 'http://climateviewer.net/netj1/proxy';  // production
 //var proxyURL = 'http://localhost:8080/proxy';  // local
 //var proxyURL = 'kmz.php';  // dev
@@ -38,7 +38,7 @@ function loaded(layerId) {
 function loadError(layerId, geoDataSrc, error) {
   console.log('loading ' + layerId + ' failed: ' + error);
   var target = $('#' + layerId);
-  $('<div class="ui card layer-sliders" style="display:block"><div class="content"><div class="ui divided list"><div class="item"><i class="circular inverted warning icon"></i><div class="content"><div class="header">Load Failed</div>Please use <a href="mailto:jim@climateviewer.com?subject=Climate Viewer broken link - ' + layerId + '&amp;body=Unfortunately this ( ' + geoDataSrc + ' ) URL is not working properly due to ( ' + error + ' ), please look into it.  Sent from http://climateviewer.net/">this link</a> to report this error.<br><br><strong>ERROR:</strong> ' + error + '</div></div></div></div>').appendTo(target);
+  $('<div class="ui card layer-sliders" style="display:block"><div class="content"><div class="ui divided list"><div class="item"><i class="circular inverted warning icon"></i><div class="content"><div class="header">Load Failed</div>Please use <a href="mailto:info@nostradamiq.org?subject=nostradamIQ broken link in Webapp - ' + layerId + '&amp;body=Unfortunately this ( ' + geoDataSrc + ' ) URL is not working properly due to ( ' + error + ' ), please look into it.">this link</a> to report this error. Please include your Browser and OS-Version:<br><br><strong>ERROR:</strong> ' + error + '</div></div></div></div>').appendTo(target);
     var icon = $('.' + layerId + '-load');
     var span = $('#' + layerId + ' span');
     icon.removeClass('spinner loading').addClass('close fail');
@@ -717,18 +717,18 @@ $('.tab .menu .item').tab({
 // SOCIAL PANEL
 $('.share-tab').one('click', function () {
     // load comments
-    $('#comments').html("<div id='disqus_thread'></div><script type='text/javascript'> var disqus_shortname = 'climateviewer3d';var disqus_url = 'http://climateviewer.net/'; (function() { var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true; dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js'; (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); })();</script>").addClass('panel-comments');
+    $('#comments').html("<div id='disqus_thread'></div><script type='text/javascript'> var disqus_shortname = 'nostradamiq';var disqus_url = 'https://nostradamiq.org/webapp/'; (function() { var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true; dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js'; (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); })();</script>").addClass('panel-comments');
     // load shareThis
     $('#share').addClass('panel-share');
-    $('head').append('<script type="text/javascript">var switchTo5x=true;</script><script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher: "919e0e68-8cf4-433f-b1ac-049584a0a9f5", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>');
+    $('head').append('<script type="text/javascript">var switchTo5x=true;</script><script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher: "709fb5b5-5b4a-4b63-b4b4-0a88e5bbed79", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>');
 });
 $('.chat-title').one("click", function () {
-    $('#chat').html('<iframe src="http://tlk.io/cvnews" class="container-fluid chat-iframe" style="height:600px"></iframe>');
-    $('.chat-title').html('<i class="comments outline icon"></i>Happy Chatting');
+    $('#chat').html('<iframe src="http://tlk.io/nostradamiq" class="container-fluid chat-iframe" style="height:600px"></iframe>');
+    $('.chat-title').html('<i class="comments outline icon"></i> Happy Chatting');
 });
 
 $('.3d-tab').one('click', function () {
-    window.location = homeURL + 'globe/';
+    window.location = 'http://nostradamiq.org/webapp' // homeURL + 'index.html';
 });
 
 

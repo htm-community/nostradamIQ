@@ -1036,7 +1036,7 @@ $('.tab .menu .item').tab({
 
 $('.share-tab').one('click', function () {
     $('#share').addClass('panel-share');
-    $('head').append('<script type="text/javascript">var switchTo5x=true;</script><script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher: "709fb5b5-5b4a-4b63-b4b4-0a88e5bbed79", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>');
+    $('head').append('<script type="text/javascript">var switchTo5x=true;</script><script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher: "709fb5b5-5b4a-4b63-b4b4-0a88e5bbed79", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>');
 });
 
 
@@ -1062,6 +1062,7 @@ function toggleComments() {
     comment0n = false;
   } else { // Show Comments
     $('#comments').html("<div id='disqus_thread'></div><script type='text/javascript'>var disqus_shortname = 'nostradamiq'; (function() { var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true; dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js'; (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); })();</script>").addClass('panel-comments');
+    //$('#comments').html("<div id='disqus_thread'></div><script type='text/javascript'> var disqus_shortname = 'nostradamiq';var disqus_url = 'https://nostradamiq.org/webapp/'; (function() { var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true; dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js'; (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); })();</script>").addClass('panel-comments');
     $('.chat-title').html('<i class="comments icon"></i> WHAT DO YOU THINK?');
     commentOn = true;
   }
