@@ -314,6 +314,14 @@ function loadOsmLayer(layerId, geoDataSrc) {
     loadSliders(src, layerId);
 }
 
+function loadArcGisLayer(layerId, geoDataSrc) {
+    var src = viewer.imageryLayers.addImageryProvider(new Cesium.ArcGisMapServerImageryProvider({
+            url: '//services.arcgisonline.com/ArcGIS/rest/services/' + geoDataSrc + '/MapServer'
+        }));
+    activeLayers[layerId] = src;
+    loadSliders(src, layerId);
+}
+
 function loadGeoJson2(layerId, geoDataSrc, proxy, markerScale, markerImg, markerColor, zoom) {
     console.log('load geojson');
     if (proxy) {
@@ -644,6 +652,8 @@ function updateLayer(layerId) {
             loadGeoJson(layerId, geoDataSrc, proxy, markerLabel, markerScale, markerImg, markerColor, zoom);
         } else if (l.T === ("kml")) {
             loadKml(layerId, geoDataSrc, proxy, zoom, markerImg, markerScale, markerLabel, markerColor, markerMod);
+        } else if (l.T === ("arcgis")) {
+            loadArcGisLayer(layerId, geoDataSrc);
         } else if (l.T === ("czml")) {
             loadCzml(layerId, geoDataSrc, proxy, zoom, markerImg, markerScale, markerLabel, markerColor, markerMod);
         } else if (l.T === ("link")) {

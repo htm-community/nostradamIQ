@@ -246,6 +246,7 @@ function loadOsmLayer(layerId, geoDataSrc) {
     activeLayers[layerId] = baseLayerGroup;
     loadSliders(src, layerId);
 }
+
 function loadArcGisLayer(layerId, geoDataSrc) {
     var baseLayerGroup = new L.LayerGroup();
     var src = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/' + geoDataSrc + '/MapServer/tile/{z}/{y}/{x}', {
