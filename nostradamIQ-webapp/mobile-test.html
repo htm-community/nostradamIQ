@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-  <title>nostradamIQ | sensing our World's disasters.</title>
+  <title>Climate Viewer Mobile | Global Alert System</title>
   <meta charset="utf-8">
   <base target="_blank">
   <!-- Tell IE to use the latest, best version (or Chrome Frame if pre-IE11). -->
@@ -29,37 +29,17 @@
   <meta name="description" content="nostradamIQ amis to provide you with visually attractive, intuitive insight about Our Worlds current, past and future disasters! Powered by Free, Open-Source and Cutting-Edge Technology." />
   <meta name="keywords" content="nostradamIQ, climate change, disaster awareness, alerts, forcasting, nowcasting, disaster tracker, disaster evaluation, education, awareness, collaboration, nature, machine learning, cv3d, climateviewer, natural catastrophes, disasters, 3D, globe, cesiumjs" />
 
+  <link href="./lib/leaflet/v1.0b1/leaflet.css" rel='stylesheet' type='text/css'/>
+  <link href="./lib/semantic-ui/2.0.8/semantic.min.css" rel='stylesheet' type='text/css' />
+  <link href="./lib/css/nostradamiq-mobile.css?v9001" rel='stylesheet' type='text/css' />
 
-  <link href="../lib/leaflet/v1.0b1/leaflet.css" rel='stylesheet' type='text/css'/>
-  <link href="../lib/leaflet/Leaflet-IconLayers-master/src/iconLayers.css" rel="stylesheet" type='text/css'/>
-  <link href="../lib/semantic-ui/2.0.8/semantic.min.css" rel='stylesheet' type='text/css' />
-  <link href="./nostradamiq-mobile.css?v9001" rel='stylesheet' type='text/css' />
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="./img/apple-touch-icon-144-precomposed.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="./img/apple-touch-icon-114-precomposed.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="./img/apple-touch-icon-72-precomposed.png" />
+  <link rel="apple-touch-icon-precomposed" href="./img/apple-touch-icon-57-precomposed.png" />
 
-  <link rel="shortcut icon" href="../img/favicon.ico?v=2" />
-  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="../img/apple-touch-icon-57x57.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../img/apple-touch-icon-114x114.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../img/apple-touch-icon-72x72.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../img/apple-touch-icon-144x144.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="60x60" href="../img/apple-touch-icon-60x60.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="../img/apple-touch-icon-120x120.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="76x76" href="../img/apple-touch-icon-76x76.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../img/apple-touch-icon-152x152.png" />
-  <link rel="icon" type="image/png" href="../img/favicon-196x196.png" sizes="196x196" />
-  <link rel="icon" type="image/png" href="../img/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/png" href="../img/favicon-64x64.png" sizes="64x64" />
-  <link rel="icon" type="image/png" href="../img/favicon-48x48.png" sizes="48x48" />
-  <link rel="icon" type="image/png" href="../img/favicon-32x32.png" sizes="32x32" />
-  <link rel="icon" type="image/png" href="../img/favicon-24x24.png" sizes="24x24" />
-  <link rel="icon" type="image/png" href="../img/favicon-16x16.png" sizes="16x16" />
-  <link rel="icon" type="image/png" href="../img/favicon-128x128.png" sizes="128x128" />
-  <meta name="msapplication-square70x70logo" content="../img/mstile-70x70.png" />
-  <meta name="msapplication-square150x150logo" content="../img/mstile-150x150.png" />
-  <meta name="msapplication-wide310x150logo" content="../img/mstile-310x150.png" />
-  <meta name="msapplication-square310x310logo" content="../img/mstile-310x310.png" />
-  <meta name="application-name" content="nostradamIQ"/>
-  <meta name="msapplication-TileColor" content="#e3000b"/>
-
-  <meta name="theme-color" content="#111111"> <!-- Chrome Android -->
+  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
 </head>
  
 <body>
@@ -67,7 +47,7 @@
   <div class="ui large feed cv3d noselect">
       <div class="event">
           <div class="label">
-              <img src="//nostradamiq.org/img/favicon-96x96.png">
+              <img src="http://climateviewer.net/img/cv3d-red.png">
           </div>
           <div class="content">
               <div class="summary"><a href="http://climateviewer.net/">nostradamIQ</a><br><span class="slogan">snsing our World's disasters.</span></div>
@@ -88,6 +68,7 @@
           <span>ZOOM</span>
       </button>
   </div>
+
   <div class="toolbar">
     <div class="toolbar-contents">
       <div class="tabmenu-body ui top attached">
@@ -96,8 +77,8 @@
             <!-- Nav tabs -->
             <div class="ui top attached tabular menu">
               <a class="active item" data-tab="layers">Layers</a>
-              <a class="item" data-tab="base">Globe</a>
               <a class="item share-tab" data-tab="share">Share</a>
+              <a class="item 3d-tab">Switch to 3D</a>
               <a class="item" data-tab="about">About</a>
             </div>
             <!-- Tab panes -->
@@ -105,31 +86,6 @@
               <p class="instruct">Choose Category</p>
               <!-- Build Layer Tree -->
               <div id="map-layers" class="map-layers"></div>
-              <p class="instruct">Search</p>
-              <div class="search"></div>
-              <p class="do-legend instruct">Legend <span>(Click to expand)</span></p>
-              <div class="legend">
-                <i class="play icon"></i> =&nbsp;&nbsp;&nbsp;Load Layer<br>
-                <i class="folder icon"></i> =&nbsp;&nbsp;&nbsp;Toggle Layer Details<br>
-                <i class="play icon new-layer"></i> =&nbsp;&nbsp;&nbsp;New Layer!<br>
-                <i class="play icon large-layer"></i> =&nbsp;&nbsp;&nbsp;Warning, Large Layer - High-performance processor required, may crash weaker systems<br>
-                <p class="instruct">Bottom Menu</p>
-                <i class="trash icon"></i> =&nbsp;&nbsp;&nbsp;Clear Globe. Remove all layers<br>
-                <i class="clock icon"></i> =&nbsp;&nbsp;&nbsp;Toggle timeline<br>
-                <i class="sun icon"></i> =&nbsp;&nbsp;&nbsp;Toggle Sun<br>
-                <i class="share alternate icon"></i> =&nbsp;&nbsp;&nbsp;Generate URL to share all currently active layers<br>
-                <i class="compress icon"></i> =&nbsp;&nbsp;&nbsp;Collapse layer category list<br>
-                <i class="chevron up icon"></i> =&nbsp;&nbsp;&nbsp;Scroll to menu top<br>
-                <i class="close icon"></i> =&nbsp;&nbsp;&nbsp;Close this menu<br>
-              </div>
-            </div> <!-- segment -->
-            <div id="base" class="ui bottom attached tab segment" data-tab="base">
-              <p class="instruct">Map Mode</p>
-              <div class="ui three cv-button-group buttons">
-                <div class="ui button cv-button mode-3d">3D</div>
-                <div class="ui button cv-button mode-2d">2D</div>
-                <div class="ui button cv-button mode-flat-earth">Flat Earth</div>
-              </div>
             </div> <!-- segment -->
             <div class="ui bottom attached tab segment share-container" data-tab="share">
                 <h3>
@@ -151,35 +107,41 @@
                 <div id="comments"></div> <!-- #comments -->
             </div> <!-- segment -->
             <div class="ui bottom attached tab segment about-container" data-tab="about">
-              <h3><span style="color:#FFF">About Climate Viewer</span> 3D</h3>
-              <p>Created by <strong><a href="http://climateviewer.com/rezn8d/" title="climateviewer.com/rezn8d">Jim &quot;rezn8d&quot; Lee</a></strong> and provided by <a href="http://climateviewer.com/"><strong>Climate Viewer News</strong></a> as a free public service.</p><p>Know how to code and want to help make Climate Viewer Mobile better? <a href="https://github.com/rezn8d/climateviewer" target="_blank">Join us on Github.</a></p>
+              <h3><span style="color:#FFF">About nostradam</span>IQ</h3>
+              <p>Provided by <a href="//nostradamiq.org/" target="_blank"><strong>nostradam<i>IQ</i></strong></a>
+               as a free public service for a better World.</p><p>Know how to code? Make <a href="https://github.com/nupic-community/nostradamIQ" target="_blank"><strong>nostradamIQ</strong></a> better!</p>
               <div style="padding:20px 0"></div>
               <h4>Open-Source Technologies</h4>
               <ul>
-                <li><a href="https://github.com/rezn8d/climateviewer" target="_blank" rel="nofollow">Climate Viewer</a></li>
+                <li><a href="//cesiumjs.org/" target="_blank" rel="nofollow">Cesium</a> </li>
                 <li><a href="http://leafletjs.com/" target="_blank" rel="nofollow">Leaflet 1.0 beta 1</a></li>
-                <li><a href="https://github.com/mapbox/leaflet-omnivore" target="_blank" rel="nofollow">Omnivore v0.2.0</a></li>
-                <li><a href="https://github.com/ScanEx/Leaflet-IconLayers" target="_blank" rel="nofollow">Leaflet IconLayers</a></li>
-                <li><a href="https://github.com/lvoogdt/Leaflet.awesome-markers" target="_blank" rel="nofollow">Leaflet Awesome Markers</a></li>
-                <li><a href="http://jquery.com/" target="_blank" rel="nofollow">jQuery 2.1.1</a></li>
-                <li><a href="http://semantic-ui.com/" target="_blank" rel="nofollow">Semantic UI 2.0.8</a></li>
-                <li><a href="https://lodash.com/" target="_blank" rel="nofollow">lodash 3.9.3</a></li>
-                <li><a href="http://amsul.github.io/pickadate.js" target="_blank" rel="nofollow">pickadate.js v3.5.6</a></li>
+                <li><a href="https://github.com/brunob/leaflet.fullscreen" target="_blank" rel="nofollow">leaflet.fullscreen</a></li>
+                <li><a href="https://github.com/opie/leaflet-plugins" target="_blank" rel="nofollow">KMZ Leaflet Plugin</a></li>
+                <li><a href="//jquery.com/" target="_blank" rel="nofollow">jQuery 2.1.1</a></li>
+                <li><a href="//jqueryui.com/" target="_blank" rel="nofollow">jQuery-UI v1.11.4</a></li>
+                <li><a href="//d3js.org/" target="_blank" rel="nofollow" class="dl3-demo-toggle">D3.js</a></li>
+                <li><a href="//semantic-ui.com/" target="_blank" rel="nofollow">Semantic UI 2.0</a></li>
+                <li><a href="//amsul.github.io/pickadate.js" target="_blank" rel="nofollow">pickadate.js v3.5.6</a></li>
+                <li><a href="//www.tweepy.org/" target="_blank" rel="nofollow">Tweepy</a></li>
+                <li><a href="//fortawesome.github.io/Font-Awesome/" target="_blank" rel="nofollow">Font Awesome 4.3.0</a></li>
+                <li><a href="//numenta.org" target="_blank" rel="nofollow">NuPIC</a></li>
+                <li><a href="https://github.com/rezn8d/climateviewer" target="_blank" rel="nofollow">Climate-Viewer</a></li>
               </ul>
-              <div style="padding:10px 0"></div>
+              <div style="padding:20px 0"></div>
               <h4>Support Us</h4>
-              <p>This website was made possible by <strong><a target="_blank" rel="nofollow" href="http://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=A6YC74NZDAYM2&amp;item_number=CV3D" title="Paypal link">donations from caring individuals like you!</a></strong> Thank you for your support.</p>
-              <div style="padding:10px 0"></div>
-
-              <h5><strong>&copy; <a href="http://climateviewer.com/rezn8d/" title="climateviewer.com/rezn8d">Jim Lee</a> of <a style='text-decoration:none' title='Climate Viewer Mobile' href="http://climateviewer.com/terms/">Climate Viewer News</a>&nbsp;2011-<script type="text/javascript">today=new Date(); year=today.getYear(); if (year<1999) {year=year+1900;} document.write(year);</script></strong></h5>
+              <p>This service is made possible by <strong><a target="_blank" rel="nofollow" href="//www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JH4BWPHA326TL" title="PayPal Link">donations from caring individuals like you!</a></strong><br>
+              <a  rel="nofollow" href="//www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JH4BWPHA326TL" class="btn btn-default btn-lg"><i class="fa fa-paypal fa-fw" title="PayPal Link"></i> <span class="network-name">Donate</span></a><br>
+              Thank you for your support. <i class="fa fa-heart fa-fw"></i></p>
+              <p>Do you know some nice sources for Geo-Data? Do you have any? We can help you in conversion etc. But Data in geoJSON, KML, CZML and other geo-ready formats are preffered! We would love to <a href="mailto:info@nostradamiq.org">hear suggestions from you</a>!</p>
+              
+              <h5><strong><i class="fa fa-copyright fa-fw"></i><a style='text-decoration:none' title='nostradamIQ' href="//nostradamiq.org/terms_of_service.html">nostradamIQ</a>&nbsp;2015-<script type="text/javascript">today=new Date(); year=today.getYear(); if (year<1999) {year=year+1900;} document.write(year);</script></strong></h5> 
+              <p><a href="//nostradamiq.org/terms_of_service.html">Terms of Service</a></p>
             </div> <!-- about -->
           </div> <!-- segment -->
         </div> <!-- tab -->
       </div> <!-- tabmenu-body -->
-      <div class="tabmenu-footer ui seven cv-button-group bottom attached buttons">
+      <div class="tabmenu-footer ui five cv-button-group bottom attached buttons">
           <div title="Remove all layers from globe" class="ui button cv-button clear-layers"><i class="trash icon"></i></div>
-          <div title="Toggle the timeline" class="ui button cv-button toggle-timeline"><i class="clock icon"></i></div>
-          <div title="Toggle lighting (Sunlight, Day, Night)" class="ui button cv-button sun-control"><i class="sun icon"></i></div>
           <div title="Share active layers" class="ui button cv-button share-active-layers"><i class="share alternate icon"></i></div>
           <div title="Collapse all folders" class="ui button cv-button collapse"><i class="compress icon"></i></div>
           <div title="Scroll to the top" class="ui button cv-button top-layers"><i class="chevron up icon"></i></div>
@@ -200,7 +162,7 @@
       <div class="ui header">
         <i class="circular inverted blue share alternate icon" style="color:#FFF;font-size:32px;"></i>
         <div class="content" style="padding-left:20px">
-          <a id="shareLink" class="share-all-layers" href="http://climateviewer.net/" title="My custom CV3D map"></a>
+          <a id="shareLink" class="share-all-layers" href="http://nostradamiq.org/" title="My custom nostradamIQ map" target="_self"></a>
           <div class="sub header" style="color:#DDD">Use this URL to share all currently displayed layers.</div>
         </div>
       </div>
@@ -208,46 +170,130 @@
   </div>
 </div>
 
-
 <div id="Greetz" class="ui modal">
   <i class="close icon"></i>
   <div class="header">
-     Welcome to the new Climate Viewer Mobile!
+     Welcome to nostradam<i>IQ</i>!
+  </div>
+  <div class="content">
+    <div class="description">
+          <p style="font-size:1.5em">Enter the new era of disaster awareness. <strong><a href="//nostradamiq.org">nostradamIQ</a></strong> is there!<br>
+          This service is here for You to be informed about disasters, natural &amp; man-made catastrophes. If you have questions or find bugs on this site (it's still being constructed - Ideas and such are welcome as well!), please <a href="mailto:info@nostradamiq.org">let us know!</a><br>
+          <i><b>And have fun!</b></i></p>
+          <br>
+          <h3>Frequently Asked Questions</h3>
+          <div class="ui accordion">
+            <div class="ui header title"><h4>&bull;&nbsp;&nbsp;&nbsp;How do I use nostradamIQ?</h4></div>
+            <div class="ui card content">
+              Here are some basic usage hints for you:
+              <ul>
+                <li>Click and drag to fly over the World!</li>
+                <li>Use scrolling to zoom in and out!</li>
+                <li>Click the LAYERS Menu in the top right to show or hide the layer menu!</li>
+                <li>Choose a Showcase-Analysis from the Top in the Layer-Tab to get started with some amazing data or ...</li>
+                <li>Build or refine your own Analysis by clicking on a map layer in the list to make it appear on the globe!</li>
+                <li>Click the layer again to remove it from the globe!</li>
+                <li>Choose the Layers You are intersted in, learn and see what is and has happened all over the World!</li>
+                <li>You can share Your View of the World with our sharing feature!</li>
+                <li>Feel free to chat with us in the SHARE tab about your observations as well!</li>
+                <li>If you encounter any problems, or you have any questions, ideas etc. feel free to chat with us in the chat here, or <a href="//nostradamiq.org/#contact" target="_blank">get in touch with us</a>!</li>
+                <li>EXPLORE!</li>
+              </ul>
+            </div>
+
+
+            <div class="ui header title"><h4>&bull;&nbsp;&nbsp;&nbsp;Is My Device Supported?</h4></div>
+            <div class="ui card content">
+                <h3 id="plugin">Does Cesium require an install or a plugin?</h3>
+                <p>No.  Cesium runs without an install.  It uses HTML5 standards, namely <a href="//www.khronos.org/webgl/" target="_blank">WebGL</a>, that are natively supported by browsers.</p>
+                <h3 id="browsers">What browsers are supported?</h3>
+                <p>Recent versions of Chrome, Firefox, and Internet Explorer 11 are supported and tested with every release. Safari and Opera both work as well, but are not as actively tested.</p>
+                <h3 id="OS">What operating systems are supported?</h3>
+                <p>Cesium runs on any platform with a WebGL capable browser, including Windows, Linux, OS X, Android, iOS, and Windows Phones.</p>
+                <h3 id="videoCards">What video cards are supported?</h3>
+                <p>Cesium works on any video card that supports WebGL. This includes almost all NVIDIA and AMD cards made since 2004 as well as recent Intel video cards.</p>
+                <p>To see if your video card supports WebGL, visit our <a href="//www.webglreport.com" target="_blank">WebGL Report</a>.</p>
+            </div>
+
+            <div class="ui header title"><h4>&bull;&nbsp;&nbsp;&nbsp;Why do you do this &amp; How did it begin?</h4></div>
+            <div class="ui card content">
+                <p>
+                  nostradamIQ started as a <a href="//datanauts.tedxrheinmain.de/contest-submissions/natural-catashtrophies-prediction-system/" target="_blank"><strong>TEDx-Project</strong></a>:
+                </p>
+                  <div class="videoWrapper"><iframe width="420" height="236" src="https://www.youtube-nocookie.com/embed/5eXk9V57-I0" frameborder="0" allowfullscreen></iframe></div>
+                <p>
+                  We want to make the World a save place for everyone, not just people living in nations with enough money and resources to conduct serious research in the areas of disaster prediction, reporting and education. This was motivated by the disruptive <a href="https://en.wikipedia.org/wiki/April_2015_Nepal_earthquake" target="_blank">earthquake in Nepal (April 2015)</a>, as the <a href="https://thenib.com/voices-from-nepal-8d93059a142b" target="_blank">most reported</a> problem by victims there was either that they had <strong>no idea about what to do</strong>, or <strong>no clue about what was coming</strong> and therefore were <strong>not properly prepared</strong>.<br>
+                  We belive that this has not to be the case nowadays and want to build a global tool for <a href="nostradamiq.org/#about" target="_blank">disaster awareness, education and  forcasting</a>. This should be done on a global basis by using <a href="//numenta.org" target="_blank">NuPIC</a> to find anomalies in sensory and social data and then using sophisitcated Machine Learning algorithms to train Models for evaluating the likelihood of disasters, so that people can be better prepared at the right time! <br>
+                  To make this a reality, we need <a href="//nostradamiq.org/#help"><strong>YOUR HELP!</strong></a>
+                  This service is made possible by <strong><a target="_blank" rel="nofollow" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JH4BWPHA326TL" title="PayPal Link">donations from caring individuals like you!</a></strong><br>
+                  <a  rel="nofollow" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JH4BWPHA326TL" class="btn btn-default btn-lg"><i class="fa fa-paypal fa-fw" title="PayPal Link"></i> <span class="network-name">Donate</span></a><br>
+                  <b><i>Thank you for your support.</i></b><i class="fa fa-heart fa-fw"></i>
+                </p>
+            </div>
+
+            <div class="ui header title"><h4>&bull;&nbsp;&nbsp;&nbsp;How Can I Help?</h4></div>
+            <div class="ui card content">
+                <p>
+                  Please see <a href="//nostradamiq.org/#help"><strong>our Landingpage for more information!</strong></a><br>
+                  Do <strong>YOU</strong> know how to code? Help us make <a href="https://github.com/nupic-community/nostradamIQ" target="_blank">nostradamIQ</a> 
+                  better!<br>
+                   Please also consider <strong><a target="_blank" rel="nofollow" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JH4BWPHA326TL" title="PayPal Link">helping us to pay for resources!</a></strong><br>
+                   <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JH4BWPHA326TL" target="_blank"  rel="nofollow" class="btn btn-default btn-lg" title="PayPal Link"><i class="fa fa-paypal fa-fw"></i> <span class="network-name">Donate</span></a><br>
+                  <b><i>Thank you for your support.</i></b><i class="fa fa-heart fa-fw"></i><br>
+                  Do you know some nice sources for Geo-Data? Do you have any? We can help you in conversion etc. Data in geoJSON, KML, CZML and other geo-ready formats are preffered! We would love to 
+                  <a href='mailto:info@nostradamiq.org?subject=nostradamIQ%20Data%20Suggestion&amp;body=I%20have%20some%20cool%20Data%20for%20you%20to%20include%20in%20nostradamIQ!%0D%0A%0D%0AFormat:%20%0D%0A%0D%0ASource:%20%0D%0A(If%20not%20an%20online%20source,%20please%20attach%20the%20data!)%0D%0A%0D%0AWhy%20is%20this%20interesting?%20%0D%0A%0D%0ASuggested%20Name:%20%0D%0A%0D%0AOrigin%20to%20be%20credited:%20%0D%0A%0D%0A' target="_top">hear suggestions from you!</a>
+                </p>
+            </div>
+        </div>
+        <h5><strong><i class="fa fa-copyright fa-fw"></i><a style='text-decoration:none' title="Terms" href="//nostradamiq.org/terms_of_service.html">nostradamIQ</a>&nbsp;2015-<script type="text/javascript">today=new Date(); year=today.getYear(); if (year<1999) {year=year+1900;} document.write(year);</script></strong></h5>
+      </div>
+  </div>
+  <div class="actions">
+    <div class="three fluid ui inverted buttons">
+      <div class="ui green basic inverted button share-modal">
+        <i class="options icon"></i>
+        SHOW MENU
+      </div>
+      <div class="ui red basic inverted button">
+        <a  rel="nofollow" href="//nostradamiq.org/#help" class="btn btn-default btn-lg"><i class="fa fa-heart fa-fw" title="Join Us Link"></i> <span class="network-name">BE A PART OF IT!</span></a>
+      </div>
+      <div class="ui blue basic inverted button close-Greeting">
+        <i class="fa fa-check fa-fw"></i>
+        GET STARTED!
+      </div>
+    </div>
+  </div>
+
+
+<!--
+<div id="Greetz" class="ui modal">
+  <i class="close icon"></i>
+  <div class="header">
+     Welcome to the new Climate Viewer!
   </div>
   <div class="content">
       <p style="font-size:1.1rem">Climate Viewer Mobile's live updates on severe weather, earthquakes, fires, and other life-threatening events will give you peace of mind in one all-inclusive app. With cutting-edge technology, real-time situational awareness, and a visual tour of our planetary health risks, look no further.  We have you covered, <span style="color:#FF7214" class="share-modal">spread the word!</span>  This website is under construction, please <a href="mailto:jim@climateviewer.com">report any issues</a> and have fun! Knowing is half the battle.</p>
       <br>
-      <h3 style="margin-top:0;">Frequently Asked Questions</h3>
       <div class="ui accordion">
-        <div class="ui header title do-video"><h4>&bull;&nbsp;&nbsp;&nbsp;How do I use this thing?</h4></div>
+        <div class="ui header title do-video"><h3>&bull;&nbsp;&nbsp;&nbsp;Instructions (click here)</h3></div>
         <div class="ui card content do-video-div">
-          Click the LAYERS Menu in the top right to show or hide the layer menu, then click on a map layer in the list to make it appear on the globe.  Click the layer again to remove it from the globe.  For more information, <a href="https://www.youtube.com/watch?v=Gxqqsy4Gvqs" target="_blank" rel="nofollow">Watch the Video on YouTube</a>.<br><br>
+          <p>Layer Controls</p>
+          <i class="play icon"></i> =&nbsp;&nbsp;&nbsp;Load Layer<br>
+          <i class="folder icon"></i> =&nbsp;&nbsp;&nbsp;Show Layer Details<br>
+          <i class="play icon new-layer"></i> =&nbsp;&nbsp;&nbsp;New Layer!<br><br>
+          <p>Layer Toolbar Bottom Menu</p>
+          <i class="trash icon"></i> =&nbsp;&nbsp;&nbsp;Clear Map. Remove all layers<br>
+          <i class="share alternate icon"></i> =&nbsp;&nbsp;&nbsp;Generate URL to share all currently active layers<br>
+          <i class="compress icon"></i> =&nbsp;&nbsp;&nbsp;Collapse layer category list<br>
+          <i class="chevron up icon"></i> =&nbsp;&nbsp;&nbsp;Scroll to menu top<br>
+          <i class="close icon"></i> =&nbsp;&nbsp;&nbsp;Close Layer Toolbar<br><br>
+          <p>Click the LAYERS Menu in the top right to show or hide the layer menu, then click on a map layer in the list to make it appear on the globe.  Click the layer again to remove it from the map.  For more information, <a href="https://www.youtube.com/watch?v=Gxqqsy4Gvqs" target="_blank" rel="nofollow">watch this video on YouTube</a>.</p>
         </div>
 
-
-        <div class="ui header title"><h4>&bull;&nbsp;&nbsp;&nbsp;Is My Device Supported?</h4></div>
+        <div class="ui header title"><h3>&bull;&nbsp;&nbsp;&nbsp;How Can I Help?</h3></div>
         <div class="ui card content">
-            <h3 id="plugin">Does Cesium require an install or a plugin?</h3>
-            <p>No.  Cesium runs without an install.  It uses HTML5 standards, namely <a href="http://www.khronos.org/webgl/" target="_blank">WebGL</a>, that are natively supported by browsers.</p>
-            <h3 id="browsers">What browsers are supported?</h3>
-            <p>Recent versions of Chrome, Firefox, and Internet Explorer 11 are supported and tested with every release. Safari and Opera both work as well, but are not as actively tested.</p>
-            <h3 id="OS">What operating systems are supported?</h3>
-            <p>Cesium runs on any platform with a WebGL capable browser, including Windows, Linux, OS X, Android, iOS, and Windows Phone.</p>
-            <h3 id="videoCards">What video cards are supported?</h3>
-            <p>Cesium works on any video card that supports WebGL. This includes almost all NVIDIA and AMD cards made since 2004 as well as recent Intel video cards.</p>
-            <p>To see if your video card supports WebGL, visit our <a href="http://www.webglreport.com" target="_blank">WebGL Report</a>.</p>
-        </div>
-
-        <div class="ui header title"><h4>&bull;&nbsp;&nbsp;&nbsp;Goodbye Google Earth?</h4></div>
-        <div class="ui card content">
-            <p>With the blocking of NPAPI, our Google Earth powered CV3D is now dead.  You can still check out the <a href="https://www.youtube.com/watch?v=_nnuN4ZqfxI">old version of Climate Viewer Mobile</a> here or read all about our conversion from the GE plugin to Cesium!</p>
-            <p><strong><a href="http://climateviewer.com/2014/12/28/death-google-earth-climate-viewer-3d/">The Death of Google Earth and Climate Viewer Mobile</a></strong></p>
-        </div>
-
-        <div class="ui header title"><h4>&bull;&nbsp;&nbsp;&nbsp;How Can I Help?</h4></div>
-        <div class="ui card content">
-            <p>Know how to code and want to help make Climate Viewer Mobile better? <a href="https://github.com/rezn8d/climateviewer" target="_blank">Join us on Github.</a></p>
-            <p>This website was made possible by <strong><a target="_blank" rel="nofollow" href="http://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=A6YC74NZDAYM2&amp;item_number=CV3D" title="Paypal link">donations</a> from caring individuals like you!</strong> Thank you for your support!</p>
+            <p>Know how to code and want to help make Climate Viewer better? <a href="https://github.com/rezn8d/climateviewer" target="_blank">Join us on Github.</a></p>
+            <p>This website was made possible by <strong><a target="_blank" rel="nofollow" href="http://www.gofundme.com/climateviewer" title="GoFundMe link">donations</a> from caring individuals like you!</strong> Thank you for your support!</p>
         </div>
       </div>
   </div>
@@ -264,23 +310,25 @@
     </div>
   </div>
 </div>
+-->
 
-  <script type="text/javascript" src="../lib/graphlib/graphlib.min.js"></script>
-  <script type="text/javascript" src="../lib/js/nobject.js?v9001"></script>
+  <script type="text/javascript" src="./lib/graphlib/graphlib.min.js"></script>
+  <script type="text/javascript" src="./lib/nobject.js?v9001"></script>
 
-  <script type="text/javascript" src="../lib/jquery-2.1.3/jquery-2.1.3.min.js"></script>
-  <script type="text/javascript" src="../lib/jquery-migrate-1.2.1/jquery-migrate.min.js"></script>
-  <script type="text/javascript" src="../lib/semantic-ui/2.0.8/semantic.min.js"></script> 
-  <script type="text/javascript" src="../lib/lodash/lodash.min.js"></script>
-  <script type="text/javascript" src="../lib/pickadate-3.5.6/combined.js"></script>
+  <script type="text/javascript" src="./lib/jquery-2.1.3/jquery-2.1.3.min.js"></script>
+  <script type="text/javascript" src="./lib/jquery-migrate-1.2.1/jquery-migrate.min.js"></script>
+  <script type="text/javascript" src="./lib/semantic-ui/2.0.8/semantic.min.js"></script> 
+  <script type="text/javascript" src="./lib/lodash/lodash.min.js"></script>
+  <script type="text/javascript" src="./lib/pickadate-3.5.6/combined.js"></script>
 
-  <script type="text/javascript" src="../lib/leaflet/v1.0b1/leaflet.js"></script>
-  <script type="text/javascript" src="../lib/leaflet/Leaflet-IconLayers-master/src/iconLayers.js"></script>
+  <script type="text/javascript" src="./lib/leaflet/v1.0b1/leaflet.js"></script>
+  <script type="text/javascript" src="./lib/leaflet/leaflet-plugins-KMZ/layer/vector/KML.js"></script>
+  <script type="text/javascript" src="./lib/leaflet/leaflet-plugins-KMZ/layer/vector/KMZ.js"></script>
+  <script type="text/javascript" src="./lib/zip/zip.js"></script>
 
-  <script type="text/javascript" src="../lib/js/nostradamiq-layers.js?v9001"></script>
-  <script type="text/javascript" src="./nostradamiq-mobile.js?v9001"></script>
-  <script type="text/javascript" src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
-  <script type="text/javascript" src="./nostradamiq-mobile-menu.js?v9001"></script>
+  <script type="text/javascript" src="./lib/js/nostradamiq-mobile.js?v9001"></script>
+  <script type="text/javascript" src="./lib/js/nostradamiq-layers.js?v9001"></script>
+  <script type="text/javascript" src="./lib/js/nostradamiq-mobile-menu.js?v9001"></script>
 
 </body>
 </html>
