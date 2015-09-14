@@ -1229,7 +1229,7 @@ function showStars(show) {
         },
         show: true
       });
-      if (!viewer.sceene.moon) {
+      if (!viewer.scene.moon) {
         viewer.scene.moon = new Cesium.Moon({ 
           textureUrl: '/webapp/lib/cesium/Cesium/Assets/Textures/moonSmall.jpg', 
           onlySunLightning: false 
