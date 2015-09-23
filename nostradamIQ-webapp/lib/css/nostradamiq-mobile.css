@@ -168,6 +168,38 @@ div.slider-group-label {
 	margin:0 0 7px;
 }
 
+div.legend {
+    color: #EEE;
+    background:#1C2226;
+    padding: 0px 4% 20px 4%;
+    overflow-x: hidden;
+    /* display: none; */
+}
+div.showcase-maps-info {
+	background:#1C2226;
+    color: #eee !important;
+	margin:0;
+	padding:10px 10px 0;
+	border-bottom: 0px;
+}
+
+div.showcase-maps {
+	background:#1C2226;
+    color: #eee !important;
+	margin:0;
+	padding:10px 0;
+	border-bottom: 0px;
+}
+
+div.showcase-maps div {
+    margin: 10px 10px;
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: 700;
+}
+
 .slider .label,.slider input[type="range"] {
 	display:inline-block;
 	float:left;
