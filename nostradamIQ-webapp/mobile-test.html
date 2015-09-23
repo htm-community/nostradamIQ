@@ -83,9 +83,27 @@
             </div>
             <!-- Tab panes -->
             <div id="layers" class="ui bottom attached active tab segment" data-tab="layers">
-              <p class="instruct">Choose Category</p>
-              <!-- Build Layer Tree -->
-              <div id="map-layers" class="map-layers"></div>
+              <p class="instruct">Choose a Showcase-Analysis</p>
+              <div id="showcase-maps" class="showcase-maps">
+                <div class="earthquake-showcase"><i class="fa fa-rss fa-fw"></i> Earthquakes</div>
+                <div class="internet-showcase"><i class="fa fa-wifi"></i> Internet Usage</div>
+                <div><i class="fa fa-hand-o-down"></i>  <a href="mailto:info@nostradamiq.org?subject=Add my Analysis to the Showcase!">YOURS?</a></div>
+              </div>
+              <p class="instruct showcase-title"><i class="fa fa-question"></i>  What is this?</p>
+              <div id="showcase-maps-info" class="showcase-maps-info">
+              </div> 
+              
+              <p class="instruct">Build your own Analysis</p>
+              <div id="map-layers" class="map-layers"><!-- Build Layer Tree -->
+              </div>
+              <!-- <div id="geolocation-window"></div> -->
+              <p onclick="getLocation()" class="instruct"><i class="fa fa-map-marker"></i>  Fly to where I am!</p>
+                <!-- <div id="searchbar1" class="cesium-viewer-geocoderContainer"></div> -->   
+              <div id="legend" class="ui bottom attached active tab segment"> 
+                <p class="instruct legend-title"><i class="fa fa-arrow-circle-down"></i>  SHOW LEGEND</p>
+                      <div id="legend-content" class="legend">
+                      </div>
+              </div>
             </div> <!-- segment -->
             <div class="ui bottom attached tab segment share-container" data-tab="share">
                 <h3>
@@ -104,7 +122,7 @@
                 </h3>
                 <div id="chat"></div> <!-- #chat -->
                 <h3>
-                  <i class='comments icon'></i> Comment
+                  <i class='comments icon'></i> COMMENT
                 </h3>
                 <div id="comments"></div> <!-- #comments -->
             </div> <!-- segment -->
@@ -164,7 +182,7 @@
       <div class="ui header">
         <i class="circular inverted blue share alternate icon" style="color:#FFF;font-size:32px;"></i>
         <div class="content" style="padding-left:20px">
-          <a id="shareLink" class="share-all-layers" href="http://nostradamiq.org/" title="My custom nostradamIQ map" target="_self"></a>
+          <a id="shareLink" class="share-all-layers" href="http://nostradamiq.org/mobile-test.html" title="My custom nostradamIQ map" target="_self"></a>
           <div class="sub header" style="color:#DDD">Use this URL to share all currently displayed layers.</div>
         </div>
       </div>

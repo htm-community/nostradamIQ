@@ -643,6 +643,23 @@ function initLayers(includeOnly) {
     });
 }
 
+/* ----------------------------- LEGEND ----------------------------- */
+
+var legendOn = false;
+function toggleLegend() {
+  if (legendOn) { // Hide info
+    $('#legend-content').html('');
+    $('.legend-title').html('<i class="fa fa-arrow-circle-down"></i>  SHOW LEGEND');
+    legendOn = false;
+  } else { // Show info
+    $('#legend-content').html('<i class="play icon"></i> =&nbsp;&nbsp;&nbsp;Load Layer<br><i class="folder icon"></i> =&nbsp;&nbsp;&nbsp;Toggle Layer Details<br><i class="play icon new-layer"></i> =&nbsp;&nbsp;&nbsp;New Layer!<br><i class="play icon large-layer"></i> =&nbsp;&nbsp;&nbsp;Warning, Large Layer - High-performance processor required, may crash weaker systems<br><p class="instruct">Bottom Menu</p><i class="close icon"></i> =&nbsp;&nbsp;&nbsp;Close this menu<br><i class="trash icon"></i> =&nbsp;&nbsp;&nbsp;Clear Globe. Remove all layers<br><i class="fa fa-search-minus fa-fw"></i> =&nbsp;&nbsp;&nbsp;Zoom back out<br><i class="clock icon"></i> =&nbsp;&nbsp;&nbsp;Toggle Timeline<br><i class="star icon"></i> =&nbsp;&nbsp;&nbsp;Toggle Stars - WARNING: Takes a lot of work!<br><i class="sun icon"></i> =&nbsp;&nbsp;&nbsp;Toggle Sun<br><i class="share alternate icon"></i> =&nbsp;&nbsp;&nbsp;Generate URL to share all currently active layers<br><i class="compress icon"></i> =&nbsp;&nbsp;&nbsp;Collapse layer category list<br><i class="chevron up icon"></i> =&nbsp;&nbsp;&nbsp;Scroll to menu top<br>');
+    $('.legend-title').html('<i class="fa fa-arrow-circle-up"></i>  HIDE LEGEND');
+    legendOn = true;
+  }
+}
+$('.legend-title').click(toggleLegend);
+
+
 
 // CHECK URL
 
@@ -708,6 +725,36 @@ function shareLink() {
     var shareToggle = $('.share-all-layers');
     shareToggle.attr('href', url).html(url);
 }
+
+
+/* ----------------------------- SHOWCASE ----------------------------- */
+
+var showcaseInfoOn = false;
+function toggleShowcaseInfo() {
+  if (showcaseInfoOn) { // Hide info
+    $('#showcase-maps-info').html('');
+    $('.showcase-title').html('<i class="fa fa-question"></i>  What is this?');
+    showcaseInfoOn = false;
+  } else { // Show info
+    $('#showcase-maps-info').html('<p>Here we gathered some interesting Maps as a starting Point for different Questions for You!</p><p>Pick one you are interested in and see what other Layers you can add to refine Your Analysis.</p><p>If you have build a cool and insightful Map, please <a href="mailto:info@nostradamiq.org?subject=Add my Analysis to the Showcase!">let us know</a> and we may add it here for others to use!</p><p><b><i>ENJOY!<br></i></b></p>');
+    $('.showcase-title').html('<i class="fa fa-exclamation"></i>  Make your own below!');
+    showcaseInfoOn = true;
+  }
+}
+$('.showcase-title').click(toggleShowcaseInfo);
+
+$('.earthquake-showcase').click(function () {
+  $('.usgs-all-7day-load').trigger('click');
+  $('.tectonic-plates-load').trigger('click');
+  $('.seismic_stations-load').trigger('click');
+});
+
+$('.internet-showcase').click(function () {
+  $('.inet_all_official-load').trigger('click');
+  $('.inet_landp_official-load').trigger('click');
+  $('.internet_users-load').trigger('click');
+});
+/* TODO: Add more */
 
 // Init tabs
 $('.tab .menu .item').tab({
