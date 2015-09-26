@@ -136,37 +136,6 @@ div#feature-content {
     margin: 0;
 }
 
-* {
-	-webkit-box-sizing:border-box;
-	-moz-box-sizing:border-box;
-	box-sizing:border-box;
-}
-
-body {
-	background:#2b2e31;
-}
-
-div.slider-group-label {
-	color:#DDD;
-	display:none;
-	text-align:center;
-	margin-top:-10px;
-}
-
-.ui.card.layer-sliders {
-	display:none;
-	width:100%;
-	margin:10px 0 20px;
-    background-color: #4C5C66;
-    box-shadow: none;
-}
-
-.slider {
-	width:100%;
-	display:block;
-	clear:both;
-	margin:0 0 7px;
-}
 
 div.legend {
     color: #EEE;
@@ -198,6 +167,38 @@ div.showcase-maps div {
     cursor: pointer;
     font-size: 1.2em;
     font-weight: 700;
+}
+
+* {
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+}
+
+body {
+	background:#2b2e31;
+}
+
+div.slider-group-label {
+	color:#DDD;
+	display:none;
+	text-align:center;
+	margin-top:-10px;
+}
+
+.ui.card.layer-sliders {
+	display:none;
+	width:100%;
+	margin:10px 0 20px;
+    background-color: #4C5C66;
+    box-shadow: none;
+}
+
+.slider {
+	width:100%;
+	display:block;
+	clear:both;
+	margin:0 0 7px;
 }
 
 .slider .label,.slider input[type="range"] {
