@@ -144,6 +144,7 @@ div.legend {
     overflow-x: hidden;
     /* display: none; */
 }
+
 div.showcase-maps-info {
 	background:#1C2226;
     color: #eee !important;
@@ -883,14 +884,17 @@ p.instruct {
 	padding: 23px 0 23px 0;
 }
 
+/*
 p.do-legend {
 	cursor:pointer;
 }
+
 div.legend {
     color: #EEE;
     padding: 0 20px 20px 20px;
     display:none;
 }
+*/
 
 .ui.tab.segment.active {
 	padding: 0;
