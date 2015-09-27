@@ -1,5 +1,5 @@
 "use strict";
-zip.workerScriptsPath = '../zip/';
+zip.workerScriptsPath = './lib/zip/';
 var oneBlob;
 var thisKMZ;
 
