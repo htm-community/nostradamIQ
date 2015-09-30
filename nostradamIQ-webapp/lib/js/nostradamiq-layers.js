@@ -342,7 +342,7 @@ var layers = {
             eumetraster: { N: "RASTER", icon: "cloud", '>': [  
                 { I: "eumet-bkg-raster", T: 'wms', G: "http://eumetview.eumetsat.int:80/geoserv/ows", L: "bkg-raster:bkg-raster", S: "EUMETSAT WMS Service", U: "http://eumetview.eumetsat.int/geoserver/wms?service=wms&version=1.3.0&request=GetCapabilities", N: "EUMETSAT BKG-RASTER: bkg-raster"}
             ]},
-            meteosat: { N: "IODC", icon: "cloud", '>': [    
+            meteosatir: { N: "IODC", icon: "cloud", '>': [    
                 { I: "eumet-ir115", T: 'wms', G: "http://eumetview.eumetsat.int:80/geoserv/ows", L: "mtp:ir115", S: "EUMETSAT WMS Service", U: "http://eumetview.eumetsat.int/geoserver/wms?service=wms&version=1.3.0&request=GetCapabilities", N: "EUMETSAT METEOSAT: IR 11.5"},
                 { I: "eumet-ir115_3995", T: 'wms', G: "http://eumetview.eumetsat.int:80/geoserv/ows", L: "mtp:ir115_3995", S: "EUMETSAT WMS Service", U: "http://eumetview.eumetsat.int/geoserver/wms?service=wms&version=1.3.0&request=GetCapabilities", N: "EUMETSAT METEOSAT: IR 11.5 3995"},
                 { I: "eumet-vis007", T: 'wms', G: "http://eumetview.eumetsat.int:80/geoserv/ows", L: "mtp:vis007", S: "EUMETSAT WMS Service", U: "http://eumetview.eumetsat.int/geoserver/wms?service=wms&version=1.3.0&request=GetCapabilities", N: "EUMETSAT METEOSAT: VIS 007"},
