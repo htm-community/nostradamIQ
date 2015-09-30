@@ -55,11 +55,17 @@ var map = L.map('map', {
     worldCopyJump: true,
     inertia: true
 });    
+
 map.options.crs = L.CRS.EPSG3857;     
 
+/*
 layer: L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
     zIndex: 1,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
     subdomains: 'abcd',
     maxZoom: 19
 }).addTo(map);
+*/
+
+L.esri.basemapLayer('Imagery').addTo(map);
+L.esri.basemapLayer('ImageryLabels').addTo(map);
