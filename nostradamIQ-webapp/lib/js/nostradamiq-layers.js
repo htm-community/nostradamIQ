@@ -114,6 +114,9 @@ var layers = {
                 { I: "wms-femae", T: 'wms', G: "http://gis.fema.gov/SOAP//FEMA/EvacRoutes/MapServer/WMSServer", L: "0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25", S: "Federal Emergency Management Agency (FEMA)", U: "http://gis.fema.gov/DataFeeds.html", N: "FEMA Hurricane Evacuation Routes"},
                 { P: true, I: "kml-flu", T: 'kml', G: "www.google.org/flutrends/GoogleFluTrends.kmz", S: "Google Flu Trends", U: "www.google.org/flutrends/", N: "Flu Outbreaks (Google-Flu-Trends)"}
         ]},
+        eumetsat: { N: "EUMETSAT", icon: "satellite", '>': [
+                { I: "eumet-airmass", T: 'wms', G: "http://eumetview.eumetsat.int:80/geoserv/ows", L: "meteosat:airmass", S: "EUMETSAT WMS Service", U: "http://eumetview.eumetsat.int/geoserver/wms?service=wms&version=1.3.0&request=GetCapabilities", N: "EUMETSAT METEOSAT: Airmass"},
+        ]},
         alerts: {  N: "Weather Alerts", icon: "cloud", '>': [
                 { C: true, I: "hirad", T: 'kml', G: "http://mw1.google.com/mw-weather/current-points/twc/root.kmz", S: "Weather.com HiRAD forecast", U: "www.weather.com/", N: "Weather Forecast"},
                 { P: true, I: "kml-nwshlog", T: 'kml', M: true, MS: "3", MI: "//nostradamiq.org/webapp/img/lightning_bolt.png", G: "http://wdssii.nssl.noaa.gov/geotiff/kml/NwsHourlyStormLogs.kml", S: "NOAA National Severe Storms Laboratory, Warning Decision Support System - Integrated Information (WDSS-II)", U: "http://wdssii.nssl.noaa.gov/", N: "Hourly Storm Log"},
