@@ -286,7 +286,7 @@ var layers = {
 
     Satellites: { N: "Satellites",
         // TODO: Add client for all of these ftp://neoftp.sci.gsfc.nasa.gov/rgb/ as T: 'wms',
-        eumetsat: { N: "EUMETSAT", icon: "cloud", '>': [
+        eumetsat: { N: "EUMETSAT", icon: "cloud",
             meteosat: { N: "METEOSAT", icon: "cloud", '>': [
                 { I: "eumet-airmass", T: 'wms', G: "http://eumetview.eumetsat.int:80/geoserv/ows", L: "meteosat:airmass", S: "EUMETSAT WMS Service", U: "http://eumetview.eumetsat.int/geoserver/wms?service=wms&version=1.3.0&request=GetCapabilities", N: "EUMETSAT METEOSAT: Airmass"},
                 { I: "eumet-airmass_3995", T: 'wms', G: "http://eumetview.eumetsat.int:80/geoserv/ows", L: "meteosat:airmass_3995", S: "EUMETSAT WMS Service", U: "http://eumetview.eumetsat.int/geoserver/wms?service=wms&version=1.3.0&request=GetCapabilities", N: "EUMETSAT METEOSAT: Airmass 3995"},
@@ -350,7 +350,7 @@ var layers = {
                 { I: "eumet-wv064", T: 'wms', G: "http://eumetview.eumetsat.int:80/geoserv/ows", L: "mtp:wv064", S: "EUMETSAT WMS Service", U: "http://eumetview.eumetsat.int/geoserver/wms?service=wms&version=1.3.0&request=GetCapabilities", N: "EUMETSAT METEOSAT: WV 064"},
                 { I: "eumet-wv064_3995", T: 'wms', G: "http://eumetview.eumetsat.int:80/geoserv/ows", L: "mtp:wv064_3995", S: "EUMETSAT WMS Service", U: "http://eumetview.eumetsat.int/geoserver/wms?service=wms&version=1.3.0&request=GetCapabilities", N: "EUMETSAT METEOSAT: WV 064 3995"}
             ]}
-        ]},
+        },
         satT: { N: "Satellite Imagery Terra", icon: "globe", '>': [
             { I: "ASTER_GDEM_Color_Index", T: "nasa-gibs", S: "NASA Earth Observing System Data and Information System (EOSDIS) Global Imagery Browse Service (GIBS)", U: "http://earthdata.nasa.gov/", N: "Global Digital Elevation Model"},
             { I: "MODIS_Terra_CorrectedReflectance_TrueColor", T: "nasa-gibs", S: "NASA Earth Observing System Data and Information System (EOSDIS) Global Imagery Browse Service (GIBS)", U: "http://earthdata.nasa.gov/", N: "Corrected Reflectance (True Color)"},
