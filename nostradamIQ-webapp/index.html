@@ -30,18 +30,18 @@
     <meta name="keywords" content="nostradamIQ, climate change, disaster awareness, alerts, forcasting, nowcasting, disaster tracker, disaster evaluation, education, awareness, collaboration, nature, machine learning, cv3d, climateviewer, natural catastrophes, disasters, 3D, globe, cesiumjs" />
 
     <!-- OL3 - Cesium Client -->
-    <link href="lib/cesium/ol3/css/ol.css" rel="stylesheet" type="text/css">
+    <link href="./lib/cesium/ol3/css/ol.css" rel="stylesheet" type="text/css">
     <!-- OL3 - Cesium Client -->
 
-    <link href="lib/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet" type="text/css">
-    <link href="lib/css/d3_chart.css" rel="stylesheet" type="text/css">
+    <link href="./lib/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="./lib/css/d3_chart.css" rel="stylesheet" type="text/css">
 
-    <link href="lib/cesium/Cesium/Widgets/widgets.css" rel='stylesheet' type='text/css'/>
-    <link href="lib/cesium/Cesium/Widgets/Viewer/Viewer.css" rel='stylesheet' type='text/css'/>
-    <link href="lib/semantic-ui/2.0/semantic.min.css" rel='stylesheet' type='text/css' />
-    <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <!--<link href="lib/css/bootstrap.min.css" rel='stylesheet' type='text/css' />-->
-    <link href="lib/css/nostradamiq.css?v9005" rel='stylesheet' type='text/css' />
+    <link href="./lib/cesium/Cesium/Widgets/widgets.css" rel='stylesheet' type='text/css'/>
+    <link href="./lib/cesium/Cesium/Widgets/Viewer/Viewer.css" rel='stylesheet' type='text/css'/>
+    <link href="./lib/semantic-ui/2.0/semantic.min.css" rel='stylesheet' type='text/css' />
+    <link href="./lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!--<link href="./lib/css/bootstrap.min.css" rel='stylesheet' type='text/css' />-->
+    <link href="./lib/css/nostradamiq.css?v9005" rel='stylesheet' type='text/css' />
     <link rel="shortcut icon" href="./img/favicon.ico?v=2" />
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="./img/apple-touch-icon-57x57.png" />
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="./img/apple-touch-icon-114x114.png" />
@@ -74,7 +74,7 @@
   
 <!-- START PRELOAD -->
   <div id="preload-wrapper"></div>
-  <script type="text/javascript" src="lib/js/preload.js"></script>
+  <script type="text/javascript" src="./lib/js/preload.js"></script>
   <script type="text/javascript">
     preload();
   </script>
@@ -172,10 +172,11 @@
 
             <div id="base" class="ui bottom attached tab segment" data-tab="base">
               <p class="instruct">Map Mode</p>
-              <div class="ui three cv-button-group buttons">
+              <div class="ui four cv-button-group buttons">
                 <div class="ui button cv-button mode-3d">3D</div>
                 <div class="ui button cv-button mode-2d">2D</div>
-                <div class="ui button cv-button mode-flat-earth">Flat Earth</div>
+                <div class="ui button cv-button mode-flat-earth">Flat</div>
+                <div class="ui button cv-button mode-mobile"><a href="//nostradamiq.org/webapp/mobile.html">Mobile</a></div>
               </div>
               <p class="instruct">Base Layers</p>
             </div> <!-- segment -->
@@ -188,7 +189,7 @@
                   <b><i>See here for answers!</i></b>
                 </p>
                 <div>
-                  <ul class="banner-social-buttons">
+                <ul class="banner-social-buttons">
                       <li>
                           <a href="//nostradamiq.org/resources/disaster_supply_kit.html" target="_blank">
                           <img src="img/icon_supply_kit.svg">
@@ -234,7 +235,14 @@
                           <img src="img/icon_tropical_cyclones.svg">
                           <div>Tropical Cyclones</div></a>
                       </li>
-                   </ul>
+                  </ul>
+                  <ul  class="banner-social-buttons">
+                      <li>
+                          <a href="http://theweathereffect.com" target="_blank">
+                          <img src="img/timeline.png">
+                          <div>Weather Modification</div></a>
+                      </li>
+                  </ul>
               </div>
             </div> <!-- segment -->
 
@@ -294,7 +302,7 @@
                 <li><a href="//www.tweepy.org/" target="_blank" rel="nofollow">Tweepy</a></li>
                 <li><a href="//fortawesome.github.io/Font-Awesome/" target="_blank" rel="nofollow">Font Awesome 4.3.0</a></li>
                 <li><a href="//numenta.org" target="_blank" rel="nofollow">NuPIC</a></li>
-                <li><a href="https://github.com/rezn8d/climateviewer" target="_blank" rel="nofollow">Climate-Viewer</a></li>
+                <li><a href="http://climateviewer.com" target="_blank" rel="nofollow">Climate-Viewer</a></li>
               </ul>
               
               <h4>Support Us</h4>
@@ -355,7 +363,9 @@
     <div class="description">
           <p style="font-size:1.5em">Enter the new era of disaster awareness. <strong><a href="//nostradamiq.org">nostradamIQ</a></strong> is there!<br>
           This service is here for You to be informed about disasters, natural &amp; man-made catastrophes. If you have questions or find bugs on this site (it's still being constructed - Ideas and such are welcome as well!), please <a href="mailto:info@nostradamiq.org">let us know!</a><br>
-          <i><b>And have fun!</b></i></p>
+          <i><b>And have fun!</b></i><br>
+          <i><b>Note, that you will have to allow this website to load unencrypted content for some data to work!</b></i>
+          </p>
           <br>
           <h3>Frequently Asked Questions</h3>
           <div class="ui accordion">
@@ -441,34 +451,34 @@
   </div>
 
 
-  <script type="text/javascript" src="lib/graphlib/graphlib.min.js"></script>
-  <script type="text/javascript" src="lib/js/nobject.js?v9005"></script>
-  <script type="text/javascript" src="lib/jquery-2.1.3/jquery-2.1.3.min.js"></script>
-  <script type="text/javascript" src="lib/jquery-migrate-1.2.1/jquery-migrate.min.js"></script>
-  <!-- <script type="text/javascript" src="lib/jquery-ui-1.11.4/jquery-1.9.1.js"></script> -->
-  <script type="text/javascript" src="lib/jquery-ui-1.11.4/jquery-ui.min.js"></script>  
-  <script type="text/javascript" src="lib/semantic-ui/2.0/semantic.min.js"></script> 
-  <script type="text/javascript" src="lib/lodash/lodash.min.js"></script>
-  <script type="text/javascript" src="lib/pickadate-3.5.6/combined.js"></script>
-  <!-- <script type="text/javascript" src="lib/js/makeCorsRequest.js"></script> -->
+  <script type="text/javascript" src="./lib/graphlib/graphlib.min.js"></script>
+  <script type="text/javascript" src="./lib/js/nobject.js?v9005"></script>
+  <script type="text/javascript" src="./lib/jquery-2.1.3/jquery-2.1.3.min.js"></script>
+  <script type="text/javascript" src="./lib/jquery-migrate-1.2.1/jquery-migrate.min.js"></script>
+  <!-- <script type="text/javascript" src="./lib/jquery-ui-1.11.4/jquery-1.9.1.js"></script> -->
+  <script type="text/javascript" src="./lib/jquery-ui-1.11.4/jquery-ui.min.js"></script>  
+  <script type="text/javascript" src="./lib/semantic-ui/2.0/semantic.min.js"></script> 
+  <script type="text/javascript" src="./lib/lodash/lodash.min.js"></script>
+  <script type="text/javascript" src="./lib/pickadate-3.5.6/combined.js"></script>
+  <!-- <script type="text/javascript" src="./lib/js/makeCorsRequest.js"></script> -->
   <!-- OL3 - Cesium Client -->
-  <!-- <script type="text/javascript" src="lib/cesium/ol3/ol.js"></script> -->
-  <script type="text/javascript" src="lib/cesium/Cesium/Cesium.js"></script> <!-- Normal Cesium -->
-  <!-- <script type="text/javascript" src="lib/cesium/ol3cesium.js"></script> -->
+  <!-- <script type="text/javascript" src="./lib/cesium/ol3/ol.js"></script> -->
+  <script type="text/javascript" src="./lib/cesium/Cesium/Cesium.js"></script> <!-- Normal Cesium -->
+  <!-- <script type="text/javascript" src="./lib/cesium/ol3cesium.js"></script> -->
   <!-- OL3 - Cesium Client -->
-  <script type="text/javascript" src="lib/d3/d3.min.js"></script>
+  <script type="text/javascript" src="./lib/d3/d3.min.js"></script>
 
   <!-- DL3 scripts -->
   <!--
-    <script type="text/javascript" src="lib/js/d3_chart.js"></script>
-    <script type="text/javascript" src="lib/js/d3_globe.js"></script>
+    <script type="text/javascript" src="./lib/js/d3_chart.js"></script>
+    <script type="text/javascript" src="./lib/js/d3_globe.js"></script>
   <!-- DL3 scripts END -->
   
-  <!-- <script type="text/javascript" src="lib/js/toGeoJSON.js"></script> -->
-  <script type="text/javascript" src="lib/js/xml2geojson.js"></script>
-  <script type="text/javascript" src="lib/js/nostradamiq.js?v9005"></script>
-  <script type="text/javascript" src="lib/js/nostradamiq-layers.js?v9005"></script>
-  <script type="text/javascript" src="lib/js/nostradamiq-menu.js?v9005"></script>
+  <!-- <script type="text/javascript" src="./lib/js/toGeoJSON.js"></script> -->
+  <script type="text/javascript" src="./lib/js/xml2geojson.js"></script>
+  <script type="text/javascript" src="./lib/js/nostradamiq.js?v9005"></script>
+  <script type="text/javascript" src="./lib/js/nostradamiq-layers.js?v9005"></script>
+  <script type="text/javascript" src="./lib/js/nostradamiq-menu.js?v9005"></script>
 
 <!-- START PRELOAD -->
   <script type="text/javascript">
