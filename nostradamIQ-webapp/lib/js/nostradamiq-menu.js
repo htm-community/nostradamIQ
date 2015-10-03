@@ -2,9 +2,9 @@
 
 // Set web root url
 var baseURL = window.location.protocol + "//" + window.location.host + "/webapp/";  // production
-var proxyURL = 'http://climateviewer.net/netj1/proxy';  // production
+//var proxyURL = 'http://climateviewer.net/netj1/proxy';  // production
 //var proxyURL = 'https://nostradamiq.org/webapp/proxy/traytention/proxy';  
-//var proxyURL = 'http://localhost:8080/proxy/';  // dev
+var proxyURL = 'http://localhost:8080/proxy/';  // dev
 
 var activeLayers = {};
 var infoBox = $('.cesium-infoBox');
