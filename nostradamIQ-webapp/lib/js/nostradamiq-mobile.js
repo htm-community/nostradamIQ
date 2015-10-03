@@ -69,3 +69,40 @@ layer: L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', 
 
 L.esri.basemapLayer('Imagery').addTo(map);
 L.esri.basemapLayer('ImageryLabels').addTo(map);
+
+
+// Geolocate User and zoom to position: TODO With button and show where you are!
+function fly(position) {
+            map.center = [position.coords.latitude, position.coords.longitude];
+            map.zoom = 7;
+}
+function showAndFlyPosition(position) {
+    fly(position);
+    //$('#geolocation-window').innerHTML = "<i><b>Your Position:</b><br>Latitude: "+Number((position.coords.latitude).toFixed(3))+"<br>Longitude: "+Number((position.coords.longitude).toFixed(3)+"</i><br><button onclick='fly()'>FLY ME THERE!</button>");
+}
+function showError(error) {
+    $('#geolocation-window').hide();
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            console.log("You denied the request for Geolocation.");
+            break;
+        case error.POSITION_UNAVAILABLE:
+            console.log("Geolocation information is unavailable.");
+            break;
+        case error.TIMEOUT:
+            console.log("Your request for Geolocation timed out.");
+            break;
+        case error.UNKNOWN_ERROR:
+            console.log("An unknown error occurred in Geolocation.");
+            break;
+    }
+}
+function getLocation() {
+    if (navigator.geolocation) {
+        console.log("Geolocation started...");
+        navigator.geolocation.getCurrentPosition(showAndFlyPosition, showError);
+        //navigator.geolocation.watchPosition(showAndFlyPosition, showError);
+    } else {
+        console.log("Geolocation failed! Your System does not support this Service!");
+    }
+}

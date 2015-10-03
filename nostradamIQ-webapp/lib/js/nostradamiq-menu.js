@@ -305,6 +305,55 @@ function loadWms(layerId, geoDataSrc, geoLayers) {
     loadSliders(src, layerId);
 }
 
+function loadEUMET(layerId, geoDataSrc, geoLayers) {
+    //var proxySrc = (layerId + '/');
+    // TODO: DatePicker from loadGIBS
+    var src = viewer.imageryLayers.addImageryProvider(new Cesium.WebMapServiceImageryProvider({
+        url : geoDataSrc,
+        layers : geoLayers,
+        proxy: new Cesium.DefaultProxy(proxyURL),
+        sourceUri: geoDataSrc,
+        parameters : {
+            transparent : true,
+            format : 'image/png'
+        }
+    }));
+
+    activeLayers[layerId] = src;
+    loadSliders(src, layerId);
+
+/* TODO
+    // Init the datepicker:
+    var target = $('#' + layerId);
+    $('<div class="ui card ' + layerId + '-picker layer-sliders"><div class="content"><div class="ui divided list"><div class="item '+ layerId + '-info"><i class="circular inverted clock icon"></i><div class="content"><div class="header">Imagery Date</div>Click this button below to change the loaded image:<br><input type="button" value="" class="datepicker ui blue basic button" id="'+ layerId + '-datepicker" name="date"></div></div></div></div>').appendTo(target);
+    var date = new Date();
+    date.setDate(date.getDate() - 1);
+    var yesterday = Cesium.JulianDate.fromDate(date);
+    var time = Cesium.JulianDate.toDate(yesterday);
+
+    var $input = $( '#'+ layerId + '-datepicker' ).pickadate({
+      formatSubmit: 'yyyy-mm-dd',
+      min: [2012, 4, 8],
+      max: Cesium.JulianDate.now(),
+      container: '#datepicker-container',
+      closeOnSelect: true,
+      closeOnClear: false
+    });
+
+    var picker = $input.pickadate('picker');
+    picker.set('select', time);
+    picker.on({
+      set: function() {
+        var selectedDate = picker.get('select', 'yyyy-mm-dd');
+        geoDataSrc = geoDataSrc + "?TIME=" + selectedDate;
+        loadEUMET(layerId, geoDataSrc, geoLayers);
+      }
+    });
+    var start = picker.get('select', 'yyyy-mm-dd');
+    // loadEUMET(layerId, geoDataSrc, geoLayers);
+*/
+}
+
 function loadOsmLayer(layerId, geoDataSrc) {
     var src = viewer.imageryLayers.addImageryProvider(new Cesium.OpenStreetMapImageryProvider({
         url : geoDataSrc
@@ -636,8 +685,8 @@ function updateLayer(layerId) {
         // Load layers by Type
         if (l.T === ("wms")) {
             loadWms(layerId, geoDataSrc, geoLayers);
-        //} else if (l.T === ("wtms")) {
-        //    loadGIBS(layerId);
+        } else if (l.T === ("eumet-wms")) {
+            loadEUMET(layerId, geoDataSrc, geoLayers);
         } else if (l.T === ("nasa-gibs")) {
             loadGIBS(layerId);
         } else if (l.T === ("wtms")) {
