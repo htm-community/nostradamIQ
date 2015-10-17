@@ -696,7 +696,7 @@ function shareLink() {
         });
     }
 
-    url += 'index.html?';
+    url += 'mobile.html?';
 
     if (layers.length > 0)
         layers = layers.substring(0, layers.length - 1);

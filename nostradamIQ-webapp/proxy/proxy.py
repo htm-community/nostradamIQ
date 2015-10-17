@@ -125,7 +125,7 @@ class ProxyHandler(tornado.web.RequestHandler):
             method=self.request.method,
             body=self.request.body,
             headers=self.request.headers,
-            follow_redirects=True, #False,
+            follow_redirects=True, #False
             allow_nonstandard_methods=True,
             use_gzip=False, # otherwise tornado will decode proxied data
         )
@@ -140,7 +140,7 @@ class ProxyHandler(tornado.web.RequestHandler):
                 client.fetch(req, self.response_handler)
             else:
                 # REDIS hold everything as a string, so get rid of all the stuff...
-                redis_obj = redis_response[1:-1].split(',')
+                redis_obj = redis_response.split(',')
                 type_content = redis_obj[0]
                 self.set_header('Content-Type', type_content)
                 content = base64.b64decode(redis_obj[1]) # Get content from Redis, decode and finish request
