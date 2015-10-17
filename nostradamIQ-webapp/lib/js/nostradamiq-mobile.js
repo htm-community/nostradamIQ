@@ -73,8 +73,7 @@ L.esri.basemapLayer('ImageryLabels').addTo(map);
 
 // Geolocate User and zoom to position: TODO With button and show where you are!
 function fly(position) {
-            map.center = [position.coords.latitude, position.coords.longitude];
-            map.zoom = 7;
+            map.panTo(new L.LatLng(position.coords.latitude, position.coords.longitude));
 }
 function showAndFlyPosition(position) {
     fly(position);
