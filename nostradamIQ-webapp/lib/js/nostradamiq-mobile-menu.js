@@ -663,7 +663,7 @@ if (disabledLayers[0] === '') disabledLayers = [];
 var allLayers = initialLayers.concat(disabledLayers);
 // LOAD LAYERS
 if (allLayers.length > 0) {
-    shared = true;
+    var shared = true;
     // LOAD LAYERS FROM URL
     initLayers(allLayers);
     for (var i = 0; i < initialLayers.length; i++) {
@@ -677,6 +677,7 @@ if (allLayers.length > 0) {
 
     //$('<a class="button" href="' + homeURL + '" style="display:block;text-align:center;padding:20px 0;" target="_self"><i class="home icon"></i> SHOW ALL LAYERS</a>').appendTo('#layers');
 } else {
+    var shared = false;
     initLayers();
 }
 
