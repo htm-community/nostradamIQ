@@ -131,7 +131,7 @@
                                 <a href="//nostradamiq.org/webapp" class="btn btn-default btn-lg"><i class="fa fa-rocket fa-fw"></i><span class="network-name"> Try our BETA </span></a>
                             </li>
                             <li>
-                                <a href="//nostradamiq.org/webapp/mobile.html" class="btn btn-default btn-lg"><i class="fa fa-rocket fa-fw"></i><span class="network-name"> BETA mobile </span></a>
+                                <a href="//nostradamiq.org/webapp/mobile.html" class="btn btn-default btn-lg"><i class="fa fa-mobile fa-fw"></i><span class="network-name"> BETA mobile </span></a>
                             </li>
                         </ul>
                         <a href="#about" class="btn btn-circle page-scroll">
