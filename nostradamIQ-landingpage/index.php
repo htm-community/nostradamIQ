@@ -153,9 +153,9 @@
                 <div class="video-container">
                     <iframe allowfullscreen="" frameborder="0" height="315" src="//www.youtube.com/embed/5eXk9V57-I0" width="560"></iframe>
                 </div>
-                <p><a href="//datanauts.tedxrheinmain.de/blog/nostradamiq/" target="_blank">Read a TEDx Blog Article about us!</a></p>    
+                <p><a href="http://datanauts.tedxrheinmain.de/blog/nostradamiq/" target="_blank">Read a TEDx Blog Article about us!</a></p>    
                 <p>nostradamIQ is entirely Open-Source and Collaborative! YOU are Welcome to <a href="//github.com/nupic-community/nostradamIQ/blob/master/HOW_TO_CONTRIBUTE.md" target="_blank">join</a> the Quest for a save World!</p>
-                <p>We are an OS-Project initiated by the awesome <a href="//numenta.org/" target="_blank">NuPIC-Community</a>, TEDx and many more events and circumstances! Together we accelerate Machine-Intelligence and its <b>good impact for Humanity!</b></p>
+                <p>We are an OS-Project initiated by the awesome <a href="http://numenta.org/" target="_blank">NuPIC-Community</a>, TEDx and many more events and circumstances! Together we accelerate Machine-Intelligence and its <b>good impact for Humanity!</b></p>
                 <p>We made it our goal to be the global one-stop platform providing risk related information with following goals:</p>
             </div>
         </div>
@@ -253,22 +253,22 @@
                 <h2>Contributors, Partners +&nbsp;Sponsors</h2>
                 <ul class="list-inline banner-partner-sponsors">
                     <li>
-                        <a href="//numenta.org/" target="_blank"><img src="img/numenta.jpg" alt="Numenta"></a>
+                        <a href="http://numenta.org/" target="_blank"><img src="img/numenta.jpg" alt="Numenta"></a>
                     </li>
                     <li>
-                        <a href="//www.ibm.com/en-us/homepage-c.html" target="_blank"><img src="img/ibm.jpg" alt="IBM"></a>
+                        <a href="http://www.ibm.com/en-us/homepage-c.html" target="_blank"><img src="img/ibm.jpg" alt="IBM"></a>
                     </li>
                     <li>
-                        <a href="//www.sas.com/en_us/home.html" target="_blank"><img src="img/sas.jpg" alt="SAS"></a>
+                        <a href="http://www.sas.com/en_us/home.html" target="_blank"><img src="img/sas.jpg" alt="SAS"></a>
                     </li>
                     <li>
-                        <a href="//hello.tedxrheinmain.de/" target="_blank"><img src="img/ted_x.jpg" alt="TEDx"></a>
+                        <a href="http://hello.tedxrheinmain.de/" target="_blank"><img src="img/ted_x.jpg" alt="TEDx"></a>
                     </li>
                     <li>
-                        <a href="//lab75.jp" target="_blank"><img src="img/lab_75.jpg" alt="Lab75"></a>
+                        <a href="http://lab75.jp" target="_blank"><img src="img/lab_75.jpg" alt="Lab75"></a>
                     </li>
                     <li>
-                        <a href="//www.pdc.org/" target="_blank"><img src="img/pdc.jpg" alt="PDC"></a>
+                        <a href="http://www.pdc.org/" target="_blank"><img src="img/pdc.jpg" alt="PDC"></a>
                     </li>
                 </ul>
                 
@@ -297,6 +297,9 @@
                     </li>
                     <li>
                         <a href="http://datanauts.tedxrheinmain.de/contest-submissions/natural-catashtrophies-prediction-system/" target="_blank" class="btn btn-default btn-lg"><i class="fa fa-external-link-square fa-fw"></i> <span class="network-name">Find us on TEDx!</span></a>
+                    </li>
+                    <li>
+                        <a href="http://datanauts.tedxrheinmain.de/blog/nostradamiq/" target="_blank" class="btn btn-default btn-lg"><i class="fa fa-book fa-fw"></i> <span class="network-name">Read our TEDx Blog Article!</span></a>  
                     </li>
                     <li>
                         <a href="https://twitter.com/nostradamIQ" target="_blank" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Tweet Us!</span></a>
