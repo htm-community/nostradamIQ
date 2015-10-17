@@ -663,6 +663,7 @@ if (disabledLayers[0] === '') disabledLayers = [];
 var allLayers = initialLayers.concat(disabledLayers);
 // LOAD LAYERS
 if (allLayers.length > 0) {
+    shared = true;
     // LOAD LAYERS FROM URL
     initLayers(allLayers);
     for (var i = 0; i < initialLayers.length; i++) {
@@ -873,4 +874,5 @@ $('.close-greetz').click(function () {
 });
 
 
-setTimeout(welcome, 500);
+if (!shared) setTimeout(welcome, 500);
+//setTimeout(welcome, 500);
