@@ -125,10 +125,13 @@
                        <p class="intro-text">sensing our World's disasters.</p>
                         <ul class="list-inline banner-social-buttons">
                             <li>
-                                <a href="//github.com/nupic-community/nostradamIQ/blob/master/CONTRIBUTING.md" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Contribute Now</span></a>
+                                <a href="//github.com/nupic-community/nostradamIQ/blob/master/CONTRIBUTING.md" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name"> Contribute Now </span></a>
                             </li>
                             <li>
-                                <a href="//nostradamiq.org/webapp" class="btn btn-default btn-lg"><i class="fa fa-rocket fa-fw"></i><span class="network-name"> Try our BETA</span></a>
+                                <a href="//nostradamiq.org/webapp" class="btn btn-default btn-lg"><i class="fa fa-rocket fa-fw"></i><span class="network-name"> Try our BETA </span></a>
+                            </li>
+                            <li>
+                                <a href="//nostradamiq.org/webapp/mobile.html" class="btn btn-default btn-lg"><i class="fa fa-rocket fa-fw"></i><span class="network-name"> BETA mobile </span></a>
                             </li>
                         </ul>
                         <a href="#about" class="btn btn-circle page-scroll">
