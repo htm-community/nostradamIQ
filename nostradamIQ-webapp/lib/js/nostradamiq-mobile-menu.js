@@ -17,7 +17,8 @@ nobjectsIn(layers, function (x) {
 });
 
 
-// GET URL
+/* ----------------------------- SHARING ----------------------------- */
+
 function getURLParameter(sParam) {
     var sPageURL = decodeURIComponent(window.location.search.substring(1));
     var sURLVariables = sPageURL.split('&');
@@ -28,6 +29,8 @@ function getURLParameter(sParam) {
         }
     }
 }
+
+/* ----------------------------- LOADING SIGN ----------------------------- */
 
 function loading(layerId) {
     $('.' + layerId + '-load').removeClass('play').addClass('spinner loading active');
@@ -44,6 +47,8 @@ function loadError(layerId, geoDataSrc, error) {
     icon.removeClass('spinner loading').addClass('close fail');
     span.removeClass('active').addClass('fail');
 }
+
+/* ----------------------------- SLIDERS ----------------------------- */
 
 function NSlider(opt) {
     var src = opt.src;
@@ -108,6 +113,10 @@ function loadSliders(src, layerId, datePicker) {
     }
     loaded(layerId);
 }
+
+
+/* ----------------------------- MARKER HANDELERS ----------------------------- */
+
 
 function updateGIBS(layerId, selectedDate, format) {
     var template;
