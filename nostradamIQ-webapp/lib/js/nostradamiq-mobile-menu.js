@@ -670,11 +670,11 @@ if (allLayers.length > 0) {
       console.log(initialLayers[i]);
       //$('#' + initialLayers[i]).trigger('click');
     }
-    $('div.folder:empty').remove();
-    $('div.folder').show();
-    $('h2.toggle').hide();
+    //$('div.folder:empty').remove();
+    //$('div.folder').show();
+    //$('h2.toggle').hide();
 
-    $('<a class="button" href="' + homeURL + '" style="display:block;text-align:center;padding:20px 0;" target="_self"><i class="home icon"></i> SHOW ALL LAYERS</a>').appendTo('#layers');
+    //$('<a class="button" href="' + homeURL + '" style="display:block;text-align:center;padding:20px 0;" target="_self"><i class="home icon"></i> SHOW ALL LAYERS</a>').appendTo('#layers');
 } else {
     initLayers();
 }
