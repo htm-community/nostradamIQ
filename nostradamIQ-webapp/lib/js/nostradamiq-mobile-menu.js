@@ -752,9 +752,11 @@ var mobileOpts = {
     markerLocation: true,
     delayType: 800  //with mobile device typing is more slow        
 };
-    
+   
+
 map.addControl( 
     new L.Control.Search(mobileOpts) //view source of search.php for more details
+    console.log("Control Search loaded!")
 );
 
 /* ----------------------------- LEGEND ----------------------------- */
