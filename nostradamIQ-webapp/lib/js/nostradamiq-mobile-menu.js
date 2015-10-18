@@ -719,6 +719,44 @@ function shareLink() {
     shareToggle.attr('href', url).html(url);
 }
 
+
+/* ----------------------------- SEARCH BAR ----------------------------- */
+    
+var jsonpurl = 'http://open.mapquestapi.com/nominatim/v1/search.php?q={s}'+
+                   '&format=json&osm_type=N&limit=100&addressdetails=0',
+    jsonpName = 'json_callback';
+    
+function formatJSON(rawjson) {  //callback that remap fields name
+    var json = {},
+        key, loc, disp = [];
+            
+    for(var i in rawjson) {   
+        disp = rawjson[i].display_name.split(',');  
+        key = disp[0] +', '+ disp[1];        
+        loc = L.latLng(rawjson[i].lat, rawjson[i].lon);
+        json[ key ]= loc;   //key,value format
+    }    
+    return json;
+}
+            
+var mobileOpts = {
+    url: jsonpurl,
+    jsonpParam: jsonpName,
+    formatData: formatJSON,     
+    textPlaceholder: 'Color...',
+    autoType: false,
+    tipAutoSubmit: true,
+    autoCollapse: false,
+    autoCollapseTime: 20000,
+    animateLocation: true,
+    markerLocation: true,
+    delayType: 800  //with mobile device typing is more slow        
+};
+    
+map.addControl( 
+    new L.Control.Search(mobileOpts) //view source of search.php for more details
+);
+
 /* ----------------------------- LEGEND ----------------------------- */
 
 var legendOn = false;
