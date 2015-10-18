@@ -724,7 +724,7 @@ function shareLink() {
 
 var geosearch = new L.Control.GeoSearch({
     provider: new L.GeoSearch.Provider.Google(),
-    //position: 'bottomcenter',
+    position: 'bottomcenter',
     showMarker: true,
     retainZoomLevel: false,
 }).addTo(map);
