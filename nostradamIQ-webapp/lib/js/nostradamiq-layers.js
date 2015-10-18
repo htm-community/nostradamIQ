@@ -469,8 +469,7 @@ var layers = {
 
     Pollution: { N: "Pollution",
         toxicrelease: { N: "Toxic Release", icon: "warning sign", '>': [
-            { I: "epa-tri", H: true, T: 'geojson', MI: '//nostradamiq.org/webapp/img/mryuk.png', G: "/webapp/layers/geojson/EPA-TRI-2011-cv3d.geojson", S: "2011 data, US Environmental Protection Agency (EPA) .KML file, converted to GeoJSON by Jim Lee", U: "www.epa.gov/enviro/facts/tri/index.html", N: "EPA Toxic Release Inventory (TRI) USA"},
-            { I: "epa-tri-TEST", H: true, T: 'geojson', MI: '//nostradamiq.org/webapp/img/mryuk.png', G: "/webapp/layers/geojson/EPA-TRI-2011-cv3d.geojson", S: "2011 data, US Environmental Protection Agency (EPA) .KML file, converted to GeoJSON by Jim Lee", U: "www.epa.gov/enviro/facts/tri/index.html", N: "EPA Toxic Release Inventory (TRI) USA TEST"}
+            { I: "epa-tri", H: true, T: 'geojson', MI: '//nostradamiq.org/webapp/img/mryuk.png', G: "/webapp/layers/geojson/EPA-TRI-2011-cv3d.geojson", S: "2011 data, US Environmental Protection Agency (EPA) .KML file, converted to GeoJSON by Jim Lee", U: "www.epa.gov/enviro/facts/tri/index.html", N: "EPA Toxic Release Inventory (TRI) USA"}
         ]},
         Toxicwaste: { N: "Toxic Waste Clean-up", icon: "recycle sign", '>': [
             { H: true, Z: true, I: "epa01", T: 'kml', G: "/webapp/layers/kml/3rdparty/pollution/superfund/region_01.kmz", S: "EPA Superfund", U: "www.epa.gov/superfund/index.htm", N: "Region 1 - ME NH VT MA RI CT"},
@@ -482,7 +481,7 @@ var layers = {
             { H: true, I: "epa07", Z: true, T: 'kml', G: "/webapp/layers/kml/3rdparty/pollution/superfund/region_07.kmz", S: "EPA Superfund", U: "www.epa.gov/superfund/index.htm", N: "Region 7 - NE KS IA MO"},
             { H: true, I: "epa08", Z: true, T: 'kml', G: "/webapp/layers/kml/3rdparty/pollution/superfund/region_08.kmz", S: "EPA Superfund", U: "www.epa.gov/superfund/index.htm", N: "Region 8 - MT ND WY SD UT CO"},
             { H: true, I: "epa09", Z: true, T: 'kml', G: "/webapp/layers/kml/3rdparty/pollution/superfund/region_09.kmz", S: "EPA Superfund", U: "www.epa.gov/superfund/index.htm", N: "Region 9 - CA NV AZ HI"},
-            { H: true, I: "epa10", Z: true, T: 'kml', G: "/webapp/layers/kml/3rdparty/pollution/superfund/region_10.kmz", S: "EPA Superfund", U: "www.epa.gov/superfund/index.htm", N: "Region 10 - WA OR I AK"}
+            { H: true, I: "epa10", Z: true, T: 'kml', G: "/webapp/layers/kml/3rdparty/pollution/superfund/region_10.kmz", S: "EPA Superfund", U: "www.epa.gov/superfund/index.htm", N: "Region 10 - WA OR I AK"},
         ]},
         nuclear: { N: "Nuclear", icon: "recycle sign", '>': [
             { I: "bw-reactor", T: 'geojson', G: "http://climateviewer.net/layers/geojson/nuclear-bw-reactor-cv3d.geojson", MI: "/img/icons/nuke-red.png", S: "Created by <a href='http://climateviewer.com/rezn8d/'>Jim Lee</a>.<br>Based on the work of <a href='http://blogs.nature.com/news/2011/03/the_worlds_nuclear_reactors_as_1.html'>Declan Butler</a>.", U: "http://climateviewer.com/nuclear-reactor-map/", N: "Boiling Water Reactors"},
