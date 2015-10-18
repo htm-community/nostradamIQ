@@ -721,6 +721,13 @@ function shareLink() {
 
 
 /* ----------------------------- SEARCH BAR ----------------------------- */
+
+new L.Control.GeoSearch({
+    provider: new L.GeoSearch.Provider.Google(),
+    //position: 'topcenter',
+    showMarker: true,
+    retainZoomLevel: false,
+}).addTo(map);
     
 /*
 var jsonpurl = 'http://open.mapquestapi.com/nominatim/v1/search.php?q={s}'+
