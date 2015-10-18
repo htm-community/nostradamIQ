@@ -722,12 +722,15 @@ function shareLink() {
 
 /* ----------------------------- SEARCH BAR ----------------------------- */
 
+/*
 var geosearch = new L.Control.GeoSearch({
     provider: new L.GeoSearch.Provider.Google(),
     //position: 'bottomcenter',
     showMarker: true,
     retainZoomLevel: false,
 }).addTo(map);
+
+*/
 
 //geosearch.detach().appendTo($('#searchbar'));
     
