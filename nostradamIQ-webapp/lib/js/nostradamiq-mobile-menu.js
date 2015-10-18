@@ -734,7 +734,7 @@ var geosearch = new L.Control.GeoSearch({
 
 //geosearch.detach().appendTo($('#searchbar'));
     
-/*
+/*  TODO: For in-layer search: 
 var jsonpurl = 'http://open.mapquestapi.com/nominatim/v1/search.php?q={s}'+
                    '&format=json&osm_type=N&limit=100&addressdetails=0',
     jsonpName = 'json_callback';
