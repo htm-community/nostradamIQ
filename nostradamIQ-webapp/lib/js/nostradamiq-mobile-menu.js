@@ -535,11 +535,9 @@ function addTree(parent/* nodes  */, lb /*target */, includeOnly) {
 
         var child = $('<div class="folder" />').html(l);
         if (!layerType) {
-            if (!largeLayer) {
             var ic = l.icon;
             //Folder Label
             content = newFolderLabel(l, child, ic);
-            }
         } else { // not a folder
             var present = true;
             if (includeOnly) {
@@ -547,7 +545,7 @@ function addTree(parent/* nodes  */, lb /*target */, includeOnly) {
                     present = false;
             }
 
-            if (present & !largeLayer) {
+            if (present) {
                 var geoDataSrc = l.G,
                 source = l.S,
                 sourceUrl = l.U,
