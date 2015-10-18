@@ -722,9 +722,9 @@ function shareLink() {
 
 /* ----------------------------- SEARCH BAR ----------------------------- */
 
-new L.Control.GeoSearch({
+var geosearch = new L.Control.GeoSearch({
     provider: new L.GeoSearch.Provider.Google(),
-    position: 'bottomcenter',
+    //position: 'bottomcenter',
     showMarker: true,
     retainZoomLevel: false,
 }).addTo(map);
