@@ -11,7 +11,7 @@ var layerEnabled = {};
 var me = Self();
 
 nobjectsIn(layers, function (x) {
-    console.log(x);
+    //console.log(x);
 }, function (s, p, o) {
     me.addEdge(s, p, o);
 });
