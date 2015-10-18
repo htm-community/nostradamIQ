@@ -932,11 +932,13 @@ div.legend {
     font-weight: normal;
 }
 
+/*
 .ui.tabular.menu .vertical {
 	transform: rotate(90deg);
 	transform-origin: left top 0;
-	/* float: left; */
+	float: left;
 }
+*/ 
 
 /* ----------- category content ----------- */
 .ui.tabular.menu+.bottom.attached.segment,.ui.tabular.menu~.bottom.attached.segment+.bottom.attached.segment {
