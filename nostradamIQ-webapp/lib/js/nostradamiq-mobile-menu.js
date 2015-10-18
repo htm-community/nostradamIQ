@@ -728,6 +728,8 @@ var geosearch = new L.Control.GeoSearch({
     showMarker: true,
     retainZoomLevel: false,
 }).addTo(map);
+
+geosearch.detach().appendTo($('#searchbar'));
     
 /*
 var jsonpurl = 'http://open.mapquestapi.com/nominatim/v1/search.php?q={s}'+
