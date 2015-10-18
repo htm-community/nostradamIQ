@@ -727,7 +727,9 @@ var geosearch = new L.Control.GeoSearch({
     //position: 'bottomcenter',
     showMarker: true,
     retainZoomLevel: false,
-}).addTo(map).detach().appendTo($('#searchbar'));
+}).addTo(map);
+
+//geosearch.detach().appendTo($('#searchbar'));
     
 /*
 var jsonpurl = 'http://open.mapquestapi.com/nominatim/v1/search.php?q={s}'+
