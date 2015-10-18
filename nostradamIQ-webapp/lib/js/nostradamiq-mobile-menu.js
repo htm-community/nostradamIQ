@@ -754,10 +754,8 @@ var mobileOpts = {
 };
    
 
-map.addControl( 
-    new L.Control.Search(mobileOpts) //view source of search.php for more details
-    console.log("Control Search loaded!")
-);
+map.addControl(new L.Control.Search(mobileOpts));
+console.log("Control Search loaded!");
 
 /* ----------------------------- LEGEND ----------------------------- */
 
