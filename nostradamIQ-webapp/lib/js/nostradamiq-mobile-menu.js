@@ -7,11 +7,11 @@ var proxyURL = 'http://climateviewer.net/netj1/proxy';  // production
 //var proxyURL = 'kmz.php';  // dev
 
 var activeLayers = {};
-var layerEnabled = {}; // whether the label is in some way enabled
+var layerEnabled = {}; 
 var me = Self();
 
 nobjectsIn(layers, function (x) {
-    //console.log(x);
+    console.log(x);
 }, function (s, p, o) {
     me.addEdge(s, p, o);
 });
