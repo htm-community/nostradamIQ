@@ -350,15 +350,18 @@ var layers = {
                 { I: "eumet-wv064", T: 'wms', G: "http://eumetview.eumetsat.int:80/geoserv/ows", L: "mtp:wv064", S: "EUMETSAT WMS Service", U: "http://eumetview.eumetsat.int/geoserver/wms?service=wms&version=1.3.0&request=GetCapabilities", N: "EUMETSAT METEOSAT: WV 064"}
                 //{ I: "eumet-wv064_3995", T: 'wms', G: "http://eumetview.eumetsat.int:80/geoserv/ows", L: "mtp:wv064_3995", S: "EUMETSAT WMS Service", U: "http://eumetview.eumetsat.int/geoserver/wms?service=wms&version=1.3.0&request=GetCapabilities", N: "EUMETSAT METEOSAT: WV 064 3995"}
             ]}
-            /* TODO: RAMANI LAYERS: 
+
+        },
+
+        /* TODO: RAMANI LAYERS: 
 
             Example: https://github.com/pabgn/ESA/blob/master/ESA/satelitelayers.json
             Layers: http://ramani.ujuizi.com/maps/index.html
 
-
-            */
-
-        },
+        ramani: { N: "Copernicus - ESA", icon: "rocket", '>': [  
+            { I: "ramani-1", T: 'STI', G: "http://eumetview.eumetsat.int:80/geoserv/ows", G:"http://a.ramani.ujuizi.com/ddl/wms?SERVICE=WMS&REQUEST=GetMap&VERSION=1.1.1&LAYERS=CERSAT-GLO-CLIM_WIND_L4-OBS_FULL_TIME_SERIE%2Fwind_speed&STYLES=boxfill%2Frainbow&FORMAT=image%2Fpng&TRANSPARENT=true&HEIGHT=256&WIDTH=256&STYLE=boxfill%2Frainbow&SRS=EPSG%3A3857&ZINDEX=400&REUSETILES=true&TOKEN=b163d3f52ebf1cf29408464289cf5eea20cda538&PACKAGE=com.web.ramani&COLORSCALERANGE=0.0%2C15.0&ELEVATION=10&EXCEPTIONS=application%2Fvnd.ogc.se_inimage&LOGSCALE=false&NUMCOLORBANDS=250&TIME=2012-04-01T12%3A00%3A00.000Z", S: "RAMANI API", U: "http://ramani.ujuizi.com/maps/index.html", N: "Sentinel-1: Ocean Winds (Wind Speed)"},
+        ]},
+        */
         satT: { N: "Satellite Imagery Terra", icon: "globe", '>': [
             { I: "ASTER_GDEM_Color_Index", T: "nasa-gibs", S: "NASA Earth Observing System Data and Information System (EOSDIS) Global Imagery Browse Service (GIBS)", U: "http://earthdata.nasa.gov/", N: "Global Digital Elevation Model"},
             { I: "MODIS_Terra_CorrectedReflectance_TrueColor", T: "nasa-gibs", S: "NASA Earth Observing System Data and Information System (EOSDIS) Global Imagery Browse Service (GIBS)", U: "http://earthdata.nasa.gov/", N: "Corrected Reflectance (True Color)"},

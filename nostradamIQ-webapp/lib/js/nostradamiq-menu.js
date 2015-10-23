@@ -488,6 +488,256 @@ function loadPDC_XML(layerId, geoDataSrc, proxy, markerLabel, markerScale, marke
   }
 }
 
+
+// RAMANI API LAYER:
+/*  http://ramani.ujuizi.com/maps/assets/js/leaflet/ramani_230920150119.js
+function setRamaniDDLLayer(layer, res){  
+    $('.leaflet-overlay-pane').empty();
+     var ddl = L.tileLayer.wms("http://{s}.ramani.ujuizi.com/ddl/wms", {
+        subdomains: 'ab',
+        layers: layer,
+        format: 'image/png',
+        style: res.supportedStyles[0]+'/'+res.defaultPalette,
+        styles:res.supportedStyles[0]+'/'+res.defaultPalette,
+        srs:'EPSG:4326',
+        transparent: true,
+        zIndex:400,
+        reuseTiles:true,
+        maxZoom: 18,
+        minZoom: 2,
+        attribution: "Ramani by Ujuizi Laboratories"
+    });
+    var scaleRange = res.scaleRange[0]+","+res.scaleRange[1];
+    var elevation="0";
+    if (res.zaxis){
+      elevation = res.zaxis.values[0];
+    }
+    //token=b163d3f52ebf1cf29408464289cf5eea20cda538&package=com.web.ramani&
+    ddl.setParams({
+      'token' : 'b163d3f52ebf1cf29408464289cf5eea20cda538',
+      'package' : 'com.web.ramani',
+      'COLORSCALERANGE' : scaleRange,
+      'ELEVATION' : elevation,
+      'EXCEPTIONS' : 'application/vnd.ogc.se_inimage',
+      'LOGSCALE' : res.logScaling,
+      'NUMCOLORBANDS' : res.numColorBands,
+      'TIME'  : res.nearestTimeIso
+    }, true);  
+    ddl.setOpacity(0.66);
+    return ddl;
+}
+
+
+function updateRamaniDDLLayer(){
+  $('.leaflet-layer:eq(1)').remove();
+  var ddl = L.tileLayer.wms("http://{s}.ramani.ujuizi.com/ddl/wms", {
+                subdomains: 'ab',
+                layers: $('#layer_id').val(),
+                format: 'image/png',
+                style: $('#style').val()+'/'+$('#defaultPalette').val(),
+                styles:$('#style').val()+'/'+$('#defaultPalette').val(),
+                srs:'EPSG:4326',
+                transparent: true,
+                zIndex:400,
+                reuseTiles:false,
+                maxZoom: 18,
+                minZoom: 2,
+                attribution: "Ramani by Ujuizi Laboratories"
+            });
+    var scaleRange = $('#scaleMin').val()+","+$('#scaleMax').val();
+    
+    var time = $('#div_timeseries .datetime input').val()+"T"+ $('#div_timeseries .datetimeseries select').val();
+    ddl.setParams({
+      'token' : 'b163d3f52ebf1cf29408464289cf5eea20cda538',
+      'package' : 'com.web.ramani',
+      'COLORSCALERANGE' : scaleRange,
+      'ELEVATION' : $('#zaxis').val(),
+      'EXCEPTIONS' : 'application/vnd.ogc.se_inimage',
+      'LOGSCALE' : $('#scaleSpacing option:selected').val(),
+      'NUMCOLORBANDS' : $('#numColorBands').val(),
+      'TIME'  : time
+    }, true);
+    ddl.setOpacity(0.66);
+    return ddl;
+}
+
+  
+function getRamaniRamaniFeatureInfo(bbox, marker, latlng){
+    var point = map.latLngToContainerPoint(latlng, map.getZoom());
+    var size = map.getSize();
+    var layer = $('#layer_id').val();
+    var date = $('.datetimeseries input').val();
+    var scaleRange = $('#scaleMin').val()+","+$('#scaleMax').val();
+    var time = date +"T"+ $('.datetimeseries select option:selected').val();
+    var elevation=0;
+    if ($('#zaxis').val() !='') {
+      elevation=$('#zaxis').val();
+    }
+
+    $.ajax({
+        url: 'http://ramani.ujuizi.com/ddl/wms',
+        type: "GET",
+        data: {'LAYERS':layer,
+            'ELEVATION':elevation,
+            'TIME' : time,
+            'token' : 'b163d3f52ebf1cf29408464289cf5eea20cda538',
+            'package' : 'com.web.ramani',
+            'TRANSPARENT': true,
+            'STYLES': $('#style').val()+'/'+$('#defaultPalette').val(),
+            'COLORSCALERANGE':scaleRange,
+            'NUMCOLORBANDS': $('#numColorBands').val(),
+            'LOGSCALE': $('#scaleSpacing option:selected').val(),
+            'SERVICE': 'WMS',
+            'VERSION': '1.1.1',
+            'REQUEST': 'GetFeatureInfo',
+            'EXCEPTIONS': 'application/vnd.ogc.se_inimage',
+            'FORMAT': 'image/png',
+            'SRS': 'EPSG:4326',
+            'BBOX': map.getBounds().toBBoxString(),
+            'X': point.x,
+            'Y': point.y,
+            'INFO_FORMAT': 'text/xml',
+            'QUERY_LAYERS': layer,
+            'WIDTH': size.x,
+            'HEIGHT': size.y
+      },
+      dataType: 'html',
+      
+      success: function (data) {
+          var xmlDoc = $.parseXML(data);
+          var $xml = $(xmlDoc);
+          var lon = $xml.find('longitude')[0];
+          var lat = $xml.find('latitude')[0];
+          var value = $xml.find('value')[0];
+          var time = $xml.find('time')[0];
+          var str="<ul>";
+          
+          str+="<li>lon : "+lon['textContent']+"</li>";
+          str+="<li>lat : "+lat['textContent']+"</li>";
+          str+="<li>time : "+time['textContent']+"</li>";
+          str+="<li>value : "+value['textContent']+"</li>";
+          
+          str+="<li><a class=\"colour\" href=\"#\" data-val=\""+value['textContent']+"\" data-set=\"0\">Set colour min </a></li>";
+          str+="<li><a class=\"colour\" href=\"#\" data-val=\""+value['textContent']+"\" data-set=\"1\">Set colour max </a></li>";
+          if ($('#zaxisLen').val()>1){
+            str+="<li><a class=\"verticalProfile\" data-point=\""+lon['textContent']+" "+lat['textContent']+"\" href=\"#\" >Create vertical profile plot</a></li>";
+          }
+          if ($('#timeseries').val()!=''){
+            str+="<li><a class=\"timeseriesProfile\" data-time=\""+$('#timeseries').val()+"\" data-x=\""+point.x+"\" data-y=\""+point.y+"\" href=\"#\" >Create timeseries plot</a></li>";
+          }
+          str+="</ul>";
+        marker.bindPopup(str).openPopup();   
+      }
+    });
+}
+
+
+function getRamaniTransect(marker, latlng){
+  var layer = $('#layer_id').val();
+    var date = $('.datetimeseries input').val();
+    var scaleRange = $('#scaleMin').val()+","+$('#scaleMax').val();
+    var time = date +"T"+ $('.datetimeseries select option:selected').val();
+    var line =latlng;
+    var numColorBands= $('#numColorBands').val();
+    var logScale = $('#scaleSpacing option:selected').val();
+    var palette = $('#defaultPalette').val();
+
+    $('#transectModal .modal-body img').attr('src', 'http://ramani.ujuizi.com/ddl/wms?token=b163d3f52ebf1cf29408464289cf5eea20cda538&package=com.web.ramani&REQUEST=GetTransect&LAYER='+layer+'&CRS=EPSG:4326&ELEVATION='+$('#zaxis').val()+'&TIME='+time+'&LINESTRING='+line+'&FORMAT=image/png&COLORSCALERANGE='+scaleRange+'&NUMCOLORBANDS='+numColorBands+'&LOGSCALE='+logScale+'&PALETTE='+palette+'&VERSION=1.1.1');
+    $('#transectModal').modal('show');
+ }
+
+
+function getRamaniVerticalProfile(point){
+    var layer = $('#layer_id').val();
+    var date = $('.datetimeseries input').val();
+    var scaleRange = $('#scaleMin').val()+","+$('#scaleMax').val();
+    var time = date +"T"+ $('.datetimeseries select option:selected').val();
+    var numColorBands= $('#numColorBands').val();
+    var logScale = $('#scaleSpacing option:selected').val();
+    var palette = $('#defaultPalette').val();
+    $('#transectModal .modal-body img').attr('src', 'http://ramani.ujuizi.com/ddl/wms?token=b163d3f52ebf1cf29408464289cf5eea20cda538&package=com.web.ramani&REQUEST=GetVerticalProfile&LAYER='+layer+'&CRS=CRS:84&TIME='+time+'&POINT='+point+'&FORMAT=image/png');
+    $('#transectModalLabel').html('Get Vertical Profile');
+    $('#transectModal').modal('show');
+ }
+
+
+function getRamaniTimeseriesProfile(time, x, y){
+  var size = map.getSize();
+    var layer = $('#layer_id').val();
+    var date = $('.datetimeseries input').val();
+    var scaleRange = $('#scaleMin').val()+","+$('#scaleMax').val();
+    var time = time;
+    var numColorBands= $('#numColorBands').val();
+    var logScale = $('#scaleSpacing option:selected').val();
+    var palette = $('#defaultPalette').val();
+
+    var url = "http://ramani.ujuizi.com/ddl/wms?token=b163d3f52ebf1cf29408464289cf5eea20cda538&package=com.web.ramani&LAYERS="+layer+
+    "&ELEVATION="+$('#zaxis').val()+
+    "&TIME="+$('#timeseries').val()+
+    "&TRANSPARENT=true"+
+    "&STYLES="+$('#style').val()+'/'+$('#defaultPalette').val()+
+    "&COLORSCALERANGE="+scaleRange+
+    "&NUMCOLORBANDS="+numColorBands+
+    "&LOGSCALE="+logScale+
+    "&SERVICE=WMS"+
+    "&VERSION=1.1.1"+
+    "&REQUEST=GetFeatureInfo"+
+    "&EXCEPTIONS=application%2Fvnd.ogc.se_inimage"+
+    "&FORMAT=image%2Fpng"+
+    "&SRS=EPSG%3A4326"+
+    "&BBOX="+map.getBounds().toBBoxString()+
+    "&X="+x+
+    "&Y="+y+
+    "&INFO_FORMAT=image/png"+
+    "&QUERY_LAYERS="+layer+
+    "&WIDTH="+size.x+
+    "&HEIGHT="+size.y;
+    $('#transectModal .modal-body img').attr('src', url);
+    $('#transectModalLabel').html('Timeseries Profile');
+    $('#transectModal').modal('show');
+ }
+
+
+function getRamaniArea(marker, latlng){
+  var layer = $('#layer_id').val();
+    var date = $('.datetimeseries input').val();
+    var scaleRange = $('#scaleMin').val()+","+$('#scaleMax').val();
+    var time = date +"T"+ $('.datetimeseries select option:selected').val();
+    var line =latlng;
+    var numColorBands= $('#numColorBands').val();
+    var logScale = $('#scaleSpacing option:selected').val();
+    var palette = $('#defaultPalette').val();
+
+    $('#transectModal .modal-body img').attr('src', 'http://ramani.ujuizi.com/ddl/wms?token=b163d3f52ebf1cf29408464289cf5eea20cda538&package=com.web.ramani&REQUEST=GetTransect&LAYER='+layer+'&CRS=EPSG:4326&ELEVATION=0&TIME='+time+'&LINESTRING='+line+'&FORMAT=image/png&COLORSCALERANGE='+scaleRange+'&NUMCOLORBANDS='+numColorBands+'&LOGSCALE='+logScale+'&PALETTE='+palette+'&VERSION=1.1.1');
+    $('#transectModalLabel').html('Get Area');
+    $('#transectModal').modal('show');
+ }
+
+
+function showRamaniDDLLayerAnimation(layer){
+    
+    //var ddl = L.tileLayer.betterWms("http://localhost/ncWMS/wms", {
+      var ddl = L.tileLayer.wms("http://ramani.ujuizi.com/ddl/wms", {
+        layers: layer,
+        format: 'image/png',
+        transparent: true,
+        zIndex:400,
+        reuseTiles:true,
+        maxZoom: 18,
+        attribution: "Ramani by Ujuizi Laboratories"
+    });
+      ddl.setParams({
+      'token' : 'b163d3f52ebf1cf29408464289cf5eea20cda538',
+      'package' : 'com.web.ramani'
+    }, true);
+    ddl.setOpacity(0.2);
+    return ddl;
+  }
+
+
+*/
+
+
 // TODO
 // load twitter data according to picked date - build URL accordingly: 
 // Format:
