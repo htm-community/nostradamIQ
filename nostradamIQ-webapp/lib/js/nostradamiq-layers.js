@@ -350,6 +350,14 @@ var layers = {
                 { I: "eumet-wv064", T: 'wms', G: "http://eumetview.eumetsat.int:80/geoserv/ows", L: "mtp:wv064", S: "EUMETSAT WMS Service", U: "http://eumetview.eumetsat.int/geoserver/wms?service=wms&version=1.3.0&request=GetCapabilities", N: "EUMETSAT METEOSAT: WV 064"}
                 //{ I: "eumet-wv064_3995", T: 'wms', G: "http://eumetview.eumetsat.int:80/geoserv/ows", L: "mtp:wv064_3995", S: "EUMETSAT WMS Service", U: "http://eumetview.eumetsat.int/geoserver/wms?service=wms&version=1.3.0&request=GetCapabilities", N: "EUMETSAT METEOSAT: WV 064 3995"}
             ]}
+            /* TODO: RAMANI LAYERS: 
+
+            Example: https://github.com/pabgn/ESA/blob/master/ESA/satelitelayers.json
+            Layers: http://ramani.ujuizi.com/maps/index.html
+
+
+            */
+
         },
         satT: { N: "Satellite Imagery Terra", icon: "globe", '>': [
             { I: "ASTER_GDEM_Color_Index", T: "nasa-gibs", S: "NASA Earth Observing System Data and Information System (EOSDIS) Global Imagery Browse Service (GIBS)", U: "http://earthdata.nasa.gov/", N: "Global Digital Elevation Model"},
