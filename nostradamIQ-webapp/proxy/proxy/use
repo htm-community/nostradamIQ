@@ -1,0 +1,5 @@
+# building
+docker build -t nostradamiq.org/squid3
+
+# running
+docker run -ti -p 127.0.0.1:3128:3128 nostradamiq.org/squid3
