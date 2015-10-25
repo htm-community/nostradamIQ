@@ -349,7 +349,7 @@ input[type="range"]::-ms-thumb {
 
 .ui.feed.cv3d.mobile {
 	position:absolute;
-	top:95%;
+	top:92.5%;
 	left:50%;
 	width:250px;
 	margin:0 0 0 -125px;
@@ -373,7 +373,7 @@ input[type="range"]::-ms-thumb {
 	top:0;
 	left:50%;
 	margin:0 0 0 -24px;
-	opacity:0.9;
+	opacity:0.8;
 	z-index:7;
 }
 
