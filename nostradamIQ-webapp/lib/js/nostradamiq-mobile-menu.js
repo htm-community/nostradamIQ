@@ -259,7 +259,6 @@ var today = new Date();
 var yesterday = today.setDate(today.getDate() - 1);
 
 
-
 function loadGIBS(layerId, format) {
     var target = $('#' + layerId);
     $('<div class="ui card ' + layerId + '-picker layer-sliders"><div class="content"><div class="ui divided list"><div class="item '+ layerId + '-info"><i class="circular inverted clock icon"></i><div class="content"><div class="header">Imagery Date</div>Click this button below to change the loaded image:<br><input type="button" value="" class="datepicker ui orange basic button" id="'+ layerId + '-datepicker" name="date"></div></div></div></div>').appendTo(target);
@@ -799,7 +798,7 @@ function addTree(parent/* nodes  */, lb /*target */, includeOnly) {
         layerId = l.I,
         layerType = l.T,
         largeLayer = l.H;
-;
+
 
         var child = $('<div class="folder" />').html(l);
         if (!layerType & !l.TRD) {
@@ -922,7 +921,6 @@ function initLayers(includeOnly) {
 }
 
 
-
 // CHECK URL
 
 var initialLayers = (getURLParameter("layersOn") || '').split(',');
@@ -959,13 +957,11 @@ function shareLink() {
             var a = allLayers[i];
             if (!($('#' + a).hasClass('active'))) {
                 disabledLayers += a + ',';
-            }
-            else {
+            } else {
                 layers += a + ',';
             }
         }
-    }
-    else {
+    } else {
         //only enable those that are enabled and ignore the disabled ones
         var ll = $('.lbw');
         ll.each(function () {
