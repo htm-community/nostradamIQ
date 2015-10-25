@@ -64,8 +64,6 @@ function getURLParameter(sParam) {
     }
 }
 
-
-
 /* ----------------------------- LOADING SIGN ----------------------------- */
 
 function loading(layerId) {
@@ -85,7 +83,6 @@ function loadError(layerId, geoDataSrc, error) {
 }
 
 /* ----------------------------- SLIDERS ----------------------------- */
-
 
 function NSlider(opt) {
     var src = opt.src;
@@ -152,9 +149,8 @@ function loadSliders(src, layerId, datePicker) {
 }
 
 
-
 /* ----------------------------- Create MAP ----------------------------- */
-
+/*
 var map = L.map('map', { 
     center: [40, -100],
     zoom: 3,
