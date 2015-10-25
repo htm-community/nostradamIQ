@@ -65,7 +65,17 @@ layer: L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', 
     subdomains: 'abcd',
     maxZoom: 19
 }).addTo(map);
+
+
 */
+
+var src = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    zIndex : 2,
+    attribution: 'Copyright:© 2013 ESRI, i-cubed, GeoEye',
+    subdomains: 'abcd',
+    maxZoom: 19
+}).addTo(map);
+
 
 L.esri.basemapLayer('Imagery').addTo(map);
 L.esri.basemapLayer('ImageryLabels').addTo(map);

@@ -148,36 +148,6 @@ function loadSliders(src, layerId, datePicker) {
     loaded(layerId);
 }
 
-
-/* ----------------------------- Create MAP ----------------------------- */
-/*
-var map = L.map('map', { 
-    center: [40, -100],
-    zoom: 3,
-    minZoom: 3,
-    worldCopyJump: true,
-    inertia: false
-});    
-map.options.crs = L.CRS.EPSG3857;     
-
-// L.esri.basemapLayer("ImageryLabels").addTo(map);
-
-/*
-L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
-    zIndex: 1,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
-    subdomains: 'abcd',
-    maxZoom: 19
-}).addTo(map);
-*/
-var src = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-    zIndex : 2,
-    attribution: 'Copyright:© 2013 ESRI, i-cubed, GeoEye',
-    subdomains: 'abcd',
-    maxZoom: 19
-}).addTo(map);
-
-
 // Set web root url
 var homeURL = window.location.protocol + "//" + window.location.host + "/";
 var proxyURL = 'http://climateviewer.net/netj1/proxy';  // production
