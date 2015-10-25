@@ -337,7 +337,7 @@ input[type="range"]::-ms-thumb {
 /* LOGO */
 .ui.feed.cv3d {
 	position:absolute;
-	top:10px;
+	top:90%;
 	left:50%;
 	width:250px;
 	margin:0 0 0 -125px;
@@ -349,7 +349,7 @@ input[type="range"]::-ms-thumb {
 
 .ui.feed>.event>.label {
 	position:absolute;
-	top:100%;
+	top:0;
 	left:50%;
 	margin:0 0 0 -24px;
 	opacity:.3;
