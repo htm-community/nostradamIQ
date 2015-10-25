@@ -961,8 +961,8 @@ var geosearch = new L.Control.GeoSearch({
     //position: 'bottomcenter',
     showMarker: true,
     retainZoomLevel: false,
-}).addTo(map);
-
+}).addTo($('#searchbar'));
+//}).addTo(map);
 
 
 //geosearch.detach().appendTo($('#searchbar'));
