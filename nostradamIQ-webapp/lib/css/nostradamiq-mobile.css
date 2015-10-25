@@ -373,7 +373,7 @@ input[type="range"]::-ms-thumb {
 	top:0;
 	left:50%;
 	margin:0 0 0 -24px;
-	opacity:0;
+	opacity:0.9;
 	z-index:7;
 }
 
