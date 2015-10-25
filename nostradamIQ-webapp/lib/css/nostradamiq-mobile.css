@@ -349,7 +349,7 @@ input[type="range"]::-ms-thumb {
 
 .ui.feed>.event>.label {
 	position:absolute;
-	top:0;
+	top:100%;
 	left:50%;
 	margin:0 0 0 -24px;
 	opacity:.3;
