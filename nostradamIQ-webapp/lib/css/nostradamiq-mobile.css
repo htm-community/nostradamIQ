@@ -337,7 +337,19 @@ input[type="range"]::-ms-thumb {
 /* LOGO */
 .ui.feed.cv3d {
 	position:absolute;
-	top:90%;
+	top:10px;
+	left:50%;
+	width:250px;
+	margin:0 0 0 -125px;
+	background:transparent;
+	overflow:hidden;
+	color:#ddd;
+	z-index:7;
+}
+
+.ui.feed.cv3d.mobile {
+	position:absolute;
+	top:95%;
 	left:50%;
 	width:250px;
 	margin:0 0 0 -125px;
