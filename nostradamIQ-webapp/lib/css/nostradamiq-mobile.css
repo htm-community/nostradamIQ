@@ -368,6 +368,15 @@ input[type="range"]::-ms-thumb {
 	z-index:7;
 }
 
+.ui.feed>.event>.label.mobile {
+	position:absolute;
+	top:0;
+	left:50%;
+	margin:0 0 0 -24px;
+	opacity:0;
+	z-index:7;
+}
+
 .ui.feed.cv3d>.event>.content .summary {
 	margin:0;
 	font-size:.7em;
