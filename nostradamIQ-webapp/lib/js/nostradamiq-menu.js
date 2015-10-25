@@ -896,7 +896,7 @@ function disableLayer(l) {
     if (layerEnabled[l.I] === undefined) return;
 
     // Update Globe
-    if (mlt === ("nasa-gibs") || mlt === ("wmts") || mlt === ("wms") || mlt === ("base-layer")) {
+    if (mlt === ("nasa-gibs") || mlt === ("wmts") || mlt === ("wms") || mlt === ("base-layer")  || mlt === ("arcgis") || mlt === ("arcgis-layer")) {
         removeImagery(layerId);
         $('.' + layerId + '-sliders').remove();
         $('.' + layerId + '-picker').remove();
