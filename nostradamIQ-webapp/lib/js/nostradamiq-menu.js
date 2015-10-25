@@ -364,9 +364,10 @@ function loadOsmLayer(layerId, geoDataSrc) {
     loadSliders(src, layerId);
 }
 
-function loadArcGisLayer(layerId, geoDataSrc) {
+function loadArcGisLayer(layerId, geoDataSrc, geoLayers) {
     var src = viewer.imageryLayers.addImageryProvider(new Cesium.ArcGisMapServerImageryProvider({
-            url: '//services.arcgisonline.com/ArcGIS/rest/services/' + geoDataSrc + '/MapServer'
+            url: geoDataSrc,
+            layers: geoLayers
         }));
     activeLayers[layerId] = src;
     loadSliders(src, layerId);
@@ -487,130 +488,6 @@ function loadPDC_XML(layerId, geoDataSrc, proxy, markerLabel, markerScale, marke
         });
   }
 }
-
-/********************************* ARC_GIS ***********************************/
-
-function loadArcGisLayer(layerId, geoDataSrc, geoLayers) {
-    var baseLayerGroup = new L.LayerGroup();
-    var src = L.esri.dynamicMapLayer({
-        url: geoDataSrc,
-        layers: [geoLayers],
-        //from: new Date(startTimeInput.value),
-        //to: new Date(endTimeInput.value)
-        opacity: 1,
-        useCors: false
-      });
-    
-    // TODO
-    // http://esri.github.io/esri-leaflet/examples/customizing-popups.html
-    src.bindPopup(function (error, featureCollection) {
-
-            var feature = featureCollection.features[0];
-            
-            if (feature) console.log(feature.properties);
-
-            var title, content;
-
-            if (error || featureCollection.features.length === 0) {
-              return false;
-            } else if (feature.properties['Smoke mcgm per m3']) { // ndgd-smoke-forecast
-                title = '<h3>Smoke mcgm per m3: ' + feature.properties['Smoke mcgm per m3'] + '</h3>';
-                content = '<p>Start Time: ' + feature.properties.referencedate + '<br>End Time: ' + feature.properties.todate + '</p>';
-            } else if (feature.properties.prod_type) {  // nowCOAST
-                title = $('<h3>' + feature.properties.prod_type + '</h3>');
-                content = $('<p />');
-                if (feature.properties.starttime) content.append('Start Time: ' + feature.properties.starttime + '<br>');
-                if (feature.properties.endtime) content.append('End Time: ' + feature.properties.endtime + '<br>');
-                if (feature.properties.url) content.append('More info: <a href="' + feature.properties.url + '" target="_blank">' + feature.properties.url + '</a>');
-            } else if (feature.properties['Sky Conditions']) {  // nowCOAST
-                title = $('<h3 />');
-                if (feature.properties["Station Identification"]) title.append('Station ' + feature.properties["Station Identification"]);
-                if (feature.properties["Station Name"]) title.append(', ' + feature.properties["Station Name"]);
-                if (feature.properties["Country Name"]) title.append(', ' + feature.properties["Country Name"]);
-                content = $('<p />');
-                if (feature.properties["Observation Date/Time"]) content.append('Observation Time: ' + feature.properties["Observation Date/Time"] + '<br>');
-                if (feature.properties["Station Elevation (Meters)"]) content.append('Observation Elevation: ' + feature.properties["Station Elevation (Meters)"] + ' meters elevation.<br>');
-                if (feature.properties["Wind Speed (km/h)"]) content.append('Wind Speed: ' + feature.properties["Wind Speed (km/h)"] + ' km/h<br>');
-                if (feature.properties["Wind Gust (km/h)"]) content.append('Wind Gust: ' + feature.properties["Wind Gust (km/h)"] + ' km/h<br>');
-                if (feature.properties["Air Temperature (°F)"]) content.append('Air Temperature: ' + feature.properties["Air Temperature (°F)"] + ' °F<br>');
-                if (feature.properties["Dew Point Temperature (°F)"]) content.append('Dew Point Temperature: ' + feature.properties["Dew Point Temperature (°F)"] + ' °F<br>');
-                if (feature.properties["Relative Humidity (%)"]) content.append('Relative Humidity: ' + feature.properties["Relative Humidity (%)"] + ' %<br>');
-                if (feature.properties["Altimeter Pressure (Millibars)"]) content.append('Altimeter Pressure: ' + feature.properties["Altimeter Pressure (Millibars)"] + ' Millibars<br>');
-                if (feature.properties["Horizontal Visibility (Meters)"]) content.append('Horizontal Visibility: ' + feature.properties["Horizontal Visibility (Meters)"] + ' meters.<br>');
-                if (feature.properties["Sky Conditions"]) content.append('Sky Conditions: ' + feature.properties["Sky Conditions"] + '<br>');
-                if (feature.properties["Remarks"]) content.append('Remarks: ' + feature.properties["Remarks"] + '<br>');
-                if (feature.properties["Weather Conditions"]) content.append('Weather Conditions: ' + feature.properties["Weather Conditions"] + '<br>');
-            } else if (feature.properties.MAGNITUDE) { // Earthquakes, EarthquakesNT
-                title = '<h3>USGS Earthquake Alert</h3>';
-                content = '<p>Magnitude: ' + feature.properties.MAGNITUDE + '<br>Depth: ' + feature.properties.DEPTH + 'km<br>Location: ' + feature.properties.LOCATION + '<br>Time: ' + feature.properties.UTC_DATETIME + 'km<br>More info: <a href="' + feature.properties.URL + '" target="_blank">' + feature.properties.URL + '</a></p>';
-            } else if (feature.properties['Brightness T31']) { // MODIS_Thermal
-                title = $('<h3 />');
-                    if (feature.properties.Satellite == 'A') { 
-                        title.append('Aqua MODIS');
-                    } else {
-                        title.append('Terra MODIS');
-                    }
-                content = '<p>Time: ' + feature.properties['Acquisition date'] + '<br>Brightness: ' + feature.properties.Brightness + '<br>Brightness T31: ' + feature.properties['Brightness T31'] + '<br>Confidence: ' + feature.properties.Confidence + '%</p>';
-            } else if (feature.properties.STORMNAME || feature.properties.stormname) {  // nowCOAST, NOAA/USNO Hurricanes
-                title = $('<h3 />');
-                if (feature.properties.stormtype) { 
-                    if (feature.properties.stormtype == 'HU') { 
-                        title.append('Type: Hurricane<br>');
-                    } else {
-                        title.append('Type: ' + feature.properties.stormtype + '<br>');
-                    }
-                }
-                if (feature.properties.STORMTYPE) { 
-                    if (feature.properties.STORMTYPE == 'HU') { 
-                        title.append('Hurricane&nbsp;');
-                    } else {
-                        title.append(feature.properties.STORMTYPE + '&nbsp;');
-                    }
-                }
-                if (feature.properties.TCDVLP) title.append(feature.properties.TCDVLP + '&nbsp;');
-                if (feature.properties.STORMNAME) title.append(feature.properties.STORMNAME);
-                if (feature.properties.stormname) title.append(feature.properties.stormname);
-                content = $('<p />');
-                if (feature.properties.FLDATELBL) content.append('Time: ' + feature.properties.FLDATELBL + '<br>');
-                if (feature.properties.GUST) content.append('Gusts: ' + feature.properties.GUST + ' Kts<br>');
-                if (feature.properties.MAXWIND) content.append('Max Wind Speed: ' + feature.properties.MAXWIND + ' Kts<br>');
-                if (feature.properties.URL) content.append('More info: <a href="' + feature.properties.URL + '" target="_blank">' + feature.properties.URL + '</a>');
-                if (feature.properties.fldatelbl) content.append('Time: ' + feature.properties.fldatelbl + '<br>');
-                if (feature.properties.gust) content.append('Gusts: ' + feature.properties.gust + ' Kts<br>');
-                if (feature.properties.maxwind) content.append('Max Wind Speed: ' + feature.properties.maxwind + ' Kts<br>');
-                if (feature.properties.url) content.append('More info: <a href="' + feature.properties.url + '" target="_blank">' + feature.properties.url + '</a>');
-            } else {
-                return false;
-            }
-            $("#feature-header").html(title);
-            $("#feature-content").html(content);
-            $("#featureModal").modal("show");
-      });
-    
-    baseLayerGroup.addLayer(src);
-    baseLayerGroup.addTo(map);
-    activeLayers[layerId] = baseLayerGroup;
-    loadSliders(src, layerId);
-}
-
-function loadArcGisBasemap(layerId, geoDataSrc) {
-    var baseLayerGroup = new L.LayerGroup();
-    var src = L.tileLayer(geoDataSrc + '/tile/{z}/{y}/{x}', {
-        zIndex : 2,
-        attribution: 'Copyright:© 2013 ESRI, i-cubed, GeoEye',
-        subdomains: 'abcd',
-        maxZoom: 19
-    });
-    baseLayerGroup.addLayer(src);
-    baseLayerGroup.addTo(map);
-    activeLayers[layerId] = baseLayerGroup;
-    loadSliders(src, layerId);
-}
-
-
-/********************************* END ARC_GIS ***********************************/
-
-
 
 
 // RAMANI API LAYER:
