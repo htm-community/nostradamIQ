@@ -3,8 +3,15 @@ var drawingThings;
 function preload() {
   var DrawingThing, c, canvas, clear, createCanvas, ct, drawThing, i, trails, results;
   TWO_PI = Math.PI * 2;
-  WIDTH = screen.width; //$(window).width;
-  HEIGHT = screen.height; //$(window).height;
+
+  var WIDTH = window.innerWidth
+    || document.documentElement.clientWidth
+    || document.body.clientWidth;
+  var HEIGHT = window.innerHeight
+    || document.documentElement.clientHeight
+    || document.body.clientHeight;
+  //WIDTH = screen.width; //$(window).width;
+  //HEIGHT = screen.height; //$(window).height;
 
   if (WIDTH < HEIGHT) {
     RADIUS = (WIDTH - WIDTH / 2) / 10;
