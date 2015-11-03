@@ -187,6 +187,20 @@ a:focus {
     color: #fff;
 }
 
+/* ------------------------------ picture effects -------------- */
+img.desaturate {
+    -webkit-filter: grayscale(1);
+    -webkit-filter: grayscale(100%);
+    filter: gray;
+    filter: grayscale(100%);
+    filter: url(/img/desaturate.svg#greyscale);
+}
+img.desaturate:hover,
+img.desaturate:focus {
+    -webkit-filter: none;
+    filter: none;
+}
+
 /* ------------------------------ navigation collapse -------------- */
 @media(min-width:768px) {
     .navbar-custom {

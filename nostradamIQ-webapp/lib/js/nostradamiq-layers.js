@@ -17,6 +17,9 @@
     newLayer = l.NL,
     timeline = l.C,
     proxy = l.P;
+    3D only = l.TRD,
+    Leaflet only = l.TWD,
+    no Features = l.X;
     TODO: convert to KML to geojson
     TODO: convertingfunction
     TODO: auth_token
