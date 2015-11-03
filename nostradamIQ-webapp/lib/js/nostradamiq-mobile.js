@@ -419,6 +419,7 @@ function loadOsmLayer(layerId, geoDataSrc) {
 }
 
 
+
 function loadArcGisLayer(layerId, geoDataSrc, geoLayers) {
     var baseLayerGroup = new L.LayerGroup();
     var src = L.esri.dynamicMapLayer({
@@ -447,7 +448,7 @@ function loadArcGisLayer(layerId, geoDataSrc, geoLayers) {
 
               return false;
 
-            } else {
+            } /* else {
                 if (feature.properties.HAZARD_NAME) content.append(feature.properties.HAZARD_NAME + '<br>');
                 if (feature.properties.TYPE) content.append('Hazard Type: ' + feature.properties.TYPE + '<br>');
                 if (feature.properties['START_DATE']) content.append('Start Date:' + feature.properties["START_DATE"] + '<br>');
@@ -520,26 +521,20 @@ function loadArcGisLayer(layerId, geoDataSrc, geoLayers) {
                 if (feature.properties.url) content.append('Link: <a href="' + feature.properties.url + '" target="_blank">' + feature.properties.url + '</a><br>');
                 if (feature.properties.URL) content.append('Link: <a href="' + feature.properties.URL + '" target="_blank">' + feature.properties.URL + '</a><br>');
                 if (feature.properties["SNC_URL"]) content.append('Link: <a href="' + feature.properties["SNC_URL"] + '" target="_blank">' + feature.properties["SNC_URL"] + '</a><br>');
-            }
-        var fContent = $("#feature-content");
-            $("#feature-header").html(title);
-            fContent.html(content);
+            } */
+        var fContent;
+        fContent = $("#feature-content");
+
+        $("#feature-header").html(title);
+        fContent.html(content);
 
         var table = $('<table class="ui selectable inverted table"></table>').appendTo(fContent);
         $('<thead><tr><th>Key</th><th>Value</th></tr></thead>').appendTo(table);
         var tbody = $('<tbody></tbody>').appendTo(table);
 
-        var newHTML = $.map(feature.properties, function(index, value) {
-            $('<tr><td>' + value + '</td><td>' + index + '</td></tr>').appendTo(tbody);
-            /* if (value == 'URL' || value == 'url') {
-                return('<strong>' + value + ':</strong> Link: <a href="' + index + '" target="_blank">' + index + '</a><br>');
-            } else {
-                return('<strong>' + value + ':</strong> <span>' + index + '</span>, ');
-            } */
+        $.map(feature.properties, function(index, value) {
+            $('<tr><td>' + value + '</td><td>' + (isUrlValid(index) ? '<a href="' + index + '" target="_blank">' + index + '</a>' : index) + '</td></tr>').appendTo(tbody);
         });
-
-        //fContent.append('<h4>Raw Marker Details</h4>');
-        //fContent.append(newHTML.join(""));
 
         $("#featureModal").modal("show").modal({
             onHidden: function() {
@@ -554,8 +549,6 @@ function loadArcGisLayer(layerId, geoDataSrc, geoLayers) {
     activeLayers[layerId] = baseLayerGroup;
     loadSliders(src, layerId);
 }
-
-
 function loadArcGisBasemap(layerId, geoDataSrc) {
     var baseLayerGroup = new L.LayerGroup();
     var src = L.tileLayer(geoDataSrc + '/tile/{z}/{y}/{x}', {
