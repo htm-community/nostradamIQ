@@ -941,7 +941,7 @@ function updateLayer(layerId) {
     markerLabel = l.ML,
     markerColor = l.MC,
     timeline = l.C,
-    proxy = l.P;
+    proxy = l.P,
     noFeatures = l.X;
 
     if (layerEnabled[layerId] === undefined) {
