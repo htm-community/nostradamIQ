@@ -46,7 +46,7 @@
     no Features = l.X;
     
 */
-var layers = {
+var layers2 = {
     I: 'Climate-Viewer',
     Live: {
         N: "Alerts",  icon: "warning sign",
@@ -2501,7 +2501,7 @@ var layers = {
 
 
 
-var layers2 = {
+var layers = {
     I: 'nostradamIQ',
 
     Live: { N: "Live",
