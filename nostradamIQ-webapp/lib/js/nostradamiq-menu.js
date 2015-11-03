@@ -364,13 +364,25 @@ function loadOsmLayer(layerId, geoDataSrc) {
     loadSliders(src, layerId);
 }
 
-function loadArcGisLayer(layerId, geoDataSrc, geoLayers) {
+function loadArcGisLayer(layerId, geoDataSrc, geoLayers, noFeatures) {
+  if (noFeatures) {
+    console.log('NO FEATURES FOR YOU!');
     var src = viewer.imageryLayers.addImageryProvider(new Cesium.ArcGisMapServerImageryProvider({
             url: geoDataSrc,
+            enablePickFeatures: false,
             layers: geoLayers
         }));
+  } else {
+    console.log('FEATURES ON');
+    var src = viewer.imageryLayers.addImageryProvider(new Cesium.ArcGisMapServerImageryProvider({
+            url: geoDataSrc,
+            enablePickFeatures: true,
+            layers: geoLayers
+        }));
+  }
     activeLayers[layerId] = src;
     loadSliders(src, layerId);
+    loaded(layerId);
 }
 
 function loadGeoJson2(layerId, geoDataSrc, proxy, markerScale, markerImg, markerColor, zoom) {
@@ -930,13 +942,14 @@ function updateLayer(layerId) {
     markerColor = l.MC,
     timeline = l.C,
     proxy = l.P;
+    noFeatures = l.X;
 
     if (layerEnabled[layerId] === undefined) {
         //put it in a temporary state to disallow loading while loading
         layerEnabled[layerId] = false;
         // Load layers by Type
         if (l.T === ("wms")) {
-            loadWms(layerId, geoDataSrc, geoLayers);
+            loadWms(layerId, geoDataSrc, geoLayers, noFeatures);
         } else if (l.T === ("eumet-wms")) {
             loadEUMET(layerId, geoDataSrc, geoLayers);
         } else if (l.T === ("nasa-gibs")) {
@@ -948,7 +961,7 @@ function updateLayer(layerId) {
         } else if (l.T === ("arcgis")) {
            loadArcGisBasemap(layerId, geoDataSrc);
         } else if (l.T === ("arcgis-layer")) {
-           loadArcGisLayer(layerId, geoDataSrc, geoLayers);
+           loadArcGisLayer(layerId, geoDataSrc, geoLayers, noFeatures);
         } else if (l.T === ("geojson") && layerId.substring(0, 10) === "twitter-api") { // load twitter data extra
             loadTwitter(layerId, geoDataSrc, proxy, zoom, markerImg, markerScale, markerLabel, markerColor, markerMod);
         } else if (l.T === ("geojson")) {

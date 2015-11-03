@@ -326,23 +326,47 @@ function loadArcGisLayer(layerId, geoDataSrc, geoLayers) {
 
             var title, content;
 
+            content = $('<p />');
+            title = '<h3>Details</h3>';
+
             if (error || featureCollection.features.length === 0) {
+
               return false;
-            } else if (feature.properties['Smoke mcgm per m3']) { // ndgd-smoke-forecast
-                title = '<h3>Smoke mcgm per m3: ' + feature.properties['Smoke mcgm per m3'] + '</h3>';
-                content = '<p>Start Time: ' + feature.properties.referencedate + '<br>End Time: ' + feature.properties.todate + '</p>';
-            } else if (feature.properties.prod_type) {  // nowCOAST
-                title = $('<h3>' + feature.properties.prod_type + '</h3>');
-                content = $('<p />');
+
+            } else {
+                if (feature.properties.HAZARD_NAME) content.append(feature.properties.HAZARD_NAME + '<br>');
+                if (feature.properties.TYPE) content.append('Hazard Type: ' + feature.properties.TYPE + '<br>');
+                if (feature.properties['START_DATE']) content.append('Start Date:' + feature.properties["START_DATE"] + '<br>');
+                if (feature.properties['END_DATE']) content.append('End Date:' + feature.properties["END_DATE"] + '<br>');
+
+                if (feature.properties.MAGNITUDE) content.append('<h3>USGS Earthquake Alert</h3>Magnitude: ' + feature.properties.MAGNITUDE + '<br>');
+                if (feature.properties.DEPTH) content.append('Depth: ' + feature.properties.DEPTH + 'km<br>');
+                if (feature.properties.referencedate) content.append('Start Time: ' + feature.properties.referencedate + '<br>');
+                if (feature.properties.todate) content.append('End Time: ' + feature.properties.todate + '<br>');
+                if (feature.properties.UTC_START) content.append('Issued: ' + feature.properties.UTC_START + '<br>');
+                if (feature.properties.UTC_END) content.append('Expires: ' + feature.properties.UTC_END + '<br>');
+                if (feature.properties['Smoke mcgm per m3']) content.append('Smoke mcgm per m3: ' + feature.properties['Smoke mcgm per m3'] + '<br>');
+                if (feature.properties['EVENT']) content.append(feature.properties["EVENT"] + ' in ' + feature.properties["AREA_DESC"]);
+                if (feature.properties.CERTAINTY) content.append('Certainty: ' + feature.properties.CERTAINTY + '<br>');
+                if (feature.properties.SEVERITY) content.append('Severity: ' + feature.properties.SEVERITY + '<br>');
+                if (feature.properties.INC_DESC) content.append(feature.properties.INC_DESC + '<br>');
+                if (feature.properties.INC_LINK) content.append('Link: <a href="' + feature.properties.INC_LINK + '" target="_blank">' + feature.properties.INC_LINK + '</a><br>');
+                if (feature.properties.UTC_ISSUE) content.append('Issued: ' + feature.properties.UTC_ISSUE + '<br>');
+                if (feature.properties.UTC_EXPIRE) content.append('Expires: ' + feature.properties.UTC_EXPIRE + '<br>');
+                if (feature.properties.WFILE) content.append('Link: <a href="' + feature.properties.WFILE + '" target="_blank">' + feature.properties.WFILE + '</a><br>');
+                if (feature.properties.prod_type) content.append('Warning: ' + feature.properties.prod_type + '<br>');
                 if (feature.properties.starttime) content.append('Start Time: ' + feature.properties.starttime + '<br>');
                 if (feature.properties.endtime) content.append('End Time: ' + feature.properties.endtime + '<br>');
-                if (feature.properties.url) content.append('More info: <a href="' + feature.properties.url + '" target="_blank">' + feature.properties.url + '</a>');
-            } else if (feature.properties['Sky Conditions']) {  // nowCOAST
-                title = $('<h3 />');
-                if (feature.properties["Station Identification"]) title.append('Station ' + feature.properties["Station Identification"]);
-                if (feature.properties["Station Name"]) title.append(', ' + feature.properties["Station Name"]);
-                if (feature.properties["Country Name"]) title.append(', ' + feature.properties["Country Name"]);
-                content = $('<p />');
+                if (feature.properties.UTC_DATETIME) content.append('Time: ' + feature.properties.UTC_DATETIME + '<br>');
+                if (feature.properties.HAIL_SIZE) content.append('Hail Size: ' + feature.properties.HAIL_SIZE + ' &rdquo;<br>');
+                if (feature.properties.SPEED) content.append('Wind Speed: ' + feature.properties.SPEED + '<br>');
+                if (feature.properties["LOCATION"]) content.append('Location: ' + feature.properties["LOCATION"] + ', ');
+                if (feature.properties["COUNTY"]) content.append(feature.properties["COUNTY"] + ', ');
+                if (feature.properties["STATE"]) content.append(feature.properties["STATE"] + '<br>');
+                if (feature.properties['COMMENTS']) content.append('Details: ' + feature.properties['COMMENTS'] + '<br>');
+                if (feature.properties["Station Identification"]) content.append('Station ID: ' + feature.properties["Station Identification"] + '<br>');
+                if (feature.properties["Station Name"]) content.append(', ' + feature.properties["Station Name"] + '<br>');
+                if (feature.properties["Country Name"]) content.append(', ' + feature.properties["Country Name"] + '<br>');
                 if (feature.properties["Observation Date/Time"]) content.append('Observation Time: ' + feature.properties["Observation Date/Time"] + '<br>');
                 if (feature.properties["Station Elevation (Meters)"]) content.append('Observation Elevation: ' + feature.properties["Station Elevation (Meters)"] + ' meters elevation.<br>');
                 if (feature.properties["Wind Speed (km/h)"]) content.append('Wind Speed: ' + feature.properties["Wind Speed (km/h)"] + ' km/h<br>');
@@ -355,53 +379,62 @@ function loadArcGisLayer(layerId, geoDataSrc, geoLayers) {
                 if (feature.properties["Sky Conditions"]) content.append('Sky Conditions: ' + feature.properties["Sky Conditions"] + '<br>');
                 if (feature.properties["Remarks"]) content.append('Remarks: ' + feature.properties["Remarks"] + '<br>');
                 if (feature.properties["Weather Conditions"]) content.append('Weather Conditions: ' + feature.properties["Weather Conditions"] + '<br>');
-            } else if (feature.properties.MAGNITUDE) { // Earthquakes, EarthquakesNT
-                title = '<h3>USGS Earthquake Alert</h3>';
-                content = '<p>Magnitude: ' + feature.properties.MAGNITUDE + '<br>Depth: ' + feature.properties.DEPTH + 'km<br>Location: ' + feature.properties.LOCATION + '<br>Time: ' + feature.properties.UTC_DATETIME + 'km<br>More info: <a href="' + feature.properties.URL + '" target="_blank">' + feature.properties.URL + '</a></p>';
-            } else if (feature.properties['Brightness T31']) { // MODIS_Thermal
-                title = $('<h3 />');
-                    if (feature.properties.Satellite == 'A') { 
-                        title.append('Aqua MODIS');
-                    } else {
-                        title.append('Terra MODIS');
-                    }
-                content = '<p>Time: ' + feature.properties['Acquisition date'] + '<br>Brightness: ' + feature.properties.Brightness + '<br>Brightness T31: ' + feature.properties['Brightness T31'] + '<br>Confidence: ' + feature.properties.Confidence + '%</p>';
-            } else if (feature.properties.STORMNAME || feature.properties.stormname) {  // nowCOAST, NOAA/USNO Hurricanes
-                title = $('<h3 />');
+                if (feature.properties['Brightness T31']) content.append('Time: ' + feature.properties['Acquisition date'] + '<br>Brightness: ' + feature.properties.Brightness + '<br>Brightness T31: ' + feature.properties['Brightness T31'] + '<br>Confidence: ' + feature.properties.Confidence + '%<br>');
                 if (feature.properties.stormtype) { 
                     if (feature.properties.stormtype == 'HU') { 
-                        title.append('Type: Hurricane<br>');
+                        content.append('Type: Hurricane<br>');
                     } else {
-                        title.append('Type: ' + feature.properties.stormtype + '<br>');
+                        content.append('Type: ' + feature.properties.stormtype + '<br>');
                     }
                 }
                 if (feature.properties.STORMTYPE) { 
                     if (feature.properties.STORMTYPE == 'HU') { 
-                        title.append('Hurricane&nbsp;');
+                        content.append('Type: Hurricane<br>');
                     } else {
-                        title.append(feature.properties.STORMTYPE + '&nbsp;');
+                        content.append('Type: ' + feature.properties.stormtype + '<br>');
                     }
                 }
-                if (feature.properties.TCDVLP) title.append(feature.properties.TCDVLP + '&nbsp;');
-                if (feature.properties.STORMNAME) title.append(feature.properties.STORMNAME);
-                if (feature.properties.stormname) title.append(feature.properties.stormname);
-                content = $('<p />');
+                if (feature.properties.TCDVLP) content.append(feature.properties.TCDVLP + '<br>');
+                if (feature.properties.STORMNAME) content.append(feature.properties.STORMNAME + '<br>');
+                if (feature.properties.stormname) content.append(feature.properties.stormname + '<br>');
                 if (feature.properties.FLDATELBL) content.append('Time: ' + feature.properties.FLDATELBL + '<br>');
                 if (feature.properties.GUST) content.append('Gusts: ' + feature.properties.GUST + ' Kts<br>');
                 if (feature.properties.MAXWIND) content.append('Max Wind Speed: ' + feature.properties.MAXWIND + ' Kts<br>');
-                if (feature.properties.URL) content.append('More info: <a href="' + feature.properties.URL + '" target="_blank">' + feature.properties.URL + '</a>');
                 if (feature.properties.fldatelbl) content.append('Time: ' + feature.properties.fldatelbl + '<br>');
                 if (feature.properties.gust) content.append('Gusts: ' + feature.properties.gust + ' Kts<br>');
                 if (feature.properties.maxwind) content.append('Max Wind Speed: ' + feature.properties.maxwind + ' Kts<br>');
-                if (feature.properties.url) content.append('More info: <a href="' + feature.properties.url + '" target="_blank">' + feature.properties.url + '</a>');
-            } else {
-                return false;
+                if (feature.properties.url) content.append('Link: <a href="' + feature.properties.url + '" target="_blank">' + feature.properties.url + '</a><br>');
+                if (feature.properties.URL) content.append('Link: <a href="' + feature.properties.URL + '" target="_blank">' + feature.properties.URL + '</a><br>');
+                if (feature.properties["SNC_URL"]) content.append('Link: <a href="' + feature.properties["SNC_URL"] + '" target="_blank">' + feature.properties["SNC_URL"] + '</a><br>');
             }
+        var fContent = $("#feature-content");
             $("#feature-header").html(title);
-            $("#feature-content").html(content);
-            $("#featureModal").modal("show");
-      });
-    
+            fContent.html(content);
+
+        var table = $('<table class="ui selectable inverted table"></table>').appendTo(fContent);
+        $('<thead><tr><th>Key</th><th>Value</th></tr></thead>').appendTo(table);
+        var tbody = $('<tbody></tbody>').appendTo(table);
+
+        var newHTML = $.map(feature.properties, function(index, value) {
+            $('<tr><td>' + value + '</td><td>' + index + '</td></tr>').appendTo(tbody);
+            /* if (value == 'URL' || value == 'url') {
+                return('<strong>' + value + ':</strong> Link: <a href="' + index + '" target="_blank">' + index + '</a><br>');
+            } else {
+                return('<strong>' + value + ':</strong> <span>' + index + '</span>, ');
+            } */
+        });
+
+        //fContent.append('<h4>Raw Marker Details</h4>');
+        //fContent.append(newHTML.join(""));
+
+        $("#featureModal").modal("show").modal({
+            onHidden: function() {
+              $('.null').remove();
+            }
+        });
+
+      }); // end bind popup
+
     baseLayerGroup.addLayer(src);
     baseLayerGroup.addTo(map);
     activeLayers[layerId] = baseLayerGroup;

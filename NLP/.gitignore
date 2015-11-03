@@ -1,0 +1,8 @@
+*.*~
+API_KEYS.py
+API_KEYS.py[cod]
+*.py[cod]
+*.pyc
+corpori/old_trans
+old
+*.txt
