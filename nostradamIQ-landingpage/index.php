@@ -250,6 +250,7 @@
     <section id="partners" class="container content-section text-center">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
+                <!--
                 <h2>Open-Source Technology</h2>
                     <ul class="list-inline banner-partner-sponsors">
                         <li>
@@ -281,25 +282,38 @@
                 <br>
                 <br>
                 <br>
+                -->
                 <h2>Contributors, Partners +&nbsp;Sponsors</h2>
                 <ul class="list-inline banner-partner-sponsors">
                     <li>
-                        <a href="http://numenta.org/" target="_blank"><img src="img/numenta.jpg" alt="Numenta"></a>
+                        <a href="//numenta.org/" target="_blank"><img src="img/numenta.jpg" alt="Numenta"></a>
                     </li>
                     <li>
-                        <a href="http://www.ibm.com/en-us/homepage-c.html" target="_blank"><img src="img/ibm.jpg" alt="IBM"></a>
+                        <a href="//www.ibm.com/en-us/homepage-c.html" target="_blank"><img src="img/ibm.jpg" alt="IBM"></a>
                     </li>
                     <li>
-                        <a href="http://www.sas.com/en_us/home.html" target="_blank"><img src="img/sas.jpg" alt="SAS"></a>
+                        <a href="//www.sas.com/en_us/home.html" target="_blank"><img src="img/sas.jpg" alt="SAS"></a>
                     </li>
                     <li>
-                        <a href="http://hello.tedxrheinmain.de/" target="_blank"><img src="img/ted_x.jpg" alt="TEDx"></a>
+                        <a href="//www.accenture.com" target="_blank"><img src="img/Accenture.png" alt="Accenture"></a>
                     </li>
                     <li>
-                        <a href="http://lab75.jp" target="_blank"><img src="img/lab_75.jpg" alt="Lab75"></a>
+                        <a href="//www.eumetsat.int/website/home/index.html" target="_blank"><img src="img/eumetsat.png" alt="EUMETSAT"></a>
                     </li>
                     <li>
-                        <a href="http://www.pdc.org/" target="_blank"><img src="img/pdc.jpg" alt="PDC"></a>
+                        <a href="//www.esa.int/ESA" target="_blank"><img src="img/esa.png" alt="ESA"></a>
+                    </li>
+                    <li>
+                        <a href="//www.dfki.de/web" target="_blank"><img src="img/DFKI.png" alt="DFKI"></a>
+                    </li>
+                    <li>
+                        <a href="//hello.tedxrheinmain.de/" target="_blank"><img src="img/ted_x.jpg" alt="TEDx"></a>
+                    </li>
+                    <li>
+                        <a href="//lab75.jp" target="_blank"><img src="img/lab_75.jpg" alt="Lab75"></a>
+                    </li>
+                    <li>
+                        <a href="//www.pdc.org/" target="_blank"><img src="img/pdc.jpg" alt="PDC"></a>
                     </li>
                 </ul>
                 

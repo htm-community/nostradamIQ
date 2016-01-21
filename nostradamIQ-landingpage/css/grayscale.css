@@ -490,6 +490,13 @@ img.desaturate:focus {
 
 .banner-partner-sponsors li a img {
     max-height: 100px;
+    max-width: 200px;
+    filter: grayscale(100%); /* Current draft standard */
+    -webkit-filter: grayscale(100%); /* New WebKit */
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%); 
+    -o-filter: grayscale(100%);
+    filter: gray; /* IE6+ */
 }
 
 /* ---------------- */
