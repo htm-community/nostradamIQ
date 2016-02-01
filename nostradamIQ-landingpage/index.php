@@ -106,6 +106,9 @@
                         <a class="page-scroll" href="#partners">Contributors</a>
                     </li>
                     <li>
+                        <a class="page-scroll" href="#projects">Projects</a>
+                    </li>
+                    <li>
                         <a class="page-scroll" href="#contact">Join us</a>
                     </li>
                 </ul>

@@ -505,6 +505,10 @@ img.desaturate:focus {
     padding-top: 110px !important;
 }
 
+#projects {
+    padding-top: 110px !important;
+}
+
 /* --------------------- contact form ------------- */
 #submit {
     height: 50px;
