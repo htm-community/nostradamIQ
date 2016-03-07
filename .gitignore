@@ -39,54 +39,54 @@ _dev/*
 # nostradamIQ-landingpage/img/TEDx.png
 
 
-# nostradamIQ-webapp
-# nostradamIQ-webapp/*
-# nostradamIQ-webapp/*/*
-# nostradamIQ-webapp/*/*/*
-# nostradamIQ-webapp/*/*/*/*
+# nostradamIQ-landingpage/webapp
+# nostradamIQ-landingpage/webapp/*
+# nostradamIQ-landingpage/webapp/*/*
+# nostradamIQ-landingpage/webapp/*/*/*
+# nostradamIQ-landingpage/webapp/*/*/*/*
 
 
-nostradamIQ-webapp/.idea
-nostradamIQ-webapp/.idea/
-nostradamIQ-webapp/.idea/*
+nostradamIQ-landingpage/webapp/.idea
+nostradamIQ-landingpage/webapp/.idea/
+nostradamIQ-landingpage/webapp/.idea/*
 
-nostradamIQ-webapp/cesium-leap
-nostradamIQ-webapp/cesium-leap/*
-nostradamIQ-webapp/cesium-leap/*/*
+nostradamIQ-landingpage/webapp/cesium-leap
+nostradamIQ-landingpage/webapp/cesium-leap/*
+nostradamIQ-landingpage/webapp/cesium-leap/*/*
 
-nostradamIQ-webapp/proxy/cache.json
+nostradamIQ-landingpage/webapp/proxy/cache.json
 
-nostradamIQ-webapp/proxy/cors-anywhere
-nostradamIQ-webapp/proxy/cors-anywhere/*
-nostradamIQ-webapp/proxy/cors-anywhere/*/*
+nostradamIQ-landingpage/webapp/proxy/cors-anywhere
+nostradamIQ-landingpage/webapp/proxy/cors-anywhere/*
+nostradamIQ-landingpage/webapp/proxy/cors-anywhere/*/*
 
-nostradamIQ-webapp/proxy/node-http-proxy
-nostradamIQ-webapp/proxy/node-http-proxy/*
-nostradamIQ-webapp/proxy/node-http-proxy/*/*
+nostradamIQ-landingpage/webapp/proxy/node-http-proxy
+nostradamIQ-landingpage/webapp/proxy/node-http-proxy/*
+nostradamIQ-landingpage/webapp/proxy/node-http-proxy/*/*
 
-nostradamIQ-webapp/services/geodict
+nostradamIQ-landingpage/webapp/services/geodict
 
-nostradamIQ-webapp/proxy/netjs
-nostradamIQ-webapp/proxy/netjs/*
-nostradamIQ-webapp/proxy/netjs/*/*
+nostradamIQ-landingpage/webapp/proxy/netjs
+nostradamIQ-landingpage/webapp/proxy/netjs/*
+nostradamIQ-landingpage/webapp/proxy/netjs/*/*
 
-nostradamIQ-webapp/proxy/traytention
-nostradamIQ-webapp/proxy/traytention/*
-nostradamIQ-webapp/proxy/traytention/*/*
+nostradamIQ-landingpage/webapp/proxy/traytention
+nostradamIQ-landingpage/webapp/proxy/traytention/*
+nostradamIQ-landingpage/webapp/proxy/traytention/*/*
 
-nostradamIQ-webapp/proxy/CORS-Proxy
+nostradamIQ-landingpage/webapp/proxy/CORS-Proxy
 
-nostradamIQ-webapp/proxy/server_old
-nostradamIQ-webapp/proxy/old
+nostradamIQ-landingpage/webapp/proxy/server_old
+nostradamIQ-landingpage/webapp/proxy/old
 
-nostradamIQ-webapp/services/twitter/corpori/places
-nostradamIQ-webapp/services/twitter/corpori/places/*
+nostradamIQ-landingpage/webapp/services/twitter/corpori/places
+nostradamIQ-landingpage/webapp/services/twitter/corpori/places/*
 
-nostradamIQ-webapp/services/twitter/pyner
+nostradamIQ-landingpage/webapp/services/twitter/pyner
 
-nostradamIQ-webapp/layers
-nostradamIQ-webapp/layers/*
-nostradamIQ-webapp/layers/*/*
-nostradamIQ-webapp/layers/*/*/*
+nostradamIQ-landingpage/webapp/layers
+nostradamIQ-landingpage/webapp/layers/*
+nostradamIQ-landingpage/webapp/layers/*/*
+nostradamIQ-landingpage/webapp/layers/*/*/*
 
-nostradamIQ-webapp/mobile-test
+nostradamIQ-landingpage/webapp/mobile-test
