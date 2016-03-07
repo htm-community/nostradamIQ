@@ -337,13 +337,13 @@
                 <p><a href="//nostradamiq.org" target="_blank">nostradamIQ</a> is not lonely.<br>Using the solutions explored in, inspired by and built with nostradamIQ, we established further spin-off Projects, which you can find here:</p>
                 <ul class="list-inline banner-social-buttons">
                     <li>
-                        <a href="//meetgaia.com" target="_blank" class="btn btn-default btn-lg"><i class="fa fa-globe fa-fw"></i> <span class="network-name">GAIA</span></a>
+                        <a href="http://meetgaia.com" target="_blank" class="btn btn-default btn-lg"><i class="fa fa-globe fa-fw"></i> <span class="network-name">GAIA</span></a>
                     </li>
                 </ul>
             </div>
         </div>  
     </section>
-    
+
     <!-- Contact Section -->
     <section id="contact" class="container content-section text-center">
         <div class="row">
